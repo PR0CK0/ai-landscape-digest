@@ -288,29 +288,49 @@ def print_terminal(digest: str, timestamp: str):
     print(f"{DIVIDER}\n")
 
 
-def push_github_pages(digest: str, timestamp: str, username: str, repo: str, base_url: str = "", trigger: str = "automatic"):
-    DOCS_DIR.mkdir(exist_ok=True)
+TRIGGER_LABELS = {
+    "wake":           "lid open",
+    "manual":         "manual",
+    "automatic":      "automatic",
+    "github_actions": "GitHub Actions",
+}
 
-    (DOCS_DIR / "latest.txt").write_text(
-        f"AI Tools Digest — {timestamp}\n{DIVIDER}\n{digest}\n"
-    )
+# Patterns that indicate a non-significant release (alpha, nightly, dev)
+_NOISE_RE = re.compile(r"\b(alpha|nightly|\.dev|pre-?release|rc\d*)\b", re.I)
 
-    page_url = base_url or f"https://{username}.github.io/{repo}"
-    curl_example = f"curl -s {page_url}/latest.txt"
+def is_significant(items: list) -> bool:
+    """Return True if any item looks like a real release, not just noise."""
+    return any(not _NOISE_RE.search(i["title"]) for i in items)
 
-    trigger_label = {
-        "wake":      "triggered on lid open",
-        "manual":    "triggered manually",
-        "automatic": "triggered automatically",
-        "github_actions": "triggered by GitHub Actions",
-    }.get(trigger, trigger)
 
-    escaped = (digest
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;"))
+def _load_digests() -> list:
+    path = DOCS_DIR / "digests.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    return []
 
-    (DOCS_DIR / "index.html").write_text(f"""<!DOCTYPE html>
+
+def _render_html(digests: list, curl_example: str) -> str:
+    if not digests:
+        entries_html = "<p style='color:#484f58'>No digests yet.</p>"
+    else:
+        parts = []
+        for i, d in enumerate(digests):
+            escaped = (d["content"]
+                .replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;"))
+            trigger = TRIGGER_LABELS.get(d.get("trigger", ""), d.get("trigger", ""))
+            n       = d.get("items", "?")
+            label   = f"{d['timestamp']}  ·  {n} items  ·  {trigger}"
+            parts.append(f"""  <details{'  open' if i == 0 else ''}>
+    <summary>{label}</summary>
+    <pre>{escaped}</pre>
+  </details>""")
+        entries_html = "\n".join(parts)
+
+    latest_ts = digests[0]["timestamp"] if digests else "—"
+    return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -318,26 +338,63 @@ def push_github_pages(digest: str, timestamp: str, username: str, repo: str, bas
   <title>AI Tools Digest</title>
   <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ background: #0d1117; color: #e6edf3; font-family: 'SF Mono', 'Fira Code', monospace; padding: 40px 24px; }}
-    .wrap {{ max-width: 700px; margin: 0 auto; }}
-    .label {{ color: #58a6ff; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }}
-    .ts {{ color: #484f58; font-size: .75rem; margin-bottom: 6px; }}
-    .trigger {{ color: #3d444d; font-size: .7rem; margin-bottom: 28px; font-style: italic; }}
-    pre {{ white-space: pre-wrap; line-height: 1.8; font-size: .85rem; color: #c9d1d9; }}
-    .tip {{ margin-top: 36px; padding: 10px 16px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: .75rem; color: #484f58; }}
+    body {{ background: #0d1117; color: #e6edf3; font-family: 'SF Mono','Fira Code',monospace; padding: 40px 24px; }}
+    .wrap {{ max-width: 720px; margin: 0 auto; }}
+    .site-label {{ color: #58a6ff; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }}
+    .latest-ts {{ color: #484f58; font-size: .72rem; margin-bottom: 32px; }}
+    details {{ border: 1px solid #21262d; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }}
+    details[open] {{ border-color: #30363d; }}
+    summary {{
+      padding: 10px 14px; cursor: pointer; font-size: .75rem; color: #8b949e;
+      list-style: none; user-select: none;
+    }}
+    summary::-webkit-details-marker {{ display: none; }}
+    summary::before {{ content: '▶ '; font-size: .6rem; color: #484f58; }}
+    details[open] summary::before {{ content: '▼ '; }}
+    details[open] summary {{ color: #e6edf3; border-bottom: 1px solid #21262d; }}
+    pre {{ padding: 16px 14px; white-space: pre-wrap; line-height: 1.8; font-size: .82rem; color: #c9d1d9; }}
+    .tip {{ margin-top: 28px; padding: 10px 14px; background: #161b22; border: 1px solid #21262d; border-radius: 6px; font-size: .72rem; color: #484f58; }}
     .tip code {{ color: #58a6ff; }}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="label">AI Tools Digest</div>
-    <div class="ts">{timestamp}</div>
-    <div class="trigger">{trigger_label}</div>
-    <pre>{escaped}</pre>
+    <div class="site-label">AI Tools Digest</div>
+    <div class="latest-ts">last updated {latest_ts}</div>
+{entries_html}
     <div class="tip">terminal: <code>{curl_example}</code></div>
   </div>
 </body>
-</html>""")
+</html>"""
+
+
+def push_github_pages(digest: str, timestamp: str, items: list,
+                      username: str, repo: str,
+                      base_url: str = "", trigger: str = "automatic",
+                      max_history: int = 50):
+    DOCS_DIR.mkdir(exist_ok=True)
+
+    page_url     = base_url or f"https://{username}.github.io/{repo}"
+    curl_example = f"curl -s {page_url}/latest.txt"
+
+    # Always update latest.txt
+    (DOCS_DIR / "latest.txt").write_text(
+        f"AI Tools Digest — {timestamp}\n{DIVIDER}\n{digest}\n"
+    )
+
+    # Load history, prepend new entry, trim
+    digests = _load_digests()
+    digests.insert(0, {
+        "timestamp": timestamp,
+        "trigger":   trigger,
+        "items":     len(items),
+        "content":   digest,
+    })
+    digests = digests[:max_history]
+    (DOCS_DIR / "digests.json").write_text(json.dumps(digests, indent=2))
+
+    # Regenerate full HTML from history
+    (DOCS_DIR / "index.html").write_text(_render_html(digests, curl_example))
 
     cwd = str(SCRIPT_DIR)
     subprocess.run(["git", "add", "docs/", "seen_items.json"], cwd=cwd)
@@ -348,7 +405,7 @@ def push_github_pages(digest: str, timestamp: str, username: str, repo: str, bas
     if "nothing to commit" not in result.stdout + result.stderr:
         push = subprocess.run(["git", "push"], cwd=cwd, capture_output=True, text=True)
         if push.returncode == 0:
-            print(f"  Pushed to {page_url}", file=sys.stderr)
+            print(f"  → pushed to {page_url}", file=sys.stderr)
         else:
             print(f"  [warn] git push failed: {push.stderr.strip()}", file=sys.stderr)
 
@@ -387,15 +444,21 @@ def main():
 
     # Optionally push to GitHub Pages
     if config.get("output") == "github_pages":
-        gp       = config.get("github_pages", {})
-        username = gp.get("username", "")
-        repo     = gp.get("repo", "ai-digest")
-        base_url = gp.get("base_url", "")   # optional custom domain, e.g. procko.pro/ai-digest
-        trigger  = os.environ.get("DIGEST_TRIGGER", "automatic")
+        gp          = config.get("github_pages", {})
+        username    = gp.get("username", "")
+        repo        = gp.get("repo", "ai-digest")
+        base_url    = gp.get("base_url", "")
+        trigger     = os.environ.get("DIGEST_TRIGGER", "automatic")
+        max_history = gp.get("max_history", 50)
+        significant = is_significant(new_items)
+
         if not username:
             print("[warn] github_pages.username not set in config.yaml", file=sys.stderr)
+        elif not significant and not config.get("github_pages", {}).get("push_noise", False):
+            print("  → skipping push (only alpha/nightly/dev releases)", file=sys.stderr)
         else:
-            push_github_pages(digest, timestamp, username, repo, base_url, trigger)
+            push_github_pages(digest, timestamp, new_items,
+                              username, repo, base_url, trigger, max_history)
 
 
 if __name__ == "__main__":

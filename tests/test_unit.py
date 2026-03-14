@@ -286,57 +286,82 @@ class TestPrintTerminal:
 
 # ── push_github_pages() ────────────────────────────────────────────────────
 
+SAMPLE_ITEMS = [{"source": "S", "title": "v1.0", "link": "http://x.com", "summary": "Fix"}]
+
 class TestPushGithubPages:
-    def test_creates_docs_dir(self, tmp_path):
+    def _push(self, tmp_path, content="d", timestamp="ts", items=None,
+              username="user", repo="repo", **kw):
+        items = items or SAMPLE_ITEMS
         with patch.object(digest, "DOCS_DIR", tmp_path / "docs"):
-            with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
-                digest.push_github_pages("d", "2024-01-15", "user", "repo")
+            with patch.object(digest, "SCRIPT_DIR", tmp_path):
+                with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
+                    digest.push_github_pages(content, timestamp, items, username, repo, **kw)
+
+    def test_creates_docs_dir(self, tmp_path):
+        self._push(tmp_path)
         assert (tmp_path / "docs").exists()
 
     def test_writes_latest_txt(self, tmp_path):
-        docs = tmp_path / "docs"
-        docs.mkdir()
-        with patch.object(digest, "DOCS_DIR", docs):
-            with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
-                digest.push_github_pages("my digest", "ts", "user", "repo")
-        content = (docs / "latest.txt").read_text()
+        self._push(tmp_path, content="my digest")
+        content = (tmp_path / "docs" / "latest.txt").read_text()
         assert "my digest" in content
 
     def test_writes_index_html(self, tmp_path):
-        docs = tmp_path / "docs"
-        docs.mkdir()
-        with patch.object(digest, "DOCS_DIR", docs):
-            with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
-                digest.push_github_pages("d", "ts", "myuser", "myrepo")
-        content = (docs / "index.html").read_text()
+        self._push(tmp_path, username="myuser", repo="myrepo")
+        content = (tmp_path / "docs" / "index.html").read_text()
         assert "myuser.github.io/myrepo" in content
 
+    def test_writes_digests_json(self, tmp_path):
+        self._push(tmp_path, content="first", timestamp="t1")
+        self._push(tmp_path, content="second", timestamp="t2")
+        import json as _json
+        data = _json.loads((tmp_path / "docs" / "digests.json").read_text())
+        assert len(data) == 2
+        assert data[0]["timestamp"] == "t2"   # newest first
+        assert data[1]["timestamp"] == "t1"
+
     def test_escapes_html_in_digest(self, tmp_path):
-        docs = tmp_path / "docs"
-        docs.mkdir()
-        with patch.object(digest, "DOCS_DIR", docs):
-            with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
-                digest.push_github_pages("<script>xss</script> & stuff", "ts", "u", "r")
-        content = (docs / "index.html").read_text()
+        self._push(tmp_path, content="<script>xss</script> & stuff")
+        content = (tmp_path / "docs" / "index.html").read_text()
         assert "<script>" not in content
         assert "&lt;script&gt;" in content
         assert "&amp;" in content
 
     def test_trigger_label_appears_in_html(self, tmp_path):
-        docs = tmp_path / "docs"
-        docs.mkdir()
-        with patch.object(digest, "DOCS_DIR", docs):
-            with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
-                digest.push_github_pages("d", "ts", "u", "r", trigger="wake")
-        content = (docs / "index.html").read_text()
-        assert "triggered on lid open" in content
+        self._push(tmp_path, trigger="wake")
+        content = (tmp_path / "docs" / "index.html").read_text()
+        assert "lid open" in content
 
     def test_custom_base_url_used(self, tmp_path):
-        docs = tmp_path / "docs"
-        docs.mkdir()
-        with patch.object(digest, "DOCS_DIR", docs):
-            with patch("digest.subprocess.run", return_value=MagicMock(stdout="", stderr="")):
-                digest.push_github_pages("d", "ts", "u", "r", base_url="https://procko.pro/ai-digest")
-        content = (docs / "index.html").read_text()
+        self._push(tmp_path, base_url="https://procko.pro/ai-digest")
+        content = (tmp_path / "docs" / "index.html").read_text()
         assert "procko.pro/ai-digest" in content
-        assert "u.github.io" not in content
+        assert "user.github.io" not in content
+
+    def test_history_capped_at_max(self, tmp_path):
+        for i in range(5):
+            self._push(tmp_path, content=f"digest {i}", timestamp=f"t{i}", max_history=3)
+        import json as _json
+        data = _json.loads((tmp_path / "docs" / "digests.json").read_text())
+        assert len(data) == 3
+
+
+class TestIsSignificant:
+    def test_real_release_is_significant(self):
+        items = [{"title": "v2.1.76", "source": "Claude Code", "link": "", "summary": ""}]
+        assert digest.is_significant(items)
+
+    def test_alpha_only_is_not_significant(self):
+        items = [{"title": "v0.115.0-alpha.12", "source": "Codex", "link": "", "summary": ""}]
+        assert not digest.is_significant(items)
+
+    def test_nightly_only_is_not_significant(self):
+        items = [{"title": "v0.35.0-nightly.20260314", "source": "Gemini", "link": "", "summary": ""}]
+        assert not digest.is_significant(items)
+
+    def test_mix_of_noise_and_real_is_significant(self):
+        items = [
+            {"title": "v0.115.0-alpha.12", "source": "Codex", "link": "", "summary": ""},
+            {"title": "v2.1.76", "source": "Claude Code", "link": "", "summary": ""},
+        ]
+        assert digest.is_significant(items)

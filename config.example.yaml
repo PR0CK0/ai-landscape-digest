@@ -28,6 +28,10 @@ github_pages:
   repo: ai-digest
   # Optional: custom domain URL (e.g. if you have CNAME set up)
   # base_url: https://yourdomain.com/ai-digest
+  # How many past digests to keep in the history page (default: 50)
+  # max_history: 50
+  # Set true to push even when only alpha/nightly/dev releases found
+  # push_noise: false
 
 # ── Feeds ──────────────────────────────────────────────────────────────────
 # Set to false to disable built-in defaults and use only custom_feeds below.
