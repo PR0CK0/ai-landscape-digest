@@ -1,0 +1,334 @@
+#!/usr/bin/env python3
+"""
+ai-digest — fetch AI tool release feeds, summarize with a local LLM CLI,
+output to terminal and/or GitHub Pages.
+
+Config: copy config.example.yaml → config.yaml and edit.
+Docs:   README.md
+"""
+
+import feedparser
+import json
+import os
+import re
+import subprocess
+import sys
+import urllib.request
+from datetime import datetime, timezone, timedelta
+from html import unescape
+from pathlib import Path
+
+try:
+    import yaml
+except ImportError:
+    print("Missing dependency: pip install pyyaml", file=sys.stderr)
+    sys.exit(1)
+
+SCRIPT_DIR    = Path(__file__).parent
+SEEN_FILE     = SCRIPT_DIR / "seen_items.json"
+CONFIG_FILE   = SCRIPT_DIR / "config.yaml"
+DOCS_DIR      = SCRIPT_DIR / "docs"
+LOOKBACK_DAYS = 7
+FEED_TIMEOUT  = 10   # seconds per feed HTTP request
+DIVIDER       = "━" * 52
+
+# ── Default feeds ─────────────────────────────────────────────────────────────
+# Always included unless the user sets include_defaults: false in config.yaml.
+
+DEFAULT_FEEDS = [
+    # CLI tools — highest signal for breaking changes to tooling
+    ("Claude Code",     "https://github.com/anthropics/claude-code/releases.atom"),
+    ("Codex CLI",       "https://github.com/openai/codex/releases.atom"),
+    ("Gemini CLI",      "https://github.com/google-gemini/gemini-cli/releases.atom"),
+    ("Aider",           "https://github.com/Aider-AI/aider/releases.atom"),
+
+    # SDKs — API surface changes affect tooling
+    ("Anthropic SDK",   "https://github.com/anthropics/anthropic-sdk-python/releases.atom"),
+    ("OpenAI SDK",      "https://github.com/openai/openai-python/releases.atom"),
+
+    # Model & product announcements
+    ("OpenAI Blog",     "https://openai.com/blog/rss/"),
+    ("Hugging Face",    "https://huggingface.co/blog/feed.xml"),
+
+    # Curated AI dev news (weekly, low-noise)
+    ("Last Week in AI", "https://lastweekin.ai/feed"),
+    ("Latent Space",    "https://www.latent.space/feed"),
+]
+
+DEFAULT_PROMPT = (
+    "Terse AI tools digest for a developer building tooling around Claude Code, "
+    "Codex CLI, Gemini CLI, and Aider. Rules: plain text only, no markdown, "
+    "grouped by tool/source, one line per item (version + key change), max 20 "
+    "lines total. Prefix BREAKING: if anything could break existing integrations."
+)
+
+# ── LLM backends ──────────────────────────────────────────────────────────────
+# Each entry: (cli_name, build_cmd_fn)
+# build_cmd_fn(prompt, model) → list[str] command to run
+
+def _cmd_claude(prompt: str, model: str) -> list:
+    cmd = ["claude", "-p", prompt]
+    if model and model != "default":
+        cmd = ["claude", "--model", model, "-p", prompt]
+    return cmd
+
+def _cmd_gemini(prompt: str, model: str) -> list:
+    cmd = ["gemini", "-p", prompt]
+    if model and model != "default":
+        cmd = ["gemini", "--model", model, "-p", prompt]
+    return cmd
+
+def _cmd_codex(prompt: str, model: str) -> list:
+    # Codex non-interactive mode: `codex exec "prompt"`
+    cmd = ["codex", "exec", prompt]
+    if model and model != "default":
+        cmd = ["codex", "exec", "--model", model, prompt]
+    return cmd
+
+def _cmd_ollama(prompt: str, model: str) -> list:
+    m = model if model and model != "default" else "llama3"
+    return ["ollama", "run", m, prompt]
+
+BACKENDS = {
+    "claude":  _cmd_claude,
+    "gemini":  _cmd_gemini,
+    "codex":   _cmd_codex,
+    "ollama":  _cmd_ollama,
+}
+
+DEFAULT_BACKEND = "claude"
+DEFAULT_MODEL   = "default"   # uses each CLI's own default
+
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+def load_config() -> dict:
+    if not CONFIG_FILE.exists():
+        return {}
+    with open(CONFIG_FILE) as f:
+        return yaml.safe_load(f) or {}
+
+
+def load_seen() -> set:
+    if SEEN_FILE.exists():
+        with open(SEEN_FILE) as f:
+            return set(json.load(f))
+    return set()
+
+
+def save_seen(seen: set):
+    with open(SEEN_FILE, "w") as f:
+        json.dump(sorted(seen)[-2000:], f)
+
+
+def strip_html(text: str) -> str:
+    return re.sub(r"<[^>]+>", "", unescape(text or "")).strip()
+
+
+def check_url(url: str, timeout: int = FEED_TIMEOUT) -> bool:
+    """Return True if the URL is reachable."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "ai-digest/1.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status < 400
+    except Exception:
+        return False
+
+
+# ── Core logic ────────────────────────────────────────────────────────────────
+
+def fetch_new_items(feeds: list, seen: set, verbose: bool = False) -> list:
+    new_items = []
+    cutoff = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
+
+    for source, url in feeds:
+        try:
+            feed = feedparser.parse(
+                url,
+                agent="ai-digest/1.0",
+                request_headers={"Accept": "application/atom+xml, application/rss+xml, */*"},
+            )
+            # feedparser doesn't raise — check for bozo (parse error) or empty
+            if feed.bozo and not feed.entries:
+                raise ValueError(f"feed parse error: {feed.bozo_exception}")
+        except Exception as e:
+            print(f"  [warn] {source}: unreachable or unparseable — {e}", file=sys.stderr)
+            continue
+
+        if not feed.entries:
+            if verbose:
+                print(f"  [info] {source}: no entries found", file=sys.stderr)
+            continue
+
+        for entry in feed.entries:
+            item_id = entry.get("id") or entry.get("link") or ""
+            if not item_id or item_id in seen:
+                continue
+
+            published = entry.get("published_parsed")
+            if published:
+                pub_dt = datetime(*published[:6], tzinfo=timezone.utc)
+                if pub_dt < cutoff:
+                    continue
+
+            new_items.append({
+                "source":  source,
+                "title":   entry.get("title", "").strip(),
+                "link":    entry.get("link", ""),
+                "summary": strip_html(entry.get("summary", ""))[:500],
+                "id":      item_id,
+            })
+
+    return new_items
+
+
+def summarize(items: list, prompt: str, backend: str = DEFAULT_BACKEND, model: str = DEFAULT_MODEL) -> str:
+    raw = "\n\n".join(
+        f"[{i['source']}] {i['title']}\n{i['link']}\n{i['summary']}"
+        for i in items
+    )
+    full_prompt = f"{prompt}\n\nNEW RELEASES:\n\n{raw}"
+
+    build_cmd = BACKENDS.get(backend)
+    if not build_cmd:
+        print(f"  [warn] unknown backend '{backend}', falling back to claude", file=sys.stderr)
+        build_cmd = BACKENDS["claude"]
+
+    cmd = build_cmd(full_prompt, model)
+
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    except FileNotFoundError:
+        return f"[error] '{cmd[0]}' not found — is it installed and on PATH?]"
+    except subprocess.TimeoutExpired:
+        return "[error] LLM timed out after 120s]"
+
+    if result.returncode != 0:
+        err = result.stderr.strip()[:200]
+        return f"[error] {cmd[0]} exited {result.returncode}: {err}]"
+
+    return result.stdout.strip()
+
+
+# ── Output modes ──────────────────────────────────────────────────────────────
+
+def print_terminal(digest: str, timestamp: str):
+    print(f"\n{DIVIDER}")
+    print(f"  AI TOOLS DIGEST — {timestamp}")
+    print(DIVIDER)
+    print(digest)
+    print(f"{DIVIDER}\n")
+
+
+def push_github_pages(digest: str, timestamp: str, username: str, repo: str, base_url: str = "", trigger: str = "automatic"):
+    DOCS_DIR.mkdir(exist_ok=True)
+
+    (DOCS_DIR / "latest.txt").write_text(
+        f"AI Tools Digest — {timestamp}\n{DIVIDER}\n{digest}\n"
+    )
+
+    page_url = base_url or f"https://{username}.github.io/{repo}"
+    curl_example = f"curl -s {page_url}/latest.txt"
+
+    trigger_label = {
+        "wake":      "triggered on lid open",
+        "manual":    "triggered manually",
+        "automatic": "triggered automatically",
+        "github_actions": "triggered by GitHub Actions",
+    }.get(trigger, trigger)
+
+    escaped = (digest
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;"))
+
+    (DOCS_DIR / "index.html").write_text(f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Digest</title>
+  <style>
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ background: #0d1117; color: #e6edf3; font-family: 'SF Mono', 'Fira Code', monospace; padding: 40px 24px; }}
+    .wrap {{ max-width: 700px; margin: 0 auto; }}
+    .label {{ color: #58a6ff; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }}
+    .ts {{ color: #484f58; font-size: .75rem; margin-bottom: 6px; }}
+    .trigger {{ color: #3d444d; font-size: .7rem; margin-bottom: 28px; font-style: italic; }}
+    pre {{ white-space: pre-wrap; line-height: 1.8; font-size: .85rem; color: #c9d1d9; }}
+    .tip {{ margin-top: 36px; padding: 10px 16px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; font-size: .75rem; color: #484f58; }}
+    .tip code {{ color: #58a6ff; }}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="label">AI Tools Digest</div>
+    <div class="ts">{timestamp}</div>
+    <div class="trigger">{trigger_label}</div>
+    <pre>{escaped}</pre>
+    <div class="tip">terminal: <code>{curl_example}</code></div>
+  </div>
+</body>
+</html>""")
+
+    cwd = str(SCRIPT_DIR)
+    subprocess.run(["git", "add", "docs/", "seen_items.json"], cwd=cwd)
+    result = subprocess.run(
+        ["git", "commit", "-m", f"digest: {timestamp}"],
+        cwd=cwd, capture_output=True, text=True
+    )
+    if "nothing to commit" not in result.stdout + result.stderr:
+        push = subprocess.run(["git", "push"], cwd=cwd, capture_output=True, text=True)
+        if push.returncode == 0:
+            print(f"  Pushed to {page_url}", file=sys.stderr)
+        else:
+            print(f"  [warn] git push failed: {push.stderr.strip()}", file=sys.stderr)
+
+
+# ── Entry point ───────────────────────────────────────────────────────────────
+
+def main():
+    config  = load_config()
+    verbose = config.get("verbose", False)
+
+    # Build feed list
+    feeds = list(DEFAULT_FEEDS) if config.get("include_defaults", True) else []
+    for f in config.get("custom_feeds", []):
+        feeds.append((f["name"], f["url"]))
+
+    prompt  = config.get("prompt", DEFAULT_PROMPT)
+    backend = config.get("backend", DEFAULT_BACKEND)
+    model   = config.get("model", DEFAULT_MODEL)
+
+    # Fetch
+    seen      = load_seen()
+    new_items = fetch_new_items(feeds, seen, verbose=verbose)
+
+    if not new_items:
+        sys.exit(0)  # silence = nothing new; callers treat as no-op
+
+    for item in new_items:
+        seen.add(item["id"])
+    save_seen(seen)
+
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    digest    = summarize(new_items, prompt, backend, model)
+
+    # Always print to terminal
+    print_terminal(digest, timestamp)
+
+    # Optionally push to GitHub Pages
+    if config.get("output") == "github_pages":
+        gp       = config.get("github_pages", {})
+        username = gp.get("username", "")
+        repo     = gp.get("repo", "ai-digest")
+        base_url = gp.get("base_url", "")   # optional custom domain, e.g. procko.pro/ai-digest
+        trigger  = os.environ.get("DIGEST_TRIGGER", "automatic")
+        if not username:
+            print("[warn] github_pages.username not set in config.yaml", file=sys.stderr)
+        else:
+            push_github_pages(digest, timestamp, username, repo, base_url, trigger)
+
+
+if __name__ == "__main__":
+    main()

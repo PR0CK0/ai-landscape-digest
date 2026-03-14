@@ -1,0 +1,57 @@
+# ai-digest configuration
+# ─────────────────────────────────────────────
+# Copy this file to config.yaml and edit.
+# config.yaml is gitignored — personal settings stay local.
+
+# ── LLM backend ────────────────────────────────────────────────────────────
+# Which CLI to use for summarization.
+# Options: claude (default) | gemini | codex | ollama
+backend: claude
+
+# Model to pass to the backend. Leave as "default" to use each CLI's default.
+# Examples:
+#   claude:  claude-haiku-4-5-20251001  (fast, cheap)
+#            claude-sonnet-4-6           (smarter)
+#   gemini:  gemini-2.5-flash
+#   codex:   gpt-4o-mini
+#   ollama:  llama3 | qwen2.5-coder:32b | mistral
+model: default
+
+# ── Output ─────────────────────────────────────────────────────────────────
+# "terminal"     — print digest to stdout only (default, works offline)
+# "github_pages" — also write docs/ and git push to GitHub Pages
+output: terminal
+
+# GitHub Pages settings (only used when output: github_pages)
+github_pages:
+  username: YOUR_GITHUB_USERNAME
+  repo: ai-digest
+  # Optional: custom domain URL (e.g. if you have CNAME set up)
+  # base_url: https://yourdomain.com/ai-digest
+
+# ── Feeds ──────────────────────────────────────────────────────────────────
+# Set to false to disable built-in defaults and use only custom_feeds below.
+include_defaults: true
+
+# Add any RSS/Atom feed here. Name is used for grouping in the digest.
+custom_feeds:
+  # Examples:
+  # - name: "Simon Willison"
+  #   url: "https://simonwillison.net/atom/everything/"
+  # - name: "Hacker News AI"
+  #   url: "https://hnrss.org/newest?q=LLM+OR+claude+OR+openai&count=10"
+  # - name: "Anthropic News"
+  #   url: "https://www.anthropic.com/rss.xml"
+  # - name: "arXiv CS.AI"
+  #   url: "https://arxiv.org/rss/cs.AI"
+  # - name: "The Rundown AI"
+  #   url: "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml"
+
+# ── Misc ───────────────────────────────────────────────────────────────────
+# Show verbose feed fetch info in stderr
+verbose: false
+
+# Override the summarization prompt (optional)
+# prompt: |
+#   Terse AI tools digest. Plain text, grouped by tool, one line per release,
+#   max 20 lines. Flag BREAKING changes.
