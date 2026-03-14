@@ -1,0 +1,4 @@
+AI Tools Digest — 2026-03-14 03:18 UTC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[error] gemini exited 1: Loaded cached credentials.
+Error when talking to Gemini API Full report available at: /var/folders/lb/97wtbv5n6dn7v75ty_0wt78m0000gn/T/gemini-client-error-Turn.run-sendMessageStream-2026-03-14T03-18-3]
