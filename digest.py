@@ -45,6 +45,7 @@ DEFAULT_FEEDS = [
     ("Codex CLI",       "https://github.com/openai/codex/releases.atom"),
     ("Gemini CLI",      "https://github.com/google-gemini/gemini-cli/releases.atom"),
     ("Aider",           "https://github.com/Aider-AI/aider/releases.atom"),
+    ("Ollama",          "https://github.com/ollama/ollama/releases.atom"),
 
     # SDKs — API surface changes affect tooling
     ("Anthropic SDK",   "https://github.com/anthropics/anthropic-sdk-python/releases.atom"),
