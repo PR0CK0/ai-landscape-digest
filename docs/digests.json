@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-03-14 03:31 UTC",
+    "trigger": "wake",
+    "item_count": 1,
+    "sources": [
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Context Drought",
+        "link": "https://www.latent.space/p/ainews-context-drought"
+      }
+    ],
+    "content": "[error] 'ollama' not found \u2014 is it installed and on PATH?]"
+  },
+  {
     "timestamp": "2026-03-14 03:19 UTC",
     "trigger": "automatic",
     "item_count": 85,
