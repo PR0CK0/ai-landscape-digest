@@ -8,11 +8,14 @@ Docs:   README.md
 """
 
 import feedparser
+import itertools
 import json
 import os
 import re
 import subprocess
 import sys
+import threading
+import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
@@ -100,6 +103,45 @@ DEFAULT_BACKEND = "claude"
 DEFAULT_MODEL   = "default"   # uses each CLI's own default
 
 
+# ── Spinner ───────────────────────────────────────────────────────────────────
+
+class Spinner:
+    FRAMES = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
+
+    def __init__(self):
+        self._msg    = ""
+        self._stop   = threading.Event()
+        self._lock   = threading.Lock()
+        self._thread = None
+
+    def _run(self):
+        for frame in itertools.cycle(self.FRAMES):
+            if self._stop.is_set():
+                break
+            with self._lock:
+                msg = self._msg
+            sys.stderr.write(f"\r  {frame} {msg}  ")
+            sys.stderr.flush()
+            time.sleep(0.08)
+        sys.stderr.write("\r\033[K")  # clear the line on exit
+        sys.stderr.flush()
+
+    def update(self, msg: str):
+        with self._lock:
+            self._msg = msg
+
+    def __enter__(self):
+        self._stop.clear()
+        self._thread = threading.Thread(target=self._run, daemon=True)
+        self._thread.start()
+        return self
+
+    def __exit__(self, *_):
+        self._stop.set()
+        if self._thread:
+            self._thread.join()
+
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def load_config() -> dict:
@@ -177,17 +219,27 @@ def _fetch_one(source: str, url: str, seen: set, cutoff: datetime, verbose: bool
 
 
 def fetch_new_items(feeds: list, seen: set, verbose: bool = False) -> list:
-    cutoff = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
+    cutoff    = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
     new_items = []
+    total     = len(feeds)
+    done      = 0
+    new_count = 0
 
-    # Fetch all feeds in parallel — total time = slowest single feed, not sum
-    with ThreadPoolExecutor(max_workers=len(feeds)) as pool:
-        futures = {
-            pool.submit(_fetch_one, source, url, seen, cutoff, verbose): source
-            for source, url in feeds
-        }
-        for future in as_completed(futures):
-            new_items.extend(future.result())
+    with Spinner() as spin:
+        spin.update(f"fetching {total} feeds...")
+        with ThreadPoolExecutor(max_workers=total) as pool:
+            futures = {
+                pool.submit(_fetch_one, source, url, seen, cutoff, verbose): source
+                for source, url in feeds
+            }
+            for future in as_completed(futures):
+                items = future.result()
+                new_items.extend(items)
+                done      += 1
+                new_count += len(items)
+                spin.update(
+                    f"fetching feeds  {done}/{total} done  —  {new_count} new items"
+                )
 
     return new_items
 
@@ -206,8 +258,11 @@ def summarize(items: list, prompt: str, backend: str = DEFAULT_BACKEND, model: s
 
     cmd = build_cmd(full_prompt, model)
 
+    label = f"{backend}" + (f"/{model}" if model != "default" else "")
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        with Spinner() as spin:
+            spin.update(f"summarizing {len(items)} items with {label}...")
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     except FileNotFoundError:
         return f"[error] '{cmd[0]}' not found — is it installed and on PATH?]"
     except subprocess.TimeoutExpired:
