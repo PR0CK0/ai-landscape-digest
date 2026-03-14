@@ -222,25 +222,27 @@ def fetch_new_items(feeds: list, seen: set, verbose: bool = False) -> list:
     cutoff    = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
     new_items = []
     total     = len(feeds)
-    done      = 0
-    new_count = 0
+    print_lock = threading.Lock()
+    pad        = max(len(s) for s, _ in feeds)
 
-    with Spinner() as spin:
-        spin.update(f"fetching {total} feeds...")
-        with ThreadPoolExecutor(max_workers=total) as pool:
-            futures = {
-                pool.submit(_fetch_one, source, url, seen, cutoff, verbose): source
-                for source, url in feeds
-            }
-            for future in as_completed(futures):
-                items = future.result()
-                new_items.extend(items)
-                done      += 1
-                new_count += len(items)
-                spin.update(
-                    f"fetching feeds  {done}/{total} done  —  {new_count} new items"
-                )
+    with ThreadPoolExecutor(max_workers=total) as pool:
+        futures = {
+            pool.submit(_fetch_one, source, url, seen, cutoff, verbose): source
+            for source, url in feeds
+        }
+        for future in as_completed(futures):
+            source = futures[future]
+            items  = future.result()
+            new_items.extend(items)
+            n = len(items)
+            with print_lock:
+                if n > 0:
+                    sys.stderr.write(f"  ✓ {source:<{pad}}  {n} new\n")
+                else:
+                    sys.stderr.write(f"  · {source:<{pad}}  —\n")
+                sys.stderr.flush()
 
+    sys.stderr.write("\n")
     return new_items
 
 
