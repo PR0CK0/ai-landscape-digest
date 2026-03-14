@@ -1,307 +1,35 @@
-AI Tools Digest — 2026-03-14 04:34 UTC
+AI Tools Digest — 2026-03-14 04:37 UTC
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-NEW RELEASES:
+**AI Tooling Digest (2026-03-14)**
 
-* Last Week in AI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk - https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31
-* Last Week in AI #337 - Anthropic Risk, QuitGPT, ChatGPT 5.4 - https://lastweekin.ai/p/last-week-in-ai-337-anthropic-risk
-* [Latent Space] [AINews] Context Drought - https://www.latent.space/p/ainews-context-drought
-* [Latent Space] [AINews] The high-return activity of raising your aspirations for LLMs - https://www.latent.space/p/ainews-the-high-return-activity-of
-* [Latent Space] Retrieval After RAG: Hybrid Search, Agents, and Database Design — Simon Hørup Eskildsen of Turbopuffer - https://www.latent.space/p/turbopuffer
-* [Latent Space] [AINews] Replit Agent 4: The Knowledge Work Agent - https://www.latent.space/p/ainews-replit-agent-4-the-knowledge
-* [Latent Space] [AINews] Yann LeCun’s AMI Labs launches with a $1B seed @ $4.5B to build world models around JEPA - https://www.latent.space/p/ainews-yann-lecuns-ami-labs-launches
-* [Latent Space] NVIDIA's AI Engineers: Agent Inference at Planetary Scale and "Speed of Light" — Nader Khalil (Brev), Kyle Kranen (Dynamo) - https://www.latent.space/p/nvidia-brev-dynamo
-* [Latent Space] [AINews] Autoresearch: Sparks of Recursive Self Improvement - https://www.latent.space/p/ainews-autoresearch-sparks-of-recursive
-* [Latent Space] [AINews] AI Engineer will be the LAST job - https://www.latent.space/p/ainews-ai-engineer-will-be-the-last
+### **OpenAI**
+- **OpenAI SDK** v2.28.0: Added `custom voices` support.
+- **OpenAI SDK** v2.27.0: Sora API improvements (character API, video edits, higher-res exports).
+- **OpenAI SDK** v2.26.0: GA ComputerTool now uses `ComputerTool` class; `computer_use_preview` moved to `ComputerUsePreview`.
+- **OpenAI SDK** v2.25.0: Added GPT-5.4, tool search, and new ComputerTool.
+- **OpenAI SDK** v2.24.0: Added `phase` field to messages.
+- **OpenAI SDK** v2.23.0: Added `gpt-realtime-1.5` and `gpt-audio-1.5` models.
+- **OpenAI SDK** v2.22.0: WebSocket support for responses API.
 
-Aider v0.86.0:
-- Added support for all GPT-5 models.
-- Added support for Grok-4 via xai/grok-4 and openrouter/x-ai/grok-4 model names.
-- Added support for gemini/gemini-2.5-flash-lite-preview-06-17 model, by Tamir Zahavi-Brunner.
-- /clear now prints “All chat history cleared.” so you know it worked, by Zexin Yuan.
-- /undo output now shows only the first line of each commit message, making it easier to read.
+### **Anthropic**
+- **Anthropic SDK** v0.84.0: Updated `array_format` to brackets, added MCP helpers.
+- **Anthropic SDK** v0.83.0: Added top-level cache control.
+- **Claude Code** v2.1.76: Added MCP elicitation support, `/claude-api` skill, and new CLI flags.
 
-Aider v0.85.6.dev:
-- set version to 0.85.6.dev
+### **Aider**
+- **Aider** v0.86.0: Added support for GPT-5, Grok-4, and Gemini 2.5 Flash Lite.
 
-Aider v0.85.5:
-- version bump to 0.85.5
+### **Gemini CLI**
+- **Gemini CLI** v0.35.0-nightly: Improved UI, thinking UI overhaul, and chat resume.
 
-Aider v0.85.5.dev:
-- set version to 0.85.5.dev
+### **Ollama**
+- **Ollama** v0.18.0: Added TUI model ordering, reasoning effort support, and cloud model fixes.
 
-Aider v0.85.4:
-- version bump to 0.85.4
+### **Hugging Face**
+- **Storage Buckets**: New feature for organizing models.
+- **LeRobot v0.5.0**: Scaling improvements.
 
-Hugging Face:
-- Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline - https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval
-- Introducing Storage Buckets on the Hugging Face Hub - https://huggingface.co/blog/storage-buckets
-- Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries - https://huggingface.co/blog/async-rl-training-landscape
-- Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge - https://huggingface.co/blog/ibm-granite/granite-4-speech
-- Ulysses Sequence Parallelism: Training with Million-Token Contexts - https://huggingface.co/blog/ulysses-sp
-- LeRobot v0.5.0: Scaling Every Dimension - https://huggingface.co/blog/lerobot-release-v050
-
-Codex CLI:
-- 0.115.0-alpha.22
-- 0.115.0-alpha.21
-- 0.115.0-alpha.20
-- 0.115.0-alpha.19
-- 0.115.0-alpha.18
-- 0.115.0-alpha.17
-- 0.115.0-alpha.16
-- 0.115.0-alpha.15
-- 0.115.0-alpha.14
-- 0.115.0-alpha.13
-
-Claude Code:
-- v2.1.76
-- v2.1.75
-- v2.1.74
-- v2.1.73
-- v2.1.72
-- v2.1.71
-- v2.1.70
-- v2.1.69
-- v2.1.68
-- v2.1.66
-
-OpenAI SDK:
-- v2.28.0
-- v2.27.0
-- v2.26.0
-- v2.25.0
-- v2.24.0
-- v2.23.0
-- v2.22.0
-- v2.21.0
-- v2.20.0
-- v2.19.0
-- v2.18.0
-- v2.17.0
-- v2.16.0
-- v2.15.0
-- v2.14.0
-- v2.13.0
-- v2.12.0
-- v2.11.0
-- v2.10.0
-- v2.9.0
-- v2.8.0
-- v2.7.0
-- v2.6.0
-- v2.5.0
-- v2.4.0
-- v2.3.0
-- v2.2.0
-- v2.1.0
-- v2.0.0
-
-Anthropic SDK:
-- v0.84.0
-- v0.83.0
-- v0.82.0
-- v0.81.0
-- v0.80.0
-- v0.79.0
-- v0.78.0
-- v0.77.1
-- v0.77.0
-- v0.76.0
-
-Ollama:
-- v0.18.0
-- v0.18.0-rc2
-- v0.18.0-rc1
-- v0.18.0-rc0
-- v0.17.8
-- v0.17.8-rc3
-- v0.17.8-rc2
-- v0.17.8-rc1
-- v0.17.7
-- v0.17.6
-
-Gemini CLI:
-- Release v0.35.0-nightly.20260314.3038fdce2
-- Release v0.35.0-nightly.20260313.bb060d7a9
-- Release v0.35.0-preview.3
-- Release v0.35.0-preview.2
-- Release v0.35.0-preview.1
-- Release v0.34.0-preview.2
-- Release v0.34.0-preview.1
-- Release v0.34.0-preview.0
-- Release v0.33.1
-- Release v0.34.0-preview.0
-- Release v0.33.0
-- Release v0.33.0-preview.15
-- Release v0.34.0-nightly.20260310.4653b126f
-- Release v0.33.0-nightly.20260303.34f0c1538
-- Release v0.33.0-preview.14
-- Release v0.33.0-preview.13
-- Release v0.33.0-preview.12
-- Release v0.33.0-preview.11
-- Release v0.33.0-preview.10
-- Release v0.33.0-preview.9
-- Release v0.33.0-preview.8
-- Release v0.33.0-preview.7
-- Release v0.33.0-preview.6
-- Release v0.33.0-preview.5
-- Release v0.33.0-preview.4
-- Release v0.33.0-preview.3
-- Release v0.33.0-preview.2
-- Release v0.33.0-preview.1
-- Release v0.33.0-preview.0
-- Release v0.32.0
-- Release v0.32.0-preview.11
-- Release v0.32.0-preview.10
-- Release v0.32.0-preview.9
-- Release v0.32.0-preview.8
-- Release v0.32.0-preview.7
-- Release v0.32.0-preview.6
-- Release v0.32.0-preview.5
-- Release v0.32.0-preview.4
-- Release v0.32.0-preview.3
-- Release v0.32.0-preview.2
-- Release v0.32.0-preview.1
-- Release v0.32.0-preview.0
-- Release v0.31.0
-- Release v0.31.0-preview.10
-- Release v0.31.0-preview.9
-- Release v0.31.0-preview.8
-- Release v0.31.0-preview.7
-- Release v0.31.0-preview.6
-- Release v0.31.0-preview.5
-- Release v0.31.0-preview.4
-- Release v0.31.0-preview.3
-- Release v0.31.0-preview.2
-- Release v0.31.0-preview.1
-- Release v0.31.0-preview.0
-- Release v0.30.0
-- Release v0.30.0-preview.9
-- Release v0.30.0-preview.8
-- Release v0.30.0-preview.7
-- Release v0.30.0-preview.6
-- Release v0.30.0-preview.5
-- Release v0.30.0-preview.4
-- Release v0.30.0-preview.3
-- Release v0.30.0-preview.2
-- Release v0.30.0-preview.1
-- Release v0.30.0-preview.0
-- Release v0.29.0
-- Release v0.29.0-preview.8
-- Release v0.29.0-preview.7
-- Release v0.29.0-preview.6
-- Release v0.29.0-preview.5
-- Release v0.29.0-preview.4
-- Release v0.29.0-preview.3
-- Release v0.29.0-preview.2
-- Release v0.29.0-preview.1
-- Release v0.29.0-preview.0
-- Release v0.28.0
-- Release v0.28.0-preview.7
-- Release v0.28.0-preview.6
-- Release v0.28.0-preview.5
-- Release v0.28.0-preview.4
-- Release v0.28.0-preview.3
-- Release v0.28.0-preview.2
-- Release v0.28.0-preview.1
-- Release v0.28.0-preview.0
-- Release v0.27.0
-- Release v0.27.0-preview.6
-- Release v0.27.0-preview.5
-- Release v0.27.0-preview.4
-- Release v0.27.0-preview.3
-- Release v0.27.0-preview.2
-- Release v0.27.0-preview.1
-- Release v0.27.0-preview.0
-- Release v0.26.0
-- Release v0.26.0-preview.5
-- Release v0.26.0-preview.4
-- Release v0.26.0-preview.3
-- Release v0.26.0-preview.2
-- Release v0.26.0-preview.1
-- Release v0.26.0-preview.0
-- Release v0.25.0
-- Release v0.25.0-preview.4
-- Release v0.25.0-preview.3
-- Release v0.25.0-preview.2
-- Release v0.25.0-preview.1
-- Release v0.25.0-preview.0
-- Release v0.24.0
-- Release v0.24.0-preview.3
-- Release v0.24.0-preview.2
-- Release v0.24.0-preview.1
-- Release v0.24.0-preview.0
-- Release v0.23.0
-- Release v0.23.0-preview.2
-- Release v0.23.0-preview.1
-- Release v0.23.0-preview.0
-- Release v0.22.0
-- Release v0.22.0-preview.1
-- Release v0.22.0-preview.0
-- Release v0.21.0
-- Release v0.21.0-preview.1
-- Release v0.21.0-preview.0
-- Release v0.20.0
-- Release v0.20.0-preview.1
-- Release v0.20.0-preview.0
-- Release v0.19.0
-- Release v0.19.0-preview.1
-- Release v0.19.0-preview.0
-- Release v0.18.0
-- Release v0.18.0-preview.1
-- Release v0.18.0-preview.0
-- Release v0.17.0
-- Release v0.17.0-preview.1
-- Release v0.17.0-preview.0
-- Release v0.16.0
-- Release v0.16.0-preview.1
-- Release v0.16.0-preview.0
-- Release v0.15.0
-- Release v0.15.0-preview.1
-- Release v0.15.0-preview.0
-- Release v0.14.0
-- Release v0.14.0-preview.1
-- Release v0.14.0-preview.0
-- Release v0.13.0
-- Release v0.13.0-preview.1
-- Release v0.13.0-preview.0
-- Release v0.12.0
-- Release v0.12.0-preview.1
-- Release v0.12.0-preview.0
-- Release v0.11.0
-- Release v0.11.0-preview.1
-- Release v0.11.0-preview.0
-- Release v0.10.0
-- Release v0.10.0-preview.1
-- Release v0.10.0-preview.0
-- Release v0.9.0
-- Release v0.9.0-preview.1
-- Release v0.9.0-preview.0
-- Release v0.8.0
-- Release v0.8.0-preview.1
-- Release v0.8.0-preview.0
-- Release v0.7.0
-- Release v0.7.0-preview.1
-- Release v0.7.0-preview.0
-- Release v0.6.0
-- Release v0.6.0-preview.1
-- Release v0.6.0-preview.0
-- Release v0.5.0
-- Release v0.5.0-preview.1
-- Release v0.5.0-preview.0
-- Release v0.4.0
-- Release v0.4.0-preview.1
-- Release v0.4.0-preview.0
-- Release v0.3.0
-- Release v0.3.0-preview.1
-- Release v0.3.0-preview.0
-- Release v0.2.0
-- Release v0.2.0-preview.1
-- Release v0.2.0-preview.0
-- Release v0.1.0
-- Release v0.1.0-preview.1
-- Release v0.1.0-preview.0
-
-BREAKING:
-- Anthropic officially told by DOD that it’s a supply chain risk (Last Week in AI #337)
-- 'cancel ChatGPT' trend is growing after OpenAI signs a deal with the US military (Last Week in AI #337)
-- /undo output now shows only the first line of each commit message, making it easier to read (Aider v0.86.2)
+---
+**BREAKING:**
+- OpenAI SDK v2.25+ requires updated tooling for GPT-5.4 and new ComputerTool API.
+- Anthropic SDK v0.84+ enforces array_format changes.
