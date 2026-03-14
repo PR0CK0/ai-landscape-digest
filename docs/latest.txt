@@ -1,31 +1,39 @@
-AI Tools Digest — 2026-03-14 04:40 UTC
+AI Tools Digest — 2026-03-14 04:43 UTC
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 **AI Tooling Digest (2026-03-14)**
 
 ### **OpenAI**
-- **GPT-5.4** (Pro/Thinking): New models, OpenAI SDK v2.28.0 adds custom voices.
-- **Gemini 3.1 Flash Lite**: 1/8th cost of Pro, SDK v0.35.0-nightly fixes docs/UX.
-- **OpenAI CLI (Codex)**: Alpha 0.115.0+ updates (no breaking changes).
+- **SDK v2.28.0**: Added `custom voices` support, improved `sora` API (video edits, character API).
+- **SDK v2.27.0**: Updated `ComputerTool` schema, `phase` field in messages, `sora` fixes.
+- **SDK v2.26.0**: GA `ComputerTool` refactor, `gpt-5.4` support.
+- **Codex CLI**: Alpha 0.115.0 (no breaking changes).
 
 ### **Anthropic**
-- **Claude Code v2.1.76**: MCP support, CLI flags, memory fixes.
-- **SDK v0.84.0**: Array formatting, caching, tool runner updates.
-- **DOD Risk**: Officially labeled supply-chain risk (LWiAI #337).
+- **SDK v0.84.0**: Array format → brackets, MCP tool helpers.
+- **Claude Code v2.1.76**: MCP elicitation hooks, `/context` optimizations, `autoMemoryDirectory`.
+- **Claude Code v2.1.75**: `/plan` with descriptions, `/copy` to file, `ExitWorktree`.
+- **SDK v0.83.0**: Automatic caching for `claude-opus-4-6`.
 
-### **Aider**
-- **v0.86.0**: GPT-5/Grok-4 support, `/undo` improvements.
-
-### **Ollama**
-- **v0.18.0**: TUI ordering, cloud model fixes, MLX optimizations.
-- **v0.17.8**: GLM tool parsing, reasoning_effort support.
-
-### **Gemini CLI**
-- **v0.35.0-nightly**: Chat resume UI, A2A agent timeout (30m).
+### **Google (Gemini CLI)**
+- **v0.35.0-nightly**: UI fixes (footer, tool registry), A2A agent timeout.
+- **v0.34.0-preview**: Thinking UI overhaul, billing fixes.
 
 ### **Hugging Face**
-- **Storage Buckets**: New hub feature for large datasets.
+- **Storage Buckets**: New Hub feature for persistent model storage.
+- **Granite 4.0**: 1B speech model for edge devices.
+- **Ulysses SP**: Million-token context training support.
+
+### **NVIDIA**
+- **Brev/Dynamo**: Agent inference at planetary scale, "speed of light" inference.
+
+### **Aider**
+- **v0.86.0**: GPT-5 support, Grok-4, Gemini 2.5 Lite, OpenRouter/Kimi-K2.
+- **v0.85.6.dev**: `/undo` (first-line-only), `/clear` confirmation.
+
+### **Ollama**
+- **v0.18.0**: TUI model ordering, `thinking_effort` support, compact CLI.
 
 ---
-**BREAKING:**
-- OpenAI SDK v2.25.0: `ComputerTool` class migration (v2.26.0+).
-- Ollama v0.17.8: MLX header vendoring (Windows/Linux).
+**BREAKING**:
+- OpenAI SDK v2.26+ requires `ComputerTool` schema updates.
+- Anthropic SDK v0.84+ enforces array format changes.
