@@ -1,24 +1,27 @@
 # AI Landscape Digest
 
-_Updated 2026-03-14 10:25 EDT_
+_Updated 2026-03-14 10:43 EDT_
 
 **AI/ML Updates**
 
-- **OpenAI GPT-5.4**: Pro + Thinking modes, 1M+ context window
-- **Google Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context window
+- **OpenAI GPT-5.4**: Pro & Thinking modes, 1M+ context window
+- **Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context window
 - **Anthropic DOD Risk**: Officially flagged as supply chain risk
-- **Hugging Face Storage Buckets**: New storage system for Hub models
-- **NVIDIA NeMo Retriever**: Generalizable agentic retrieval pipeline
+- **Autoresearch**: AGI incremental improvement
+- **Yann LeCun AMI Labs**: $1B seed, JEPA world models
+
+**Hugging Face**
+- **Storage Buckets**: Hub storage for assets
+- **NVIDIA NeMo Retriever**: Agentic hybrid search pipeline
 - **Granite 4.0**: 1B speech, multilingual, edge-optimized
+- **Ulysses SP**: Million-token context training
+- **LeRobot v0.5**: Scaled dimension-wise
 
-**Dev Tools**
-
-- **Aider v0.86**: GPT-5, Grok-4, Gemini 2.5, /undo output, /clear now
-- **Ollama v0.18**: Cloud models auto-cloud, thinking levels support
-- **OpenAI SDK v2.28**: Custom voices, Sora API improvements
-- **Claude Code v2.1.76**: MCP elicitation, worktree.sparsePaths, /plan
-- **Gemini CLI**: Chat resume footer, A2A agent timeout, thinking UI overhaul
+**CLI/Dev Tools**
+- **Aider v0.86**: GPT-5, Grok-4, Gemini 2.5, /clear, /undo
+- **OpenAI SDK v2.28**: Custom voices, Sora API edits
+- **Ollama v0.18**: Cloud models, Claude compaction, MLX support
 
 **BREAKING**
-- **Anthropic SDK**: ArrayFormat → brackets, MCP tool helpers
-- **Ollama**: MLX header vendoring, Windows Go compatibility fixes
+- **OpenAI SDK v2.25**: GA ComputerTool class migration
+- **Anthropic SDK v0.77**: Structured outputs beta header removal
