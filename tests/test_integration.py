@@ -119,13 +119,13 @@ class TestConfigRoundTrip:
         f = tmp_path / "config.yaml"
         data = {
             "output": "github_pages",
-            "github_pages": {"username": "PR0CK0", "repo": "ai-digest", "base_url": "https://procko.pro/ai-digest"},
+            "github_pages": {"username": "example-user", "repo": "ai-digest", "base_url": "https://example.com/ai-digest"},
         }
         f.write_text(yaml.dump(data))
         with patch.object(digest, "CONFIG_FILE", f):
             loaded = digest.load_config()
-        assert loaded["github_pages"]["username"] == "PR0CK0"
-        assert loaded["github_pages"]["base_url"] == "https://procko.pro/ai-digest"
+        assert loaded["github_pages"]["username"] == "example-user"
+        assert loaded["github_pages"]["base_url"] == "https://example.com/ai-digest"
 
     def test_backend_and_model_config(self, tmp_path):
         f = tmp_path / "config.yaml"
