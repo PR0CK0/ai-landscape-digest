@@ -28,8 +28,140 @@
 <body>
   <div class="wrap">
     <div class="site-label">AI Tools Digest</div>
-    <div class="latest-ts">last updated 2026-03-14 04:43 UTC</div>
+    <div class="latest-ts">last updated 2026-03-14 04:45 UTC</div>
   <details  open>
+    <summary>2026-03-14 04:45 UTC  ·  86 items  ·  lid open  ·  ministral-3:3b  ·  14s</summary>
+    <pre>**AI Tooling Digest (2026-03-14)**
+
+### **OpenAI**
+- **SDK v2.28.0**: Added `custom voices` support, improved `sora` API (video edits, higher res exports).
+- **SDK v2.27.0**: GA for `GPT-5.4`, `tool_search`, and new `ComputerTool` class; removed `prompt_cache_key`/`phase` from responses.
+- **SDK v2.26.0**: Refactored `ComputerTool` to `ComputerUsePreview`; added `phase` field.
+- **GPT-5.4**: Pro/Thinking modes, 1M+ context window (GA after Google’s Gemini 3.1 Flash Lite).
+
+### **Google (Gemini)**
+- **Gemini CLI v0.35.0-nightly**: `/loop` command for recurring prompts; improved UI/UX (bold styling, A2A agent timeout).
+- **Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context window (GA after OpenAI’s GPT-5.4).
+
+### **Anthropic**
+- **SDK v0.84.0**: Array format → brackets; added MCP tool helpers.
+- **Claude Code v2.1.76**: MCP elicitation support, `/context` tool optimizations, `autoMemoryDirectory` setting.
+- **Claude Opus 4.6**: Adaptive thinking, default `medium` effort for Max/Team.
+
+### **Hugging Face**
+- **NVIDIA NeMo Retriever**: Agentic retrieval pipeline for generalizable search.
+- **Storage Buckets**: New Hub feature for persistent model storage.
+- **Granite 4.0**: 1B speech model for edge devices.
+- **Ulysses SP**: 1M-token context training support.
+
+### **Aider**
+- **v0.86.3.dev**: `/undo output` shows first commit line; `/clear` confirms history clear.
+- **v0.86.0**: GPT-5 support; Grok-4, Gemini 2.5 Lite, MoonShot/Kimi-K2 models.
+- **v0.85.x**: CLI flags (`/plan -n`), `/copy` (SSH file write), `/claude-api` skill.
+
+### **Ollama**
+- **v0.18.0**: TUI model ordering, `thinking_effort` support, compact CLI window.
+- **RC releases**: MLX optimizations, ZSTD decompression, Windows fixes.
+
+### **BREAKING**
+- **OpenAI SDK**: `phase` field removal in v2.27.0 may break tool integrations.
+- **Aider**: GPT-5/Grok-4 model names require explicit naming (e.g., `xai/grok-4`).
+
+---
+**Key Themes**: Context windows, agentic retrieval, edge AI, and tooling stability.</pre>
+  <details class="sources">
+    <summary>sources</summary>
+    <ul>
+    <li><span class="src-tag">Last Week in AI</span><a href="https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31" target="_blank" rel="noopener">LWiAI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk</a></li>
+    <li><span class="src-tag">Last Week in AI</span><a href="https://lastweekin.ai/p/last-week-in-ai-337-anthropic-risk" target="_blank" rel="noopener">Last Week in AI #337 - Anthropic Risk, QuitGPT, ChatGPT 5.4</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-context-drought" target="_blank" rel="noopener">[AINews] Context Drought</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-the-high-return-activity-of" target="_blank" rel="noopener">[AINews] The high-return activity of raising your aspirations for LLMs</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/turbopuffer" target="_blank" rel="noopener">Retrieval After RAG: Hybrid Search, Agents, and Database Design — Simon Hørup Eskildsen of Turbopuffer</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-replit-agent-4-the-knowledge" target="_blank" rel="noopener">[AINews] Replit Agent 4: The Knowledge Work Agent</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-yann-lecuns-ami-labs-launches" target="_blank" rel="noopener">[AINews] Yann LeCun’s AMI Labs launches with a $1B seed @ $4.5B to build world models around JEPA</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/nvidia-brev-dynamo" target="_blank" rel="noopener">NVIDIA's AI Engineers: Agent Inference at Planetary Scale and "Speed of Light" — Nader Khalil (Brev), Kyle Kranen (Dynamo)</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-autoresearch-sparks-of-recursive" target="_blank" rel="noopener">[AINews] Autoresearch: Sparks of Recursive Self Improvement</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-ai-engineer-will-be-the-last" target="_blank" rel="noopener">[AINews] AI Engineer will be the LAST job</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval" target="_blank" rel="noopener">Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/storage-buckets" target="_blank" rel="noopener">Introducing Storage Buckets on the Hugging Face Hub</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/async-rl-training-landscape" target="_blank" rel="noopener">Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/ibm-granite/granite-4-speech" target="_blank" rel="noopener">Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/ulysses-sp" target="_blank" rel="noopener">Ulysses Sequence Parallelism: Training with Million-Token Contexts</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/lerobot-release-v050" target="_blank" rel="noopener">LeRobot v0.5.0: Scaling Every Dimension</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.3.dev" target="_blank" rel="noopener">v0.86.3.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.2" target="_blank" rel="noopener">v0.86.2</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.2.dev" target="_blank" rel="noopener">v0.86.2.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.1" target="_blank" rel="noopener">v0.86.1</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.1.dev" target="_blank" rel="noopener">v0.86.1.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.0" target="_blank" rel="noopener">Aider v0.86.0</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.6.dev" target="_blank" rel="noopener">v0.85.6.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.5" target="_blank" rel="noopener">v0.85.5</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.5.dev" target="_blank" rel="noopener">v0.85.5.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.4" target="_blank" rel="noopener">v0.85.4</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.22" target="_blank" rel="noopener">0.115.0-alpha.22</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.21" target="_blank" rel="noopener">0.115.0-alpha.21</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.20" target="_blank" rel="noopener">0.115.0-alpha.20</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.19" target="_blank" rel="noopener">0.115.0-alpha.19</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.18" target="_blank" rel="noopener">0.115.0-alpha.18</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.17" target="_blank" rel="noopener">0.115.0-alpha.17</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.16" target="_blank" rel="noopener">0.115.0-alpha.16</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.15" target="_blank" rel="noopener">0.115.0-alpha.15</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.14" target="_blank" rel="noopener">0.115.0-alpha.14</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.13" target="_blank" rel="noopener">0.115.0-alpha.13</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.28.0" target="_blank" rel="noopener">v2.28.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.27.0" target="_blank" rel="noopener">v2.27.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.26.0" target="_blank" rel="noopener">v2.26.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.25.0" target="_blank" rel="noopener">v2.25.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.24.0" target="_blank" rel="noopener">v2.24.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.23.0" target="_blank" rel="noopener">v2.23.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.22.0" target="_blank" rel="noopener">v2.22.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.21.0" target="_blank" rel="noopener">v2.21.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.20.0" target="_blank" rel="noopener">v2.20.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.19.0" target="_blank" rel="noopener">v2.19.0</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.76" target="_blank" rel="noopener">v2.1.76</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.75" target="_blank" rel="noopener">v2.1.75</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.74" target="_blank" rel="noopener">v2.1.74</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.73" target="_blank" rel="noopener">v2.1.73</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.72" target="_blank" rel="noopener">v2.1.72</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.71" target="_blank" rel="noopener">v2.1.71</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.70" target="_blank" rel="noopener">v2.1.70</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.69" target="_blank" rel="noopener">v2.1.69</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.68" target="_blank" rel="noopener">v2.1.68</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.66" target="_blank" rel="noopener">v2.1.66</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.84.0" target="_blank" rel="noopener">v0.84.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.83.0" target="_blank" rel="noopener">v0.83.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.82.0" target="_blank" rel="noopener">v0.82.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.81.0" target="_blank" rel="noopener">v0.81.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.80.0" target="_blank" rel="noopener">v0.80.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.79.0" target="_blank" rel="noopener">v0.79.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.78.0" target="_blank" rel="noopener">v0.78.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.1" target="_blank" rel="noopener">v0.77.1</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.0" target="_blank" rel="noopener">v0.77.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.76.0" target="_blank" rel="noopener">v0.76.0</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0" target="_blank" rel="noopener">v0.18.0</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0-rc2" target="_blank" rel="noopener">v0.18.0-rc2</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0-rc1" target="_blank" rel="noopener">v0.18.0-rc1</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0-rc0" target="_blank" rel="noopener">v0.18.0-rc0</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc4" target="_blank" rel="noopener">v0.17.8</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc3" target="_blank" rel="noopener">v0.17.8-rc3: ci: fix missing windows zip file (#14807)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc2" target="_blank" rel="noopener">v0.17.8-rc2: mlx: perf improvements (#14768)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc1" target="_blank" rel="noopener">v0.17.8-rc1: ci: Fix windows build (#14754)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc0" target="_blank" rel="noopener">v0.17.8-rc0: MLX: add header vendoring and remove go build tag (#14642)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.7" target="_blank" rel="noopener">v0.17.7</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260314.3038fdce2" target="_blank" rel="noopener">Release v0.35.0-nightly.20260314.3038fdce2</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260313.bb060d7a9" target="_blank" rel="noopener">Release v0.35.0-nightly.20260313.bb060d7a9</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.3" target="_blank" rel="noopener">Release v0.34.0-preview.3</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.2" target="_blank" rel="noopener">Release v0.34.0-preview.2</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.1" target="_blank" rel="noopener">Release v0.34.0-preview.1</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.1" target="_blank" rel="noopener">Release v0.33.1</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.0" target="_blank" rel="noopener">Release v0.34.0-preview.0</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.0" target="_blank" rel="noopener">Release v0.33.0</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.0-preview.15" target="_blank" rel="noopener">Release v0.33.0-preview.15</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-nightly.20260310.4653b126f" target="_blank" rel="noopener">Release v0.34.0-nightly.20260310.4653b126f</a></li>
+    </ul>
+  </details>
+  </details>
+  <details>
     <summary>2026-03-14 04:43 UTC  ·  86 items  ·  lid open  ·  ministral-3:3b  ·  13s</summary>
     <pre>**AI Tooling Digest (2026-03-14)**
 

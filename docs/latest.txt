@@ -1,39 +1,40 @@
-AI Tools Digest — 2026-03-14 04:43 UTC
+AI Tools Digest — 2026-03-14 04:45 UTC
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 **AI Tooling Digest (2026-03-14)**
 
 ### **OpenAI**
-- **SDK v2.28.0**: Added `custom voices` support, improved `sora` API (video edits, character API).
-- **SDK v2.27.0**: Updated `ComputerTool` schema, `phase` field in messages, `sora` fixes.
-- **SDK v2.26.0**: GA `ComputerTool` refactor, `gpt-5.4` support.
-- **Codex CLI**: Alpha 0.115.0 (no breaking changes).
+- **SDK v2.28.0**: Added `custom voices` support, improved `sora` API (video edits, higher res exports).
+- **SDK v2.27.0**: GA for `GPT-5.4`, `tool_search`, and new `ComputerTool` class; removed `prompt_cache_key`/`phase` from responses.
+- **SDK v2.26.0**: Refactored `ComputerTool` to `ComputerUsePreview`; added `phase` field.
+- **GPT-5.4**: Pro/Thinking modes, 1M+ context window (GA after Google’s Gemini 3.1 Flash Lite).
+
+### **Google (Gemini)**
+- **Gemini CLI v0.35.0-nightly**: `/loop` command for recurring prompts; improved UI/UX (bold styling, A2A agent timeout).
+- **Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context window (GA after OpenAI’s GPT-5.4).
 
 ### **Anthropic**
-- **SDK v0.84.0**: Array format → brackets, MCP tool helpers.
-- **Claude Code v2.1.76**: MCP elicitation hooks, `/context` optimizations, `autoMemoryDirectory`.
-- **Claude Code v2.1.75**: `/plan` with descriptions, `/copy` to file, `ExitWorktree`.
-- **SDK v0.83.0**: Automatic caching for `claude-opus-4-6`.
-
-### **Google (Gemini CLI)**
-- **v0.35.0-nightly**: UI fixes (footer, tool registry), A2A agent timeout.
-- **v0.34.0-preview**: Thinking UI overhaul, billing fixes.
+- **SDK v0.84.0**: Array format → brackets; added MCP tool helpers.
+- **Claude Code v2.1.76**: MCP elicitation support, `/context` tool optimizations, `autoMemoryDirectory` setting.
+- **Claude Opus 4.6**: Adaptive thinking, default `medium` effort for Max/Team.
 
 ### **Hugging Face**
+- **NVIDIA NeMo Retriever**: Agentic retrieval pipeline for generalizable search.
 - **Storage Buckets**: New Hub feature for persistent model storage.
 - **Granite 4.0**: 1B speech model for edge devices.
-- **Ulysses SP**: Million-token context training support.
-
-### **NVIDIA**
-- **Brev/Dynamo**: Agent inference at planetary scale, "speed of light" inference.
+- **Ulysses SP**: 1M-token context training support.
 
 ### **Aider**
-- **v0.86.0**: GPT-5 support, Grok-4, Gemini 2.5 Lite, OpenRouter/Kimi-K2.
-- **v0.85.6.dev**: `/undo` (first-line-only), `/clear` confirmation.
+- **v0.86.3.dev**: `/undo output` shows first commit line; `/clear` confirms history clear.
+- **v0.86.0**: GPT-5 support; Grok-4, Gemini 2.5 Lite, MoonShot/Kimi-K2 models.
+- **v0.85.x**: CLI flags (`/plan -n`), `/copy` (SSH file write), `/claude-api` skill.
 
 ### **Ollama**
-- **v0.18.0**: TUI model ordering, `thinking_effort` support, compact CLI.
+- **v0.18.0**: TUI model ordering, `thinking_effort` support, compact CLI window.
+- **RC releases**: MLX optimizations, ZSTD decompression, Windows fixes.
+
+### **BREAKING**
+- **OpenAI SDK**: `phase` field removal in v2.27.0 may break tool integrations.
+- **Aider**: GPT-5/Grok-4 model names require explicit naming (e.g., `xai/grok-4`).
 
 ---
-**BREAKING**:
-- OpenAI SDK v2.26+ requires `ComputerTool` schema updates.
-- Anthropic SDK v0.84+ enforces array format changes.
+**Key Themes**: Context windows, agentic retrieval, edge AI, and tooling stability.
