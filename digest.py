@@ -14,6 +14,7 @@ import re
 import subprocess
 import sys
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from html import unescape
 from pathlib import Path
@@ -136,47 +137,57 @@ def check_url(url: str, timeout: int = FEED_TIMEOUT) -> bool:
 
 # ── Core logic ────────────────────────────────────────────────────────────────
 
-def fetch_new_items(feeds: list, seen: set, verbose: bool = False) -> list:
-    new_items = []
-    cutoff = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
+def _fetch_one(source: str, url: str, seen: set, cutoff: datetime, verbose: bool) -> list:
+    """Fetch a single feed. Returns list of new items (may be empty)."""
+    try:
+        feed = feedparser.parse(
+            url,
+            agent="ai-digest/1.0",
+            request_headers={"Accept": "application/atom+xml, application/rss+xml, */*"},
+        )
+        if feed.bozo and not feed.entries:
+            raise ValueError(f"feed parse error: {feed.bozo_exception}")
+    except Exception as e:
+        print(f"  [warn] {source}: unreachable or unparseable — {e}", file=sys.stderr)
+        return []
 
-    for source, url in feeds:
-        try:
-            feed = feedparser.parse(
-                url,
-                agent="ai-digest/1.0",
-                request_headers={"Accept": "application/atom+xml, application/rss+xml, */*"},
-            )
-            # feedparser doesn't raise — check for bozo (parse error) or empty
-            if feed.bozo and not feed.entries:
-                raise ValueError(f"feed parse error: {feed.bozo_exception}")
-        except Exception as e:
-            print(f"  [warn] {source}: unreachable or unparseable — {e}", file=sys.stderr)
+    if not feed.entries:
+        if verbose:
+            print(f"  [info] {source}: no entries", file=sys.stderr)
+        return []
+
+    items = []
+    for entry in feed.entries:
+        item_id = entry.get("id") or entry.get("link") or ""
+        if not item_id or item_id in seen:
             continue
-
-        if not feed.entries:
-            if verbose:
-                print(f"  [info] {source}: no entries found", file=sys.stderr)
-            continue
-
-        for entry in feed.entries:
-            item_id = entry.get("id") or entry.get("link") or ""
-            if not item_id or item_id in seen:
+        published = entry.get("published_parsed")
+        if published:
+            pub_dt = datetime(*published[:6], tzinfo=timezone.utc)
+            if pub_dt < cutoff:
                 continue
+        items.append({
+            "source":  source,
+            "title":   entry.get("title", "").strip(),
+            "link":    entry.get("link", ""),
+            "summary": strip_html(entry.get("summary", ""))[:500],
+            "id":      item_id,
+        })
+    return items
 
-            published = entry.get("published_parsed")
-            if published:
-                pub_dt = datetime(*published[:6], tzinfo=timezone.utc)
-                if pub_dt < cutoff:
-                    continue
 
-            new_items.append({
-                "source":  source,
-                "title":   entry.get("title", "").strip(),
-                "link":    entry.get("link", ""),
-                "summary": strip_html(entry.get("summary", ""))[:500],
-                "id":      item_id,
-            })
+def fetch_new_items(feeds: list, seen: set, verbose: bool = False) -> list:
+    cutoff = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
+    new_items = []
+
+    # Fetch all feeds in parallel — total time = slowest single feed, not sum
+    with ThreadPoolExecutor(max_workers=len(feeds)) as pool:
+        futures = {
+            pool.submit(_fetch_one, source, url, seen, cutoff, verbose): source
+            for source, url in feeds
+        }
+        for future in as_completed(futures):
+            new_items.extend(future.result())
 
     return new_items
 
