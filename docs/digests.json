@@ -1,5 +1,440 @@
 [
   {
+    "timestamp": "2026-03-14 09:12 EDT",
+    "trigger": "wake",
+    "item_count": 85,
+    "model": "ministral-3:3b",
+    "latency_seconds": 9.743589162826538,
+    "sources": [
+      {
+        "source": "Last Week in AI",
+        "title": "LWiAI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk",
+        "link": "https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31"
+      },
+      {
+        "source": "Last Week in AI",
+        "title": "Last Week in AI #337 - Anthropic Risk, QuitGPT, ChatGPT 5.4",
+        "link": "https://lastweekin.ai/p/last-week-in-ai-337-anthropic-risk"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Context Drought",
+        "link": "https://www.latent.space/p/ainews-context-drought"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] The high-return activity of raising your aspirations for LLMs",
+        "link": "https://www.latent.space/p/ainews-the-high-return-activity-of"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Retrieval After RAG: Hybrid Search, Agents, and Database Design \u2014 Simon H\u00f8rup Eskildsen of Turbopuffer",
+        "link": "https://www.latent.space/p/turbopuffer"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Replit Agent 4: The Knowledge Work Agent",
+        "link": "https://www.latent.space/p/ainews-replit-agent-4-the-knowledge"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Yann LeCun\u2019s AMI Labs launches with a $1B seed @ $4.5B to build world models around JEPA",
+        "link": "https://www.latent.space/p/ainews-yann-lecuns-ami-labs-launches"
+      },
+      {
+        "source": "Latent Space",
+        "title": "NVIDIA's AI Engineers: Agent Inference at Planetary Scale and \"Speed of Light\" \u2014 Nader Khalil (Brev), Kyle Kranen (Dynamo)",
+        "link": "https://www.latent.space/p/nvidia-brev-dynamo"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Autoresearch: Sparks of Recursive Self Improvement",
+        "link": "https://www.latent.space/p/ainews-autoresearch-sparks-of-recursive"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.3.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.3.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.2",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.2"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.2.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.2.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.1",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.1"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.1.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.1.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "Aider v0.86.0",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.0"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.6.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.6.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.5",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.5"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.5.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.5.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.4",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.4"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever\u2019s Generalizable Agentic Retrieval Pipeline",
+        "link": "https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Introducing Storage Buckets on the Hugging Face Hub",
+        "link": "https://huggingface.co/blog/storage-buckets"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries",
+        "link": "https://huggingface.co/blog/async-rl-training-landscape"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge",
+        "link": "https://huggingface.co/blog/ibm-granite/granite-4-speech"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Ulysses Sequence Parallelism: Training with Million-Token Contexts",
+        "link": "https://huggingface.co/blog/ulysses-sp"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "LeRobot v0.5.0: Scaling Every Dimension",
+        "link": "https://huggingface.co/blog/lerobot-release-v050"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.23",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.23"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.22",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.22"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.21",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.21"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.20",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.20"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.19",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.19"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.18",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.18"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.17",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.17"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.16",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.16"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.15",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.15"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.115.0-alpha.14",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.14"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.28.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.28.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.27.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.27.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.26.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.26.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.25.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.25.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.24.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.24.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.23.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.23.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.22.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.22.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.21.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.21.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.20.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.20.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.19.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.19.0"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.76",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.76"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.75",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.75"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.74",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.74"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.73",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.73"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.72",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.72"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.71",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.71"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.70",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.70"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.69",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.69"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.68",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.68"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.66",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.66"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.0-rc2",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0-rc2"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.0-rc1",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.0-rc0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0-rc0"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.17.8",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc4"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.17.8-rc3: ci: fix missing windows zip file (#14807)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc3"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.17.8-rc2: mlx: perf improvements (#14768)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc2"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.17.8-rc1: ci: Fix windows build (#14754)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.17.8-rc0: MLX: add header vendoring and remove go build tag (#14642)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc0"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.17.7",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.7"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.84.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.84.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.83.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.83.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.82.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.82.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.81.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.81.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.80.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.80.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.79.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.79.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.78.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.78.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.77.1",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.1"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.77.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.76.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.76.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.35.0-nightly.20260314.3038fdce2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260314.3038fdce2"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.35.0-nightly.20260313.bb060d7a9",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260313.bb060d7a9"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.34.0-preview.3",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.3"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.34.0-preview.2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.2"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.34.0-preview.1",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.1"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.33.1",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.1"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.34.0-preview.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.33.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.33.0-preview.15",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.0-preview.15"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.34.0-nightly.20260310.4653b126f",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-nightly.20260310.4653b126f"
+      }
+    ],
+    "content": "**AI/ML Updates**\n\n- **OpenAI GPT-5.4** \u2013 Pro & Thinking modes, new API features\n- **Gemini 3.1 Flash Lite** \u2013 1/8th cost of Pro, 1M context window\n- **Anthropic DOD Risk** \u2013 Supply chain warning after military deal\n\n**Dev Tools**\n\n- **Aider v0.86.0** \u2013 GPT-5 support, Grok-4, Gemini 2.5 Lite, `/clear` feedback\n- **OpenAI SDK v2.28.0** \u2013 Custom voices, Sora API fixes\n- **Claude Code v2.1.76** \u2013 MCP support, CLI flags, tool search fixes\n- **Gemini CLI v0.35.0** \u2013 Chat resume UI, A2A agent timeout\n\n**Hugging Face**\n- **Storage Buckets** \u2013 New Hub storage system\n- **Granite 4.0** \u2013 Speech model for edge devices\n- **Ulysses SP** \u2013 1M-token context training\n\n**BREAKING**\n- Ollama 0.18.0-rc0 \u2013 MLX header vendoring, Windows changes\n- OpenAI SDK v2.25.0 \u2013 GPT-5.4, tool search refactor"
+  },
+  {
     "timestamp": "2026-03-14 09:09 EDT",
     "trigger": "wake",
     "item_count": 85,

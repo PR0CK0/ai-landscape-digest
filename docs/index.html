@@ -20,7 +20,30 @@
     summary::before { content: '▶ '; font-size: .6rem; color: #484f58; }
     details[open] summary::before { content: '▼ '; }
     details[open] summary { color: #e6edf3; border-bottom: 1px solid #21262d; }
-    pre { padding: 16px 14px; white-space: pre-wrap; line-height: 1.8; font-size: .82rem; color: #c9d1d9; }
+    .digest-markdown { padding: 16px 14px 6px; color: #c9d1d9; }
+    .digest-markdown h1, .digest-markdown h2, .digest-markdown h3 {
+      font-size: .92rem; line-height: 1.3; margin: 0 0 10px; color: #f0f6fc;
+    }
+    .digest-markdown h2, .digest-markdown h3 {
+      font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #58a6ff;
+      margin-top: 18px;
+    }
+    .digest-markdown p {
+      margin: 0 0 10px; line-height: 1.55; font-size: .84rem;
+    }
+    .digest-markdown .breaking-label { color: #ffb86b; font-weight: 700; }
+    .digest-list { list-style: none; margin: 0 0 6px; padding: 0; }
+    .digest-list li {
+      position: relative; padding-left: 14px; margin: 0 0 8px; line-height: 1.5; font-size: .84rem;
+    }
+    .digest-list li::before {
+      content: '•'; position: absolute; left: 0; color: #8b949e;
+    }
+    .digest-list li.breaking { color: #ffd8a8; }
+    .digest-markdown strong { color: #f0f6fc; font-weight: 700; }
+    .digest-markdown code {
+      color: #7ee787; background: #161b22; padding: 1px 5px; border-radius: 4px; font-size: .78rem;
+    }
     .tip { margin-top: 28px; padding: 10px 14px; background: #161b22; border: 1px solid #21262d; border-radius: 6px; font-size: .72rem; color: #484f58; }
     .tip code { color: #58a6ff; }
   </style>
@@ -28,29 +51,152 @@
 <body>
   <div class="wrap">
     <div class="site-label">AI Tools Digest</div>
-    <div class="latest-ts">last updated 2026-03-14 09:09 EDT</div>
+    <div class="latest-ts">last updated 2026-03-14 09:12 EDT</div>
   <details  open>
+    <summary>2026-03-14 09:12 EDT  ·  85 items  ·  lid open  ·  ministral-3:3b  ·  9.7s</summary>
+<div class="digest-markdown">
+    <p><strong>AI/ML Updates</strong></p>
+    <ul class="digest-list">
+      <li><strong>OpenAI GPT-5.4</strong> – Pro &amp; Thinking modes, new API features</li>
+      <li><strong>Gemini 3.1 Flash Lite</strong> – 1/8th cost of Pro, 1M context window</li>
+      <li><strong>Anthropic DOD Risk</strong> – Supply chain warning after military deal</li>
+    </ul>
+    <p><strong>Dev Tools</strong></p>
+    <ul class="digest-list">
+      <li><strong>Aider v0.86.0</strong> – GPT-5 support, Grok-4, Gemini 2.5 Lite, <code>/clear</code> feedback</li>
+      <li><strong>OpenAI SDK v2.28.0</strong> – Custom voices, Sora API fixes</li>
+      <li><strong>Claude Code v2.1.76</strong> – MCP support, CLI flags, tool search fixes</li>
+      <li><strong>Gemini CLI v0.35.0</strong> – Chat resume UI, A2A agent timeout</li>
+    </ul>
+    <p><strong>Hugging Face</strong></p>
+    <ul class="digest-list">
+      <li><strong>Storage Buckets</strong> – New Hub storage system</li>
+      <li><strong>Granite 4.0</strong> – Speech model for edge devices</li>
+      <li><strong>Ulysses SP</strong> – 1M-token context training</li>
+    </ul>
+    <p class="breaking-label"><strong>BREAKING</strong></p>
+    <ul class="digest-list">
+      <li>Ollama 0.18.0-rc0 – MLX header vendoring, Windows changes</li>
+      <li>OpenAI SDK v2.25.0 – GPT-5.4, tool search refactor</li>
+    </ul>
+  </div>
+  <details class="sources">
+    <summary>sources</summary>
+    <ul>
+    <li><span class="src-tag">Last Week in AI</span><a href="https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31" target="_blank" rel="noopener">LWiAI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk</a></li>
+    <li><span class="src-tag">Last Week in AI</span><a href="https://lastweekin.ai/p/last-week-in-ai-337-anthropic-risk" target="_blank" rel="noopener">Last Week in AI #337 - Anthropic Risk, QuitGPT, ChatGPT 5.4</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-context-drought" target="_blank" rel="noopener">[AINews] Context Drought</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-the-high-return-activity-of" target="_blank" rel="noopener">[AINews] The high-return activity of raising your aspirations for LLMs</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/turbopuffer" target="_blank" rel="noopener">Retrieval After RAG: Hybrid Search, Agents, and Database Design — Simon Hørup Eskildsen of Turbopuffer</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-replit-agent-4-the-knowledge" target="_blank" rel="noopener">[AINews] Replit Agent 4: The Knowledge Work Agent</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-yann-lecuns-ami-labs-launches" target="_blank" rel="noopener">[AINews] Yann LeCun’s AMI Labs launches with a $1B seed @ $4.5B to build world models around JEPA</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/nvidia-brev-dynamo" target="_blank" rel="noopener">NVIDIA's AI Engineers: Agent Inference at Planetary Scale and "Speed of Light" — Nader Khalil (Brev), Kyle Kranen (Dynamo)</a></li>
+    <li><span class="src-tag">Latent Space</span><a href="https://www.latent.space/p/ainews-autoresearch-sparks-of-recursive" target="_blank" rel="noopener">[AINews] Autoresearch: Sparks of Recursive Self Improvement</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.3.dev" target="_blank" rel="noopener">v0.86.3.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.2" target="_blank" rel="noopener">v0.86.2</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.2.dev" target="_blank" rel="noopener">v0.86.2.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.1" target="_blank" rel="noopener">v0.86.1</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.1.dev" target="_blank" rel="noopener">v0.86.1.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.86.0" target="_blank" rel="noopener">Aider v0.86.0</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.6.dev" target="_blank" rel="noopener">v0.85.6.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.5" target="_blank" rel="noopener">v0.85.5</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.5.dev" target="_blank" rel="noopener">v0.85.5.dev</a></li>
+    <li><span class="src-tag">Aider</span><a href="https://github.com/Aider-AI/aider/releases/tag/v0.85.4" target="_blank" rel="noopener">v0.85.4</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval" target="_blank" rel="noopener">Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/storage-buckets" target="_blank" rel="noopener">Introducing Storage Buckets on the Hugging Face Hub</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/async-rl-training-landscape" target="_blank" rel="noopener">Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/ibm-granite/granite-4-speech" target="_blank" rel="noopener">Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/ulysses-sp" target="_blank" rel="noopener">Ulysses Sequence Parallelism: Training with Million-Token Contexts</a></li>
+    <li><span class="src-tag">Hugging Face</span><a href="https://huggingface.co/blog/lerobot-release-v050" target="_blank" rel="noopener">LeRobot v0.5.0: Scaling Every Dimension</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.23" target="_blank" rel="noopener">0.115.0-alpha.23</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.22" target="_blank" rel="noopener">0.115.0-alpha.22</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.21" target="_blank" rel="noopener">0.115.0-alpha.21</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.20" target="_blank" rel="noopener">0.115.0-alpha.20</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.19" target="_blank" rel="noopener">0.115.0-alpha.19</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.18" target="_blank" rel="noopener">0.115.0-alpha.18</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.17" target="_blank" rel="noopener">0.115.0-alpha.17</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.16" target="_blank" rel="noopener">0.115.0-alpha.16</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.15" target="_blank" rel="noopener">0.115.0-alpha.15</a></li>
+    <li><span class="src-tag">Codex CLI</span><a href="https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.14" target="_blank" rel="noopener">0.115.0-alpha.14</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.28.0" target="_blank" rel="noopener">v2.28.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.27.0" target="_blank" rel="noopener">v2.27.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.26.0" target="_blank" rel="noopener">v2.26.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.25.0" target="_blank" rel="noopener">v2.25.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.24.0" target="_blank" rel="noopener">v2.24.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.23.0" target="_blank" rel="noopener">v2.23.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.22.0" target="_blank" rel="noopener">v2.22.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.21.0" target="_blank" rel="noopener">v2.21.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.20.0" target="_blank" rel="noopener">v2.20.0</a></li>
+    <li><span class="src-tag">OpenAI SDK</span><a href="https://github.com/openai/openai-python/releases/tag/v2.19.0" target="_blank" rel="noopener">v2.19.0</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.76" target="_blank" rel="noopener">v2.1.76</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.75" target="_blank" rel="noopener">v2.1.75</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.74" target="_blank" rel="noopener">v2.1.74</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.73" target="_blank" rel="noopener">v2.1.73</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.72" target="_blank" rel="noopener">v2.1.72</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.71" target="_blank" rel="noopener">v2.1.71</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.70" target="_blank" rel="noopener">v2.1.70</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.69" target="_blank" rel="noopener">v2.1.69</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.68" target="_blank" rel="noopener">v2.1.68</a></li>
+    <li><span class="src-tag">Claude Code</span><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.66" target="_blank" rel="noopener">v2.1.66</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0" target="_blank" rel="noopener">v0.18.0</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0-rc2" target="_blank" rel="noopener">v0.18.0-rc2</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0-rc1" target="_blank" rel="noopener">v0.18.0-rc1</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.18.0-rc0" target="_blank" rel="noopener">v0.18.0-rc0</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc4" target="_blank" rel="noopener">v0.17.8</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc3" target="_blank" rel="noopener">v0.17.8-rc3: ci: fix missing windows zip file (#14807)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc2" target="_blank" rel="noopener">v0.17.8-rc2: mlx: perf improvements (#14768)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc1" target="_blank" rel="noopener">v0.17.8-rc1: ci: Fix windows build (#14754)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.8-rc0" target="_blank" rel="noopener">v0.17.8-rc0: MLX: add header vendoring and remove go build tag (#14642)</a></li>
+    <li><span class="src-tag">Ollama</span><a href="https://github.com/ollama/ollama/releases/tag/v0.17.7" target="_blank" rel="noopener">v0.17.7</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.84.0" target="_blank" rel="noopener">v0.84.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.83.0" target="_blank" rel="noopener">v0.83.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.82.0" target="_blank" rel="noopener">v0.82.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.81.0" target="_blank" rel="noopener">v0.81.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.80.0" target="_blank" rel="noopener">v0.80.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.79.0" target="_blank" rel="noopener">v0.79.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.78.0" target="_blank" rel="noopener">v0.78.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.1" target="_blank" rel="noopener">v0.77.1</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.0" target="_blank" rel="noopener">v0.77.0</a></li>
+    <li><span class="src-tag">Anthropic SDK</span><a href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.76.0" target="_blank" rel="noopener">v0.76.0</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260314.3038fdce2" target="_blank" rel="noopener">Release v0.35.0-nightly.20260314.3038fdce2</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260313.bb060d7a9" target="_blank" rel="noopener">Release v0.35.0-nightly.20260313.bb060d7a9</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.3" target="_blank" rel="noopener">Release v0.34.0-preview.3</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.2" target="_blank" rel="noopener">Release v0.34.0-preview.2</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.1" target="_blank" rel="noopener">Release v0.34.0-preview.1</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.1" target="_blank" rel="noopener">Release v0.33.1</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.0" target="_blank" rel="noopener">Release v0.34.0-preview.0</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.0" target="_blank" rel="noopener">Release v0.33.0</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.0-preview.15" target="_blank" rel="noopener">Release v0.33.0-preview.15</a></li>
+    <li><span class="src-tag">Gemini CLI</span><a href="https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-nightly.20260310.4653b126f" target="_blank" rel="noopener">Release v0.34.0-nightly.20260310.4653b126f</a></li>
+    </ul>
+  </details>
+  </details>
+  <details>
     <summary>2026-03-14 09:09 EDT  ·  85 items  ·  lid open  ·  ministral-3:3b  ·  12s</summary>
-    <pre>**AI/ML Updates**
-
-- **OpenAI GPT-5.4**: Pro/Thinking modes, 1M+ context window
-- **Google Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context
-- **Anthropic DOD Risk**: Officially flagged as supply chain risk
-- **Hugging Face Storage Buckets**: New Hub storage system
-- **NVIDIA NeMo Retriever**: Agentic retrieval pipeline
-- **Granite 4.0**: 1B speech, multilingual, edge-optimized
-
-**Dev Tools**
-
-- **Aider v0.86**: GPT-5, Grok-4, Gemini 2.5, /clear, /undo
-- **OpenAI SDK v2.28**: Custom voices, Sora API updates
-- **Codex CLI**: Alpha 0.115.x updates
-- **Ollama v0.18**: Cloud models, Claude Code compaction
-- **Gemini CLI**: Nightly 0.35, UI/UX improvements
-
-**BREAKING**
-- **Anthropic SDK**: Structured Outputs API changes
-- **OpenAI SDK**: Phase field removal, tool schema updates</pre>
+<div class="digest-markdown">
+    <p><strong>AI/ML Updates</strong></p>
+    <ul class="digest-list">
+      <li><strong>OpenAI GPT-5.4</strong>: Pro/Thinking modes, 1M+ context window</li>
+      <li><strong>Google Gemini 3.1 Flash Lite</strong>: 1/8th cost of Pro, 1M+ context</li>
+      <li><strong>Anthropic DOD Risk</strong>: Officially flagged as supply chain risk</li>
+      <li><strong>Hugging Face Storage Buckets</strong>: New Hub storage system</li>
+      <li><strong>NVIDIA NeMo Retriever</strong>: Agentic retrieval pipeline</li>
+      <li><strong>Granite 4.0</strong>: 1B speech, multilingual, edge-optimized</li>
+    </ul>
+    <p><strong>Dev Tools</strong></p>
+    <ul class="digest-list">
+      <li><strong>Aider v0.86</strong>: GPT-5, Grok-4, Gemini 2.5, /clear, /undo</li>
+      <li><strong>OpenAI SDK v2.28</strong>: Custom voices, Sora API updates</li>
+      <li><strong>Codex CLI</strong>: Alpha 0.115.x updates</li>
+      <li><strong>Ollama v0.18</strong>: Cloud models, Claude Code compaction</li>
+      <li><strong>Gemini CLI</strong>: Nightly 0.35, UI/UX improvements</li>
+    </ul>
+    <p class="breaking-label"><strong>BREAKING</strong></p>
+    <ul class="digest-list">
+      <li><strong>Anthropic SDK</strong>: Structured Outputs API changes</li>
+      <li><strong>OpenAI SDK</strong>: Phase field removal, tool schema updates</li>
+    </ul>
+  </div>
   <details class="sources">
     <summary>sources</summary>
     <ul>
@@ -144,44 +290,52 @@
   </details>
   <details>
     <summary>2026-03-14 04:45 UTC  ·  86 items  ·  lid open  ·  ministral-3:3b  ·  14s</summary>
-    <pre>**AI Tooling Digest (2026-03-14)**
-
-### **OpenAI**
-- **SDK v2.28.0**: Added `custom voices` support, improved `sora` API (video edits, higher res exports).
-- **SDK v2.27.0**: GA for `GPT-5.4`, `tool_search`, and new `ComputerTool` class; removed `prompt_cache_key`/`phase` from responses.
-- **SDK v2.26.0**: Refactored `ComputerTool` to `ComputerUsePreview`; added `phase` field.
-- **GPT-5.4**: Pro/Thinking modes, 1M+ context window (GA after Google’s Gemini 3.1 Flash Lite).
-
-### **Google (Gemini)**
-- **Gemini CLI v0.35.0-nightly**: `/loop` command for recurring prompts; improved UI/UX (bold styling, A2A agent timeout).
-- **Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context window (GA after OpenAI’s GPT-5.4).
-
-### **Anthropic**
-- **SDK v0.84.0**: Array format → brackets; added MCP tool helpers.
-- **Claude Code v2.1.76**: MCP elicitation support, `/context` tool optimizations, `autoMemoryDirectory` setting.
-- **Claude Opus 4.6**: Adaptive thinking, default `medium` effort for Max/Team.
-
-### **Hugging Face**
-- **NVIDIA NeMo Retriever**: Agentic retrieval pipeline for generalizable search.
-- **Storage Buckets**: New Hub feature for persistent model storage.
-- **Granite 4.0**: 1B speech model for edge devices.
-- **Ulysses SP**: 1M-token context training support.
-
-### **Aider**
-- **v0.86.3.dev**: `/undo output` shows first commit line; `/clear` confirms history clear.
-- **v0.86.0**: GPT-5 support; Grok-4, Gemini 2.5 Lite, MoonShot/Kimi-K2 models.
-- **v0.85.x**: CLI flags (`/plan -n`), `/copy` (SSH file write), `/claude-api` skill.
-
-### **Ollama**
-- **v0.18.0**: TUI model ordering, `thinking_effort` support, compact CLI window.
-- **RC releases**: MLX optimizations, ZSTD decompression, Windows fixes.
-
-### **BREAKING**
-- **OpenAI SDK**: `phase` field removal in v2.27.0 may break tool integrations.
-- **Aider**: GPT-5/Grok-4 model names require explicit naming (e.g., `xai/grok-4`).
-
----
-**Key Themes**: Context windows, agentic retrieval, edge AI, and tooling stability.</pre>
+<div class="digest-markdown">
+    <p><strong>AI Tooling Digest (2026-03-14)</strong></p>
+    <h3><strong>OpenAI</strong></h3>
+    <ul class="digest-list">
+      <li><strong>SDK v2.28.0</strong>: Added <code>custom voices</code> support, improved <code>sora</code> API (video edits, higher res exports).</li>
+      <li><strong>SDK v2.27.0</strong>: GA for <code>GPT-5.4</code>, <code>tool_search</code>, and new <code>ComputerTool</code> class; removed <code>prompt_cache_key</code>/<code>phase</code> from responses.</li>
+      <li><strong>SDK v2.26.0</strong>: Refactored <code>ComputerTool</code> to <code>ComputerUsePreview</code>; added <code>phase</code> field.</li>
+      <li><strong>GPT-5.4</strong>: Pro/Thinking modes, 1M+ context window (GA after Google’s Gemini 3.1 Flash Lite).</li>
+    </ul>
+    <h3><strong>Google (Gemini)</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Gemini CLI v0.35.0-nightly</strong>: <code>/loop</code> command for recurring prompts; improved UI/UX (bold styling, A2A agent timeout).</li>
+      <li><strong>Gemini 3.1 Flash Lite</strong>: 1/8th cost of Pro, 1M+ context window (GA after OpenAI’s GPT-5.4).</li>
+    </ul>
+    <h3><strong>Anthropic</strong></h3>
+    <ul class="digest-list">
+      <li><strong>SDK v0.84.0</strong>: Array format → brackets; added MCP tool helpers.</li>
+      <li><strong>Claude Code v2.1.76</strong>: MCP elicitation support, <code>/context</code> tool optimizations, <code>autoMemoryDirectory</code> setting.</li>
+      <li><strong>Claude Opus 4.6</strong>: Adaptive thinking, default <code>medium</code> effort for Max/Team.</li>
+    </ul>
+    <h3><strong>Hugging Face</strong></h3>
+    <ul class="digest-list">
+      <li><strong>NVIDIA NeMo Retriever</strong>: Agentic retrieval pipeline for generalizable search.</li>
+      <li><strong>Storage Buckets</strong>: New Hub feature for persistent model storage.</li>
+      <li><strong>Granite 4.0</strong>: 1B speech model for edge devices.</li>
+      <li><strong>Ulysses SP</strong>: 1M-token context training support.</li>
+    </ul>
+    <h3><strong>Aider</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.86.3.dev</strong>: <code>/undo output</code> shows first commit line; <code>/clear</code> confirms history clear.</li>
+      <li><strong>v0.86.0</strong>: GPT-5 support; Grok-4, Gemini 2.5 Lite, MoonShot/Kimi-K2 models.</li>
+      <li><strong>v0.85.x</strong>: CLI flags (<code>/plan -n</code>), <code>/copy</code> (SSH file write), <code>/claude-api</code> skill.</li>
+    </ul>
+    <h3><strong>Ollama</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.18.0</strong>: TUI model ordering, <code>thinking_effort</code> support, compact CLI window.</li>
+      <li><strong>RC releases</strong>: MLX optimizations, ZSTD decompression, Windows fixes.</li>
+    </ul>
+    <h3><strong>BREAKING</strong></h3>
+    <ul class="digest-list">
+      <li><strong>OpenAI SDK</strong>: <code>phase</code> field removal in v2.27.0 may break tool integrations.</li>
+      <li><strong>Aider</strong>: GPT-5/Grok-4 model names require explicit naming (e.g., <code>xai/grok-4</code>).</li>
+    </ul>
+    <p>---</p>
+    <p><strong>Key Themes</strong>: Context windows, agentic retrieval, edge AI, and tooling stability.</p>
+  </div>
   <details class="sources">
     <summary>sources</summary>
     <ul>
@@ -276,43 +430,53 @@
   </details>
   <details>
     <summary>2026-03-14 04:43 UTC  ·  86 items  ·  lid open  ·  ministral-3:3b  ·  13s</summary>
-    <pre>**AI Tooling Digest (2026-03-14)**
-
-### **OpenAI**
-- **SDK v2.28.0**: Added `custom voices` support, improved `sora` API (video edits, character API).
-- **SDK v2.27.0**: Updated `ComputerTool` schema, `phase` field in messages, `sora` fixes.
-- **SDK v2.26.0**: GA `ComputerTool` refactor, `gpt-5.4` support.
-- **Codex CLI**: Alpha 0.115.0 (no breaking changes).
-
-### **Anthropic**
-- **SDK v0.84.0**: Array format → brackets, MCP tool helpers.
-- **Claude Code v2.1.76**: MCP elicitation hooks, `/context` optimizations, `autoMemoryDirectory`.
-- **Claude Code v2.1.75**: `/plan` with descriptions, `/copy` to file, `ExitWorktree`.
-- **SDK v0.83.0**: Automatic caching for `claude-opus-4-6`.
-
-### **Google (Gemini CLI)**
-- **v0.35.0-nightly**: UI fixes (footer, tool registry), A2A agent timeout.
-- **v0.34.0-preview**: Thinking UI overhaul, billing fixes.
-
-### **Hugging Face**
-- **Storage Buckets**: New Hub feature for persistent model storage.
-- **Granite 4.0**: 1B speech model for edge devices.
-- **Ulysses SP**: Million-token context training support.
-
-### **NVIDIA**
-- **Brev/Dynamo**: Agent inference at planetary scale, "speed of light" inference.
-
-### **Aider**
-- **v0.86.0**: GPT-5 support, Grok-4, Gemini 2.5 Lite, OpenRouter/Kimi-K2.
-- **v0.85.6.dev**: `/undo` (first-line-only), `/clear` confirmation.
-
-### **Ollama**
-- **v0.18.0**: TUI model ordering, `thinking_effort` support, compact CLI.
-
----
-**BREAKING**:
-- OpenAI SDK v2.26+ requires `ComputerTool` schema updates.
-- Anthropic SDK v0.84+ enforces array format changes.</pre>
+<div class="digest-markdown">
+    <p><strong>AI Tooling Digest (2026-03-14)</strong></p>
+    <h3><strong>OpenAI</strong></h3>
+    <ul class="digest-list">
+      <li><strong>SDK v2.28.0</strong>: Added <code>custom voices</code> support, improved <code>sora</code> API (video edits, character API).</li>
+      <li><strong>SDK v2.27.0</strong>: Updated <code>ComputerTool</code> schema, <code>phase</code> field in messages, <code>sora</code> fixes.</li>
+      <li><strong>SDK v2.26.0</strong>: GA <code>ComputerTool</code> refactor, <code>gpt-5.4</code> support.</li>
+      <li class="breaking"><strong>Codex CLI</strong>: Alpha 0.115.0 (no breaking changes).</li>
+    </ul>
+    <h3><strong>Anthropic</strong></h3>
+    <ul class="digest-list">
+      <li><strong>SDK v0.84.0</strong>: Array format → brackets, MCP tool helpers.</li>
+      <li><strong>Claude Code v2.1.76</strong>: MCP elicitation hooks, <code>/context</code> optimizations, <code>autoMemoryDirectory</code>.</li>
+      <li><strong>Claude Code v2.1.75</strong>: <code>/plan</code> with descriptions, <code>/copy</code> to file, <code>ExitWorktree</code>.</li>
+      <li><strong>SDK v0.83.0</strong>: Automatic caching for <code>claude-opus-4-6</code>.</li>
+    </ul>
+    <h3><strong>Google (Gemini CLI)</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.35.0-nightly</strong>: UI fixes (footer, tool registry), A2A agent timeout.</li>
+      <li><strong>v0.34.0-preview</strong>: Thinking UI overhaul, billing fixes.</li>
+    </ul>
+    <h3><strong>Hugging Face</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Storage Buckets</strong>: New Hub feature for persistent model storage.</li>
+      <li><strong>Granite 4.0</strong>: 1B speech model for edge devices.</li>
+      <li><strong>Ulysses SP</strong>: Million-token context training support.</li>
+    </ul>
+    <h3><strong>NVIDIA</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Brev/Dynamo</strong>: Agent inference at planetary scale, &quot;speed of light&quot; inference.</li>
+    </ul>
+    <h3><strong>Aider</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.86.0</strong>: GPT-5 support, Grok-4, Gemini 2.5 Lite, OpenRouter/Kimi-K2.</li>
+      <li><strong>v0.85.6.dev</strong>: <code>/undo</code> (first-line-only), <code>/clear</code> confirmation.</li>
+    </ul>
+    <h3><strong>Ollama</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.18.0</strong>: TUI model ordering, <code>thinking_effort</code> support, compact CLI.</li>
+    </ul>
+    <p>---</p>
+    <p class="breaking-label"><strong>BREAKING</strong>:</p>
+    <ul class="digest-list">
+      <li>OpenAI SDK v2.26+ requires <code>ComputerTool</code> schema updates.</li>
+      <li>Anthropic SDK v0.84+ enforces array format changes.</li>
+    </ul>
+  </div>
   <details class="sources">
     <summary>sources</summary>
     <ul>
@@ -407,35 +571,44 @@
   </details>
   <details>
     <summary>2026-03-14 04:40 UTC  ·  86 items  ·  manual  ·  ministral-3:3b  ·  9.9s</summary>
-    <pre>**AI Tooling Digest (2026-03-14)**
-
-### **OpenAI**
-- **GPT-5.4** (Pro/Thinking): New models, OpenAI SDK v2.28.0 adds custom voices.
-- **Gemini 3.1 Flash Lite**: 1/8th cost of Pro, SDK v0.35.0-nightly fixes docs/UX.
-- **OpenAI CLI (Codex)**: Alpha 0.115.0+ updates (no breaking changes).
-
-### **Anthropic**
-- **Claude Code v2.1.76**: MCP support, CLI flags, memory fixes.
-- **SDK v0.84.0**: Array formatting, caching, tool runner updates.
-- **DOD Risk**: Officially labeled supply-chain risk (LWiAI #337).
-
-### **Aider**
-- **v0.86.0**: GPT-5/Grok-4 support, `/undo` improvements.
-
-### **Ollama**
-- **v0.18.0**: TUI ordering, cloud model fixes, MLX optimizations.
-- **v0.17.8**: GLM tool parsing, reasoning_effort support.
-
-### **Gemini CLI**
-- **v0.35.0-nightly**: Chat resume UI, A2A agent timeout (30m).
-
-### **Hugging Face**
-- **Storage Buckets**: New hub feature for large datasets.
-
----
-**BREAKING:**
-- OpenAI SDK v2.25.0: `ComputerTool` class migration (v2.26.0+).
-- Ollama v0.17.8: MLX header vendoring (Windows/Linux).</pre>
+<div class="digest-markdown">
+    <p><strong>AI Tooling Digest (2026-03-14)</strong></p>
+    <h3><strong>OpenAI</strong></h3>
+    <ul class="digest-list">
+      <li><strong>GPT-5.4</strong> (Pro/Thinking): New models, OpenAI SDK v2.28.0 adds custom voices.</li>
+      <li><strong>Gemini 3.1 Flash Lite</strong>: 1/8th cost of Pro, SDK v0.35.0-nightly fixes docs/UX.</li>
+      <li class="breaking"><strong>OpenAI CLI (Codex)</strong>: Alpha 0.115.0+ updates (no breaking changes).</li>
+    </ul>
+    <h3><strong>Anthropic</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Claude Code v2.1.76</strong>: MCP support, CLI flags, memory fixes.</li>
+      <li><strong>SDK v0.84.0</strong>: Array formatting, caching, tool runner updates.</li>
+      <li><strong>DOD Risk</strong>: Officially labeled supply-chain risk (LWiAI #337).</li>
+    </ul>
+    <h3><strong>Aider</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.86.0</strong>: GPT-5/Grok-4 support, <code>/undo</code> improvements.</li>
+    </ul>
+    <h3><strong>Ollama</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.18.0</strong>: TUI ordering, cloud model fixes, MLX optimizations.</li>
+      <li><strong>v0.17.8</strong>: GLM tool parsing, reasoning_effort support.</li>
+    </ul>
+    <h3><strong>Gemini CLI</strong></h3>
+    <ul class="digest-list">
+      <li><strong>v0.35.0-nightly</strong>: Chat resume UI, A2A agent timeout (30m).</li>
+    </ul>
+    <h3><strong>Hugging Face</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Storage Buckets</strong>: New hub feature for large datasets.</li>
+    </ul>
+    <p>---</p>
+    <p class="breaking-label"><strong>BREAKING:</strong></p>
+    <ul class="digest-list">
+      <li>OpenAI SDK v2.25.0: <code>ComputerTool</code> class migration (v2.26.0+).</li>
+      <li>Ollama v0.17.8: MLX header vendoring (Windows/Linux).</li>
+    </ul>
+  </div>
   <details class="sources">
     <summary>sources</summary>
     <ul>
@@ -530,39 +703,48 @@
   </details>
   <details>
     <summary>2026-03-14 04:37 UTC  ·  86 items  ·  manual</summary>
-    <pre>**AI Tooling Digest (2026-03-14)**
-
-### **OpenAI**
-- **OpenAI SDK** v2.28.0: Added `custom voices` support.
-- **OpenAI SDK** v2.27.0: Sora API improvements (character API, video edits, higher-res exports).
-- **OpenAI SDK** v2.26.0: GA ComputerTool now uses `ComputerTool` class; `computer_use_preview` moved to `ComputerUsePreview`.
-- **OpenAI SDK** v2.25.0: Added GPT-5.4, tool search, and new ComputerTool.
-- **OpenAI SDK** v2.24.0: Added `phase` field to messages.
-- **OpenAI SDK** v2.23.0: Added `gpt-realtime-1.5` and `gpt-audio-1.5` models.
-- **OpenAI SDK** v2.22.0: WebSocket support for responses API.
-
-### **Anthropic**
-- **Anthropic SDK** v0.84.0: Updated `array_format` to brackets, added MCP helpers.
-- **Anthropic SDK** v0.83.0: Added top-level cache control.
-- **Claude Code** v2.1.76: Added MCP elicitation support, `/claude-api` skill, and new CLI flags.
-
-### **Aider**
-- **Aider** v0.86.0: Added support for GPT-5, Grok-4, and Gemini 2.5 Flash Lite.
-
-### **Gemini CLI**
-- **Gemini CLI** v0.35.0-nightly: Improved UI, thinking UI overhaul, and chat resume.
-
-### **Ollama**
-- **Ollama** v0.18.0: Added TUI model ordering, reasoning effort support, and cloud model fixes.
-
-### **Hugging Face**
-- **Storage Buckets**: New feature for organizing models.
-- **LeRobot v0.5.0**: Scaling improvements.
-
----
-**BREAKING:**
-- OpenAI SDK v2.25+ requires updated tooling for GPT-5.4 and new ComputerTool API.
-- Anthropic SDK v0.84+ enforces array_format changes.</pre>
+<div class="digest-markdown">
+    <p><strong>AI Tooling Digest (2026-03-14)</strong></p>
+    <h3><strong>OpenAI</strong></h3>
+    <ul class="digest-list">
+      <li><strong>OpenAI SDK</strong> v2.28.0: Added <code>custom voices</code> support.</li>
+      <li><strong>OpenAI SDK</strong> v2.27.0: Sora API improvements (character API, video edits, higher-res exports).</li>
+      <li><strong>OpenAI SDK</strong> v2.26.0: GA ComputerTool now uses <code>ComputerTool</code> class; <code>computer_use_preview</code> moved to <code>ComputerUsePreview</code>.</li>
+      <li><strong>OpenAI SDK</strong> v2.25.0: Added GPT-5.4, tool search, and new ComputerTool.</li>
+      <li><strong>OpenAI SDK</strong> v2.24.0: Added <code>phase</code> field to messages.</li>
+      <li><strong>OpenAI SDK</strong> v2.23.0: Added <code>gpt-realtime-1.5</code> and <code>gpt-audio-1.5</code> models.</li>
+      <li><strong>OpenAI SDK</strong> v2.22.0: WebSocket support for responses API.</li>
+    </ul>
+    <h3><strong>Anthropic</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Anthropic SDK</strong> v0.84.0: Updated <code>array_format</code> to brackets, added MCP helpers.</li>
+      <li><strong>Anthropic SDK</strong> v0.83.0: Added top-level cache control.</li>
+      <li><strong>Claude Code</strong> v2.1.76: Added MCP elicitation support, <code>/claude-api</code> skill, and new CLI flags.</li>
+    </ul>
+    <h3><strong>Aider</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Aider</strong> v0.86.0: Added support for GPT-5, Grok-4, and Gemini 2.5 Flash Lite.</li>
+    </ul>
+    <h3><strong>Gemini CLI</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Gemini CLI</strong> v0.35.0-nightly: Improved UI, thinking UI overhaul, and chat resume.</li>
+    </ul>
+    <h3><strong>Ollama</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Ollama</strong> v0.18.0: Added TUI model ordering, reasoning effort support, and cloud model fixes.</li>
+    </ul>
+    <h3><strong>Hugging Face</strong></h3>
+    <ul class="digest-list">
+      <li><strong>Storage Buckets</strong>: New feature for organizing models.</li>
+      <li><strong>LeRobot v0.5.0</strong>: Scaling improvements.</li>
+    </ul>
+    <p>---</p>
+    <p class="breaking-label"><strong>BREAKING:</strong></p>
+    <ul class="digest-list">
+      <li>OpenAI SDK v2.25+ requires updated tooling for GPT-5.4 and new ComputerTool API.</li>
+      <li>Anthropic SDK v0.84+ enforces array_format changes.</li>
+    </ul>
+  </div>
   <details class="sources">
     <summary>sources</summary>
     <ul>
@@ -657,311 +839,325 @@
   </details>
   <details>
     <summary>2026-03-14 04:34 UTC  ·  86 items  ·  lid open</summary>
-    <pre>NEW RELEASES:
-
-* Last Week in AI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk - https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31
-* Last Week in AI #337 - Anthropic Risk, QuitGPT, ChatGPT 5.4 - https://lastweekin.ai/p/last-week-in-ai-337-anthropic-risk
-* [Latent Space] [AINews] Context Drought - https://www.latent.space/p/ainews-context-drought
-* [Latent Space] [AINews] The high-return activity of raising your aspirations for LLMs - https://www.latent.space/p/ainews-the-high-return-activity-of
-* [Latent Space] Retrieval After RAG: Hybrid Search, Agents, and Database Design — Simon Hørup Eskildsen of Turbopuffer - https://www.latent.space/p/turbopuffer
-* [Latent Space] [AINews] Replit Agent 4: The Knowledge Work Agent - https://www.latent.space/p/ainews-replit-agent-4-the-knowledge
-* [Latent Space] [AINews] Yann LeCun’s AMI Labs launches with a $1B seed @ $4.5B to build world models around JEPA - https://www.latent.space/p/ainews-yann-lecuns-ami-labs-launches
-* [Latent Space] NVIDIA's AI Engineers: Agent Inference at Planetary Scale and "Speed of Light" — Nader Khalil (Brev), Kyle Kranen (Dynamo) - https://www.latent.space/p/nvidia-brev-dynamo
-* [Latent Space] [AINews] Autoresearch: Sparks of Recursive Self Improvement - https://www.latent.space/p/ainews-autoresearch-sparks-of-recursive
-* [Latent Space] [AINews] AI Engineer will be the LAST job - https://www.latent.space/p/ainews-ai-engineer-will-be-the-last
-
-Aider v0.86.0:
-- Added support for all GPT-5 models.
-- Added support for Grok-4 via xai/grok-4 and openrouter/x-ai/grok-4 model names.
-- Added support for gemini/gemini-2.5-flash-lite-preview-06-17 model, by Tamir Zahavi-Brunner.
-- /clear now prints “All chat history cleared.” so you know it worked, by Zexin Yuan.
-- /undo output now shows only the first line of each commit message, making it easier to read.
-
-Aider v0.85.6.dev:
-- set version to 0.85.6.dev
-
-Aider v0.85.5:
-- version bump to 0.85.5
-
-Aider v0.85.5.dev:
-- set version to 0.85.5.dev
-
-Aider v0.85.4:
-- version bump to 0.85.4
-
-Hugging Face:
-- Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline - https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval
-- Introducing Storage Buckets on the Hugging Face Hub - https://huggingface.co/blog/storage-buckets
-- Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries - https://huggingface.co/blog/async-rl-training-landscape
-- Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge - https://huggingface.co/blog/ibm-granite/granite-4-speech
-- Ulysses Sequence Parallelism: Training with Million-Token Contexts - https://huggingface.co/blog/ulysses-sp
-- LeRobot v0.5.0: Scaling Every Dimension - https://huggingface.co/blog/lerobot-release-v050
-
-Codex CLI:
-- 0.115.0-alpha.22
-- 0.115.0-alpha.21
-- 0.115.0-alpha.20
-- 0.115.0-alpha.19
-- 0.115.0-alpha.18
-- 0.115.0-alpha.17
-- 0.115.0-alpha.16
-- 0.115.0-alpha.15
-- 0.115.0-alpha.14
-- 0.115.0-alpha.13
-
-Claude Code:
-- v2.1.76
-- v2.1.75
-- v2.1.74
-- v2.1.73
-- v2.1.72
-- v2.1.71
-- v2.1.70
-- v2.1.69
-- v2.1.68
-- v2.1.66
-
-OpenAI SDK:
-- v2.28.0
-- v2.27.0
-- v2.26.0
-- v2.25.0
-- v2.24.0
-- v2.23.0
-- v2.22.0
-- v2.21.0
-- v2.20.0
-- v2.19.0
-- v2.18.0
-- v2.17.0
-- v2.16.0
-- v2.15.0
-- v2.14.0
-- v2.13.0
-- v2.12.0
-- v2.11.0
-- v2.10.0
-- v2.9.0
-- v2.8.0
-- v2.7.0
-- v2.6.0
-- v2.5.0
-- v2.4.0
-- v2.3.0
-- v2.2.0
-- v2.1.0
-- v2.0.0
-
-Anthropic SDK:
-- v0.84.0
-- v0.83.0
-- v0.82.0
-- v0.81.0
-- v0.80.0
-- v0.79.0
-- v0.78.0
-- v0.77.1
-- v0.77.0
-- v0.76.0
-
-Ollama:
-- v0.18.0
-- v0.18.0-rc2
-- v0.18.0-rc1
-- v0.18.0-rc0
-- v0.17.8
-- v0.17.8-rc3
-- v0.17.8-rc2
-- v0.17.8-rc1
-- v0.17.7
-- v0.17.6
-
-Gemini CLI:
-- Release v0.35.0-nightly.20260314.3038fdce2
-- Release v0.35.0-nightly.20260313.bb060d7a9
-- Release v0.35.0-preview.3
-- Release v0.35.0-preview.2
-- Release v0.35.0-preview.1
-- Release v0.34.0-preview.2
-- Release v0.34.0-preview.1
-- Release v0.34.0-preview.0
-- Release v0.33.1
-- Release v0.34.0-preview.0
-- Release v0.33.0
-- Release v0.33.0-preview.15
-- Release v0.34.0-nightly.20260310.4653b126f
-- Release v0.33.0-nightly.20260303.34f0c1538
-- Release v0.33.0-preview.14
-- Release v0.33.0-preview.13
-- Release v0.33.0-preview.12
-- Release v0.33.0-preview.11
-- Release v0.33.0-preview.10
-- Release v0.33.0-preview.9
-- Release v0.33.0-preview.8
-- Release v0.33.0-preview.7
-- Release v0.33.0-preview.6
-- Release v0.33.0-preview.5
-- Release v0.33.0-preview.4
-- Release v0.33.0-preview.3
-- Release v0.33.0-preview.2
-- Release v0.33.0-preview.1
-- Release v0.33.0-preview.0
-- Release v0.32.0
-- Release v0.32.0-preview.11
-- Release v0.32.0-preview.10
-- Release v0.32.0-preview.9
-- Release v0.32.0-preview.8
-- Release v0.32.0-preview.7
-- Release v0.32.0-preview.6
-- Release v0.32.0-preview.5
-- Release v0.32.0-preview.4
-- Release v0.32.0-preview.3
-- Release v0.32.0-preview.2
-- Release v0.32.0-preview.1
-- Release v0.32.0-preview.0
-- Release v0.31.0
-- Release v0.31.0-preview.10
-- Release v0.31.0-preview.9
-- Release v0.31.0-preview.8
-- Release v0.31.0-preview.7
-- Release v0.31.0-preview.6
-- Release v0.31.0-preview.5
-- Release v0.31.0-preview.4
-- Release v0.31.0-preview.3
-- Release v0.31.0-preview.2
-- Release v0.31.0-preview.1
-- Release v0.31.0-preview.0
-- Release v0.30.0
-- Release v0.30.0-preview.9
-- Release v0.30.0-preview.8
-- Release v0.30.0-preview.7
-- Release v0.30.0-preview.6
-- Release v0.30.0-preview.5
-- Release v0.30.0-preview.4
-- Release v0.30.0-preview.3
-- Release v0.30.0-preview.2
-- Release v0.30.0-preview.1
-- Release v0.30.0-preview.0
-- Release v0.29.0
-- Release v0.29.0-preview.8
-- Release v0.29.0-preview.7
-- Release v0.29.0-preview.6
-- Release v0.29.0-preview.5
-- Release v0.29.0-preview.4
-- Release v0.29.0-preview.3
-- Release v0.29.0-preview.2
-- Release v0.29.0-preview.1
-- Release v0.29.0-preview.0
-- Release v0.28.0
-- Release v0.28.0-preview.7
-- Release v0.28.0-preview.6
-- Release v0.28.0-preview.5
-- Release v0.28.0-preview.4
-- Release v0.28.0-preview.3
-- Release v0.28.0-preview.2
-- Release v0.28.0-preview.1
-- Release v0.28.0-preview.0
-- Release v0.27.0
-- Release v0.27.0-preview.6
-- Release v0.27.0-preview.5
-- Release v0.27.0-preview.4
-- Release v0.27.0-preview.3
-- Release v0.27.0-preview.2
-- Release v0.27.0-preview.1
-- Release v0.27.0-preview.0
-- Release v0.26.0
-- Release v0.26.0-preview.5
-- Release v0.26.0-preview.4
-- Release v0.26.0-preview.3
-- Release v0.26.0-preview.2
-- Release v0.26.0-preview.1
-- Release v0.26.0-preview.0
-- Release v0.25.0
-- Release v0.25.0-preview.4
-- Release v0.25.0-preview.3
-- Release v0.25.0-preview.2
-- Release v0.25.0-preview.1
-- Release v0.25.0-preview.0
-- Release v0.24.0
-- Release v0.24.0-preview.3
-- Release v0.24.0-preview.2
-- Release v0.24.0-preview.1
-- Release v0.24.0-preview.0
-- Release v0.23.0
-- Release v0.23.0-preview.2
-- Release v0.23.0-preview.1
-- Release v0.23.0-preview.0
-- Release v0.22.0
-- Release v0.22.0-preview.1
-- Release v0.22.0-preview.0
-- Release v0.21.0
-- Release v0.21.0-preview.1
-- Release v0.21.0-preview.0
-- Release v0.20.0
-- Release v0.20.0-preview.1
-- Release v0.20.0-preview.0
-- Release v0.19.0
-- Release v0.19.0-preview.1
-- Release v0.19.0-preview.0
-- Release v0.18.0
-- Release v0.18.0-preview.1
-- Release v0.18.0-preview.0
-- Release v0.17.0
-- Release v0.17.0-preview.1
-- Release v0.17.0-preview.0
-- Release v0.16.0
-- Release v0.16.0-preview.1
-- Release v0.16.0-preview.0
-- Release v0.15.0
-- Release v0.15.0-preview.1
-- Release v0.15.0-preview.0
-- Release v0.14.0
-- Release v0.14.0-preview.1
-- Release v0.14.0-preview.0
-- Release v0.13.0
-- Release v0.13.0-preview.1
-- Release v0.13.0-preview.0
-- Release v0.12.0
-- Release v0.12.0-preview.1
-- Release v0.12.0-preview.0
-- Release v0.11.0
-- Release v0.11.0-preview.1
-- Release v0.11.0-preview.0
-- Release v0.10.0
-- Release v0.10.0-preview.1
-- Release v0.10.0-preview.0
-- Release v0.9.0
-- Release v0.9.0-preview.1
-- Release v0.9.0-preview.0
-- Release v0.8.0
-- Release v0.8.0-preview.1
-- Release v0.8.0-preview.0
-- Release v0.7.0
-- Release v0.7.0-preview.1
-- Release v0.7.0-preview.0
-- Release v0.6.0
-- Release v0.6.0-preview.1
-- Release v0.6.0-preview.0
-- Release v0.5.0
-- Release v0.5.0-preview.1
-- Release v0.5.0-preview.0
-- Release v0.4.0
-- Release v0.4.0-preview.1
-- Release v0.4.0-preview.0
-- Release v0.3.0
-- Release v0.3.0-preview.1
-- Release v0.3.0-preview.0
-- Release v0.2.0
-- Release v0.2.0-preview.1
-- Release v0.2.0-preview.0
-- Release v0.1.0
-- Release v0.1.0-preview.1
-- Release v0.1.0-preview.0
-
-BREAKING:
-- Anthropic officially told by DOD that it’s a supply chain risk (Last Week in AI #337)
-- 'cancel ChatGPT' trend is growing after OpenAI signs a deal with the US military (Last Week in AI #337)
-- /undo output now shows only the first line of each commit message, making it easier to read (Aider v0.86.2)</pre>
+<div class="digest-markdown">
+    <p>NEW RELEASES:</p>
+    <p>* Last Week in AI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk - https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31</p>
+    <p>* Last Week in AI #337 - Anthropic Risk, QuitGPT, ChatGPT 5.4 - https://lastweekin.ai/p/last-week-in-ai-337-anthropic-risk</p>
+    <p>* [Latent Space] [AINews] Context Drought - https://www.latent.space/p/ainews-context-drought</p>
+    <p>* [Latent Space] [AINews] The high-return activity of raising your aspirations for LLMs - https://www.latent.space/p/ainews-the-high-return-activity-of</p>
+    <p>* [Latent Space] Retrieval After RAG: Hybrid Search, Agents, and Database Design — Simon Hørup Eskildsen of Turbopuffer - https://www.latent.space/p/turbopuffer</p>
+    <p>* [Latent Space] [AINews] Replit Agent 4: The Knowledge Work Agent - https://www.latent.space/p/ainews-replit-agent-4-the-knowledge</p>
+    <p>* [Latent Space] [AINews] Yann LeCun’s AMI Labs launches with a $1B seed @ $4.5B to build world models around JEPA - https://www.latent.space/p/ainews-yann-lecuns-ami-labs-launches</p>
+    <p>* [Latent Space] NVIDIA&#x27;s AI Engineers: Agent Inference at Planetary Scale and &quot;Speed of Light&quot; — Nader Khalil (Brev), Kyle Kranen (Dynamo) - https://www.latent.space/p/nvidia-brev-dynamo</p>
+    <p>* [Latent Space] [AINews] Autoresearch: Sparks of Recursive Self Improvement - https://www.latent.space/p/ainews-autoresearch-sparks-of-recursive</p>
+    <p>* [Latent Space] [AINews] AI Engineer will be the LAST job - https://www.latent.space/p/ainews-ai-engineer-will-be-the-last</p>
+    <p>Aider v0.86.0:</p>
+    <ul class="digest-list">
+      <li>Added support for all GPT-5 models.</li>
+      <li>Added support for Grok-4 via xai/grok-4 and openrouter/x-ai/grok-4 model names.</li>
+      <li>Added support for gemini/gemini-2.5-flash-lite-preview-06-17 model, by Tamir Zahavi-Brunner.</li>
+      <li>/clear now prints “All chat history cleared.” so you know it worked, by Zexin Yuan.</li>
+      <li>/undo output now shows only the first line of each commit message, making it easier to read.</li>
+    </ul>
+    <p>Aider v0.85.6.dev:</p>
+    <ul class="digest-list">
+      <li>set version to 0.85.6.dev</li>
+    </ul>
+    <p>Aider v0.85.5:</p>
+    <ul class="digest-list">
+      <li>version bump to 0.85.5</li>
+    </ul>
+    <p>Aider v0.85.5.dev:</p>
+    <ul class="digest-list">
+      <li>set version to 0.85.5.dev</li>
+    </ul>
+    <p>Aider v0.85.4:</p>
+    <ul class="digest-list">
+      <li>version bump to 0.85.4</li>
+    </ul>
+    <p>Hugging Face:</p>
+    <ul class="digest-list">
+      <li>Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline - https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval</li>
+      <li>Introducing Storage Buckets on the Hugging Face Hub - https://huggingface.co/blog/storage-buckets</li>
+      <li>Keep the Tokens Flowing: Lessons from 16 Open-Source RL Libraries - https://huggingface.co/blog/async-rl-training-landscape</li>
+      <li>Granite 4.0 1B Speech: Compact, Multilingual, and Built for the Edge - https://huggingface.co/blog/ibm-granite/granite-4-speech</li>
+      <li>Ulysses Sequence Parallelism: Training with Million-Token Contexts - https://huggingface.co/blog/ulysses-sp</li>
+      <li>LeRobot v0.5.0: Scaling Every Dimension - https://huggingface.co/blog/lerobot-release-v050</li>
+    </ul>
+    <p>Codex CLI:</p>
+    <ul class="digest-list">
+      <li>0.115.0-alpha.22</li>
+      <li>0.115.0-alpha.21</li>
+      <li>0.115.0-alpha.20</li>
+      <li>0.115.0-alpha.19</li>
+      <li>0.115.0-alpha.18</li>
+      <li>0.115.0-alpha.17</li>
+      <li>0.115.0-alpha.16</li>
+      <li>0.115.0-alpha.15</li>
+      <li>0.115.0-alpha.14</li>
+      <li>0.115.0-alpha.13</li>
+    </ul>
+    <p>Claude Code:</p>
+    <ul class="digest-list">
+      <li>v2.1.76</li>
+      <li>v2.1.75</li>
+      <li>v2.1.74</li>
+      <li>v2.1.73</li>
+      <li>v2.1.72</li>
+      <li>v2.1.71</li>
+      <li>v2.1.70</li>
+      <li>v2.1.69</li>
+      <li>v2.1.68</li>
+      <li>v2.1.66</li>
+    </ul>
+    <p>OpenAI SDK:</p>
+    <ul class="digest-list">
+      <li>v2.28.0</li>
+      <li>v2.27.0</li>
+      <li>v2.26.0</li>
+      <li>v2.25.0</li>
+      <li>v2.24.0</li>
+      <li>v2.23.0</li>
+      <li>v2.22.0</li>
+      <li>v2.21.0</li>
+      <li>v2.20.0</li>
+      <li>v2.19.0</li>
+      <li>v2.18.0</li>
+      <li>v2.17.0</li>
+      <li>v2.16.0</li>
+      <li>v2.15.0</li>
+      <li>v2.14.0</li>
+      <li>v2.13.0</li>
+      <li>v2.12.0</li>
+      <li>v2.11.0</li>
+      <li>v2.10.0</li>
+      <li>v2.9.0</li>
+      <li>v2.8.0</li>
+      <li>v2.7.0</li>
+      <li>v2.6.0</li>
+      <li>v2.5.0</li>
+      <li>v2.4.0</li>
+      <li>v2.3.0</li>
+      <li>v2.2.0</li>
+      <li>v2.1.0</li>
+      <li>v2.0.0</li>
+    </ul>
+    <p>Anthropic SDK:</p>
+    <ul class="digest-list">
+      <li>v0.84.0</li>
+      <li>v0.83.0</li>
+      <li>v0.82.0</li>
+      <li>v0.81.0</li>
+      <li>v0.80.0</li>
+      <li>v0.79.0</li>
+      <li>v0.78.0</li>
+      <li>v0.77.1</li>
+      <li>v0.77.0</li>
+      <li>v0.76.0</li>
+    </ul>
+    <p>Ollama:</p>
+    <ul class="digest-list">
+      <li>v0.18.0</li>
+      <li>v0.18.0-rc2</li>
+      <li>v0.18.0-rc1</li>
+      <li>v0.18.0-rc0</li>
+      <li>v0.17.8</li>
+      <li>v0.17.8-rc3</li>
+      <li>v0.17.8-rc2</li>
+      <li>v0.17.8-rc1</li>
+      <li>v0.17.7</li>
+      <li>v0.17.6</li>
+    </ul>
+    <p>Gemini CLI:</p>
+    <ul class="digest-list">
+      <li>Release v0.35.0-nightly.20260314.3038fdce2</li>
+      <li>Release v0.35.0-nightly.20260313.bb060d7a9</li>
+      <li>Release v0.35.0-preview.3</li>
+      <li>Release v0.35.0-preview.2</li>
+      <li>Release v0.35.0-preview.1</li>
+      <li>Release v0.34.0-preview.2</li>
+      <li>Release v0.34.0-preview.1</li>
+      <li>Release v0.34.0-preview.0</li>
+      <li>Release v0.33.1</li>
+      <li>Release v0.34.0-preview.0</li>
+      <li>Release v0.33.0</li>
+      <li>Release v0.33.0-preview.15</li>
+      <li>Release v0.34.0-nightly.20260310.4653b126f</li>
+      <li>Release v0.33.0-nightly.20260303.34f0c1538</li>
+      <li>Release v0.33.0-preview.14</li>
+      <li>Release v0.33.0-preview.13</li>
+      <li>Release v0.33.0-preview.12</li>
+      <li>Release v0.33.0-preview.11</li>
+      <li>Release v0.33.0-preview.10</li>
+      <li>Release v0.33.0-preview.9</li>
+      <li>Release v0.33.0-preview.8</li>
+      <li>Release v0.33.0-preview.7</li>
+      <li>Release v0.33.0-preview.6</li>
+      <li>Release v0.33.0-preview.5</li>
+      <li>Release v0.33.0-preview.4</li>
+      <li>Release v0.33.0-preview.3</li>
+      <li>Release v0.33.0-preview.2</li>
+      <li>Release v0.33.0-preview.1</li>
+      <li>Release v0.33.0-preview.0</li>
+      <li>Release v0.32.0</li>
+      <li>Release v0.32.0-preview.11</li>
+      <li>Release v0.32.0-preview.10</li>
+      <li>Release v0.32.0-preview.9</li>
+      <li>Release v0.32.0-preview.8</li>
+      <li>Release v0.32.0-preview.7</li>
+      <li>Release v0.32.0-preview.6</li>
+      <li>Release v0.32.0-preview.5</li>
+      <li>Release v0.32.0-preview.4</li>
+      <li>Release v0.32.0-preview.3</li>
+      <li>Release v0.32.0-preview.2</li>
+      <li>Release v0.32.0-preview.1</li>
+      <li>Release v0.32.0-preview.0</li>
+      <li>Release v0.31.0</li>
+      <li>Release v0.31.0-preview.10</li>
+      <li>Release v0.31.0-preview.9</li>
+      <li>Release v0.31.0-preview.8</li>
+      <li>Release v0.31.0-preview.7</li>
+      <li>Release v0.31.0-preview.6</li>
+      <li>Release v0.31.0-preview.5</li>
+      <li>Release v0.31.0-preview.4</li>
+      <li>Release v0.31.0-preview.3</li>
+      <li>Release v0.31.0-preview.2</li>
+      <li>Release v0.31.0-preview.1</li>
+      <li>Release v0.31.0-preview.0</li>
+      <li>Release v0.30.0</li>
+      <li>Release v0.30.0-preview.9</li>
+      <li>Release v0.30.0-preview.8</li>
+      <li>Release v0.30.0-preview.7</li>
+      <li>Release v0.30.0-preview.6</li>
+      <li>Release v0.30.0-preview.5</li>
+      <li>Release v0.30.0-preview.4</li>
+      <li>Release v0.30.0-preview.3</li>
+      <li>Release v0.30.0-preview.2</li>
+      <li>Release v0.30.0-preview.1</li>
+      <li>Release v0.30.0-preview.0</li>
+      <li>Release v0.29.0</li>
+      <li>Release v0.29.0-preview.8</li>
+      <li>Release v0.29.0-preview.7</li>
+      <li>Release v0.29.0-preview.6</li>
+      <li>Release v0.29.0-preview.5</li>
+      <li>Release v0.29.0-preview.4</li>
+      <li>Release v0.29.0-preview.3</li>
+      <li>Release v0.29.0-preview.2</li>
+      <li>Release v0.29.0-preview.1</li>
+      <li>Release v0.29.0-preview.0</li>
+      <li>Release v0.28.0</li>
+      <li>Release v0.28.0-preview.7</li>
+      <li>Release v0.28.0-preview.6</li>
+      <li>Release v0.28.0-preview.5</li>
+      <li>Release v0.28.0-preview.4</li>
+      <li>Release v0.28.0-preview.3</li>
+      <li>Release v0.28.0-preview.2</li>
+      <li>Release v0.28.0-preview.1</li>
+      <li>Release v0.28.0-preview.0</li>
+      <li>Release v0.27.0</li>
+      <li>Release v0.27.0-preview.6</li>
+      <li>Release v0.27.0-preview.5</li>
+      <li>Release v0.27.0-preview.4</li>
+      <li>Release v0.27.0-preview.3</li>
+      <li>Release v0.27.0-preview.2</li>
+      <li>Release v0.27.0-preview.1</li>
+      <li>Release v0.27.0-preview.0</li>
+      <li>Release v0.26.0</li>
+      <li>Release v0.26.0-preview.5</li>
+      <li>Release v0.26.0-preview.4</li>
+      <li>Release v0.26.0-preview.3</li>
+      <li>Release v0.26.0-preview.2</li>
+      <li>Release v0.26.0-preview.1</li>
+      <li>Release v0.26.0-preview.0</li>
+      <li>Release v0.25.0</li>
+      <li>Release v0.25.0-preview.4</li>
+      <li>Release v0.25.0-preview.3</li>
+      <li>Release v0.25.0-preview.2</li>
+      <li>Release v0.25.0-preview.1</li>
+      <li>Release v0.25.0-preview.0</li>
+      <li>Release v0.24.0</li>
+      <li>Release v0.24.0-preview.3</li>
+      <li>Release v0.24.0-preview.2</li>
+      <li>Release v0.24.0-preview.1</li>
+      <li>Release v0.24.0-preview.0</li>
+      <li>Release v0.23.0</li>
+      <li>Release v0.23.0-preview.2</li>
+      <li>Release v0.23.0-preview.1</li>
+      <li>Release v0.23.0-preview.0</li>
+      <li>Release v0.22.0</li>
+      <li>Release v0.22.0-preview.1</li>
+      <li>Release v0.22.0-preview.0</li>
+      <li>Release v0.21.0</li>
+      <li>Release v0.21.0-preview.1</li>
+      <li>Release v0.21.0-preview.0</li>
+      <li>Release v0.20.0</li>
+      <li>Release v0.20.0-preview.1</li>
+      <li>Release v0.20.0-preview.0</li>
+      <li>Release v0.19.0</li>
+      <li>Release v0.19.0-preview.1</li>
+      <li>Release v0.19.0-preview.0</li>
+      <li>Release v0.18.0</li>
+      <li>Release v0.18.0-preview.1</li>
+      <li>Release v0.18.0-preview.0</li>
+      <li>Release v0.17.0</li>
+      <li>Release v0.17.0-preview.1</li>
+      <li>Release v0.17.0-preview.0</li>
+      <li>Release v0.16.0</li>
+      <li>Release v0.16.0-preview.1</li>
+      <li>Release v0.16.0-preview.0</li>
+      <li>Release v0.15.0</li>
+      <li>Release v0.15.0-preview.1</li>
+      <li>Release v0.15.0-preview.0</li>
+      <li>Release v0.14.0</li>
+      <li>Release v0.14.0-preview.1</li>
+      <li>Release v0.14.0-preview.0</li>
+      <li>Release v0.13.0</li>
+      <li>Release v0.13.0-preview.1</li>
+      <li>Release v0.13.0-preview.0</li>
+      <li>Release v0.12.0</li>
+      <li>Release v0.12.0-preview.1</li>
+      <li>Release v0.12.0-preview.0</li>
+      <li>Release v0.11.0</li>
+      <li>Release v0.11.0-preview.1</li>
+      <li>Release v0.11.0-preview.0</li>
+      <li>Release v0.10.0</li>
+      <li>Release v0.10.0-preview.1</li>
+      <li>Release v0.10.0-preview.0</li>
+      <li>Release v0.9.0</li>
+      <li>Release v0.9.0-preview.1</li>
+      <li>Release v0.9.0-preview.0</li>
+      <li>Release v0.8.0</li>
+      <li>Release v0.8.0-preview.1</li>
+      <li>Release v0.8.0-preview.0</li>
+      <li>Release v0.7.0</li>
+      <li>Release v0.7.0-preview.1</li>
+      <li>Release v0.7.0-preview.0</li>
+      <li>Release v0.6.0</li>
+      <li>Release v0.6.0-preview.1</li>
+      <li>Release v0.6.0-preview.0</li>
+      <li>Release v0.5.0</li>
+      <li>Release v0.5.0-preview.1</li>
+      <li>Release v0.5.0-preview.0</li>
+      <li>Release v0.4.0</li>
+      <li>Release v0.4.0-preview.1</li>
+      <li>Release v0.4.0-preview.0</li>
+      <li>Release v0.3.0</li>
+      <li>Release v0.3.0-preview.1</li>
+      <li>Release v0.3.0-preview.0</li>
+      <li>Release v0.2.0</li>
+      <li>Release v0.2.0-preview.1</li>
+      <li>Release v0.2.0-preview.0</li>
+      <li>Release v0.1.0</li>
+      <li>Release v0.1.0-preview.1</li>
+      <li>Release v0.1.0-preview.0</li>
+    </ul>
+    <p class="breaking-label">BREAKING:</p>
+    <ul class="digest-list">
+      <li>Anthropic officially told by DOD that it’s a supply chain risk (Last Week in AI #337)</li>
+      <li>&#x27;cancel ChatGPT&#x27; trend is growing after OpenAI signs a deal with the US military (Last Week in AI #337)</li>
+      <li>/undo output now shows only the first line of each commit message, making it easier to read (Aider v0.86.2)</li>
+    </ul>
+  </div>
   <details class="sources">
     <summary>sources</summary>
     <ul>
