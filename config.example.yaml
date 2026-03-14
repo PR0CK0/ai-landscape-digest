@@ -1,61 +1,172 @@
-# ai-digest configuration
-# ─────────────────────────────────────────────
-# Copy this file to config.yaml and edit.
-# config.yaml is gitignored — personal settings stay local.
+# ai-digest — configuration reference
+# ─────────────────────────────────────────────────────────────────────────────
+# Copy this file to config.yaml and edit to taste.
+# config.yaml is gitignored by default — personal settings stay local.
+# Exception: if you use GitHub Pages mode (output: github_pages) with a local
+# push workflow, you will need config.yaml committed in your fork.
+# ─────────────────────────────────────────────────────────────────────────────
 
-# ── LLM backend ────────────────────────────────────────────────────────────
-# Which CLI to use for summarization.
-# Options: claude (default) | gemini | codex | ollama
+
+# ── LLM backend ──────────────────────────────────────────────────────────────
+# Which CLI tool to use for summarization.
+# Options:
+#   claude  — Claude Code CLI  (default; uses your existing subscription)
+#   gemini  — Gemini CLI
+#   codex   — OpenAI Codex CLI
+#   ollama  — local Ollama (free; great on M-series Macs)
 backend: claude
 
-# Model to pass to the backend. Leave as "default" to use each CLI's default.
+# Model to pass to the backend CLI.
+# Leave as "default" to use each CLI's built-in default model.
 # Examples:
-#   claude:  claude-haiku-4-5-20251001  (fast, cheap)
-#            claude-sonnet-4-6           (smarter)
-#   gemini:  gemini-2.5-flash
-#   codex:   gpt-4o-mini
-#   ollama:  llama3 | qwen2.5-coder:32b | mistral
+#   claude: claude-haiku-4-5-20251001  (fast, low cost)
+#           claude-sonnet-4-6           (smarter, slower)
+#   gemini: gemini-2.5-flash
+#           gemini-2.5-pro
+#   codex:  gpt-4o-mini
+#           gpt-4o
+#   ollama: llama3.2
+#           qwen2.5-coder:32b
+#           mistral
 model: default
 
-# ── Output ─────────────────────────────────────────────────────────────────
-# "terminal"     — print digest to stdout only (default, works offline)
-# "github_pages" — also write docs/ and git push to GitHub Pages
+
+# ── Output ───────────────────────────────────────────────────────────────────
+# Where to send the digest after summarization.
+# Options:
+#   terminal      — print to stdout only (default; works fully offline)
+#   github_pages  — print to stdout AND write docs/ then git push to GitHub Pages
 output: terminal
 
-# GitHub Pages settings (only used when output: github_pages)
+# Generate a local HTML report in ~/Documents/ai-digest/index.html.
+# Opens automatically in your browser when run manually.
+# For wake/timer triggers, sends a clickable macOS notification instead.
+# Set to false to disable local HTML entirely.
+html_output: true
+
+
+# ── GitHub Pages ─────────────────────────────────────────────────────────────
+# Only used when output: github_pages.
+# The digest is written to docs/index.html and docs/latest.txt, committed,
+# and pushed to origin. GitHub Pages then serves it from that branch/folder.
+#
+# Setup (local push mode):
+#   1. Fork this repo to your GitHub account
+#   2. Fill in your username and repo name below
+#   3. Enable Pages: Settings → Pages → Deploy from branch → main / docs
+#   4. Run normally — each digest auto-commits and pushes to your fork
+#
+# Setup (GitHub Actions / cloud mode — no local machine needed):
+#   See .github/workflows/digest.yml for the full workflow.
+#   1. Set output: github_pages here
+#   2. Add your LLM API key as a repo secret (Settings → Secrets → Actions)
+#   3. Enable Pages as above
+#   4. The workflow runs on a schedule and pushes automatically
 github_pages:
+  # Your GitHub username (required)
   username: YOUR_GITHUB_USERNAME
+
+  # The repository name (defaults to "ai-digest")
   repo: ai-digest
-  # Optional: custom domain URL (e.g. if you have CNAME set up)
+
+  # Optional: custom domain if you have a CNAME configured
   # base_url: https://yourdomain.com/ai-digest
+
   # How many past digests to keep in the history page (default: 50)
   # max_history: 50
-  # Set true to push even when only alpha/nightly/dev releases found
+
+  # Push even when all new items are alpha/nightly/pre-release noise.
+  # Default false — only pushes when at least one stable release is found.
   # push_noise: false
 
-# ── Feeds ──────────────────────────────────────────────────────────────────
-# Set to false to disable built-in defaults and use only custom_feeds below.
+
+# ── Feeds ────────────────────────────────────────────────────────────────────
+# Set to false to use only your custom_feeds below and skip the built-in defaults.
+# Built-in defaults include Claude Code, Gemini CLI, Codex, Aider, Anthropic SDK,
+# OpenAI SDK, OpenAI blog, Hugging Face blog, Last Week in AI, Latent Space.
 include_defaults: true
 
-# Add any RSS/Atom feed here. Name is used for grouping in the digest.
+# Add your own RSS/Atom feeds here. Any valid feed URL works.
+# Each entry needs a name (used as a source label in the digest) and a url.
 custom_feeds:
-  # Examples:
+  # Examples — uncomment and edit as needed:
+
+  # Blogs & newsletters
   # - name: "Simon Willison"
   #   url: "https://simonwillison.net/atom/everything/"
-  # - name: "Hacker News AI"
-  #   url: "https://hnrss.org/newest?q=LLM+OR+claude+OR+openai&count=10"
-  # - name: "Anthropic News"
-  #   url: "https://www.anthropic.com/rss.xml"
-  # - name: "arXiv CS.AI"
-  #   url: "https://arxiv.org/rss/cs.AI"
+  # - name: "The Batch (DeepLearning.AI)"
+  #   url: "https://www.deeplearning.ai/the-batch/feed/"
   # - name: "The Rundown AI"
   #   url: "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml"
+  # - name: "Latent Space"
+  #   url: "https://www.latent.space/feed"
+  # - name: "Interconnects"
+  #   url: "https://www.interconnects.ai/feed"
+  # - name: "Ahead of AI"
+  #   url: "https://magazine.sebastianraschka.com/feed"
 
-# ── Misc ───────────────────────────────────────────────────────────────────
-# Show verbose feed fetch info in stderr
+  # Hacker News (filtered)
+  # - name: "Hacker News — LLMs"
+  #   url: "https://hnrss.org/newest?q=LLM+OR+claude+OR+openai&count=15"
+  # - name: "Hacker News — AI"
+  #   url: "https://hnrss.org/newest?q=artificial+intelligence&points=50&count=10"
+
+  # Company blogs
+  # - name: "Anthropic"
+  #   url: "https://www.anthropic.com/rss.xml"
+  # - name: "OpenAI"
+  #   url: "https://openai.com/news/rss.xml"
+  # - name: "Google DeepMind"
+  #   url: "https://deepmind.google/blog/rss/"
+  # - name: "Mistral"
+  #   url: "https://mistral.ai/news/rss/"
+
+  # GitHub releases (format: https://github.com/OWNER/REPO/releases.atom)
+  # - name: "LangChain"
+  #   url: "https://github.com/langchain-ai/langchain/releases.atom"
+  # - name: "LlamaIndex"
+  #   url: "https://github.com/run-llama/llama_index/releases.atom"
+  # - name: "Ollama"
+  #   url: "https://github.com/ollama/ollama/releases.atom"
+  # - name: "vLLM"
+  #   url: "https://github.com/vllm-project/vllm/releases.atom"
+
+  # Research
+  # - name: "arXiv CS.AI"
+  #   url: "https://arxiv.org/rss/cs.AI"
+  # - name: "arXiv CS.LG"
+  #   url: "https://arxiv.org/rss/cs.LG"
+
+
+# ── Schedule ─────────────────────────────────────────────────────────────────
+# How often to run automatically (seconds).
+#   > 0  — run on lid open + background timer every N seconds (default: 3600 = 1 hour)
+#     0  — run on every lid open with no throttle; no background timer installed
+#
+# After changing this, re-run: python3 -m ai_digest install-trigger
+#
+# Common values:
+#   1800  = 30 minutes
+#   3600  = 1 hour  (default)
+#   7200  = 2 hours
+#   86400 = once a day
+check_interval: 3600
+
+
+# ── Deduplication ─────────────────────────────────────────────────────────────
+# Seen item IDs expire after this many days. After expiry, an item can surface
+# again if it still appears in the feed. Default: 30 days.
+# Set lower (e.g. 7) if you want a shorter memory.
+seen_ttl_days: 30
+
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+# Print verbose feed-fetch info to stderr (shows per-feed item counts).
 verbose: false
 
-# Override the summarization prompt (optional)
+# Override the summarization prompt. Leave commented to use the built-in default.
+# The prompt receives a list of new release items and should return a terse
+# markdown digest. Example compact override:
 # prompt: |
-#   Terse AI tools digest. Plain text, grouped by tool, one line per release,
-#   max 20 lines. Flag BREAKING changes.
+#   Terse markdown. Group by category. Bullet points only. No preamble.
+#   Flag breaking changes with BREAKING. Skip alpha/nightly/dev releases.

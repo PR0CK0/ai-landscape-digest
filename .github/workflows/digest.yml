@@ -1,0 +1,81 @@
+# AI Landscape Digest — GitHub Actions scheduled runner
+#
+# This workflow runs the digest on a schedule and pushes the HTML report
+# to GitHub Pages. Use this if you want the digest to run automatically
+# in the cloud without your local machine.
+#
+# Setup:
+#   1. Set output: github_pages in config.yaml (commit config.yaml to the repo,
+#      or remove it from .gitignore for the GitHub Pages use case)
+#   2. Add your LLM API key as a repo secret (Settings → Secrets → Actions)
+#   3. Enable GitHub Pages: Settings → Pages → Deploy from branch → main / docs
+#   4. Adjust the cron schedule below to your preferred interval
+
+name: AI Digest
+
+on:
+  schedule:
+    # Runs every hour. Adjust to your liking:
+    # '0 * * * *'   = every hour
+    # '0 */4 * * *' = every 4 hours
+    # '0 8 * * *'   = daily at 8am UTC
+    - cron: '0 * * * *'
+  workflow_dispatch:  # allows manual trigger from GitHub UI
+
+permissions:
+  contents: write  # needed to commit and push docs/ changes
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history needed for git push
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install --quiet feedparser pyyaml
+
+      # ── Install your LLM CLI ──────────────────────────────────────────────
+      # Uncomment the block for your chosen backend and add the corresponding
+      # API key under repo Settings → Secrets → Actions.
+
+      # Claude (default) — requires ANTHROPIC_API_KEY secret
+      - name: Install Claude CLI
+        run: npm install -g @anthropic-ai/claude-code
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      # Gemini — requires GEMINI_API_KEY secret
+      # - name: Install Gemini CLI
+      #   run: npm install -g @google/gemini-cli
+      #   env:
+      #     GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # OpenAI Codex — requires OPENAI_API_KEY secret
+      # - name: Install Codex CLI
+      #   run: npm install -g @openai/codex
+      #   env:
+      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      # ─────────────────────────────────────────────────────────────────────
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run digest
+        env:
+          DIGEST_TRIGGER: github_actions
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python -m ai_digest

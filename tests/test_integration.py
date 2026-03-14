@@ -10,15 +10,12 @@ Skip network tests offline:
 
 import json
 import socket
-import sys
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
 import yaml
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-import digest
+from ai_digest import app as digest
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────

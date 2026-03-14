@@ -1,15 +1,16 @@
-.PHONY: install setup test test-unit test-integration run reset help
+.PHONY: install setup install-trigger uninstall-trigger doctor test test-unit test-integration run reset help
 
-SCRIPT_DIR := $(shell pwd)
-WAKEUP     := $(HOME)/.wakeup
 LOOKBACK_DAYS := 7
 
 help:
 	@echo ""
-	@echo "  ai-digest — AI tools release tracker"
+	@echo "  ai-digest — AI landscape release tracker"
 	@echo ""
 	@echo "  make install          install Python deps"
-	@echo "  make setup            install deps + sleepwatcher + write ~/.wakeup"
+	@echo "  make setup            install deps + platform trigger"
+	@echo "  make install-trigger  install platform trigger"
+	@echo "  make uninstall-trigger remove platform trigger"
+	@echo "  make doctor           inspect local environment"
 	@echo "  make test             run all unit tests"
 	@echo "  make test-unit        run unit tests only (fast, no network)"
 	@echo "  make test-integration run integration tests (requires network)"
@@ -20,21 +21,26 @@ help:
 	@echo ""
 
 install:
-	pip3 install -r requirements.txt
+	pip install -r requirements.txt
 
 setup: install
-	@echo "→ Installing sleepwatcher..."
-	brew install sleepwatcher
-	brew services start sleepwatcher
-	@echo "→ Writing ~/.wakeup..."
-	@sed 's|DIGEST_SCRIPT=".*"|DIGEST_SCRIPT="$(SCRIPT_DIR)/digest.py"|' wakeup.sh > $(WAKEUP)
-	chmod 700 $(WAKEUP)
+	@echo "→ Installing platform trigger..."
+	python3 -m ai_digest install-trigger
 	@if [ ! -f config.yaml ]; then \
 		cp config.example.yaml config.yaml; \
 		echo "→ Created config.yaml — edit it to customize feeds, model, and output."; \
 	fi
 	@echo ""
 	@echo "Done. Close and reopen your lid to trigger, or run: make run"
+
+install-trigger:
+	python3 -m ai_digest install-trigger
+
+uninstall-trigger:
+	python3 -m ai_digest uninstall-trigger
+
+doctor:
+	python3 -m ai_digest doctor
 
 test: test-unit
 
@@ -45,7 +51,7 @@ test-integration:
 	pytest -m integration
 
 run:
-	python3 digest.py
+	python3 -m ai_digest
 
 reset:
 	echo "[]" > seen_items.json

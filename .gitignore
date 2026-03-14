@@ -2,4 +2,10 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+# Remove this line if you want to commit config.yaml for GitHub Pages local-push mode
 config.yaml
+.last_fetch_at
+*.whl
+*.egg-info/
+dist/
+ai-digest.log
