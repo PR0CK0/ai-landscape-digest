@@ -17,17 +17,19 @@
 backend: claude
 
 # Model to pass to the backend CLI.
-# Leave as "default" to use each CLI's built-in default model.
+# "default" lets each CLI pick its own model — fine for most backends.
+# For claude, consider setting a specific model: the CLI default may be an expensive one.
+# Check `claude --help` for current model names; look for the smallest/fastest haiku variant.
 # Examples:
-#   claude: claude-haiku-4-5-20251001  (fast, low cost)
-#           claude-sonnet-4-6           (smarter, slower)
-#   gemini: gemini-2.5-flash
+#   claude: <haiku model name>   (fast, cheap — recommended for a digest)
+#           <sonnet model name>  (smarter, slower, more expensive)
+#   gemini: gemini-2.5-flash     (fast, free tier available)
 #           gemini-2.5-pro
-#   codex:  gpt-4o-mini
+#   codex:  gpt-4o-mini          (cheap)
 #           gpt-4o
-#   ollama: llama3.2
+#   ollama: ministral-3b:3b      (~10s, very light — recommended starting point)
+#           llama3.2
 #           qwen2.5-coder:32b
-#           mistral
 model: default
 
 

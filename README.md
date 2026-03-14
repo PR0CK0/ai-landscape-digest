@@ -18,7 +18,9 @@ Keeping up with AI is exhausting. Every week brings new model releases, CLI upda
 - [Install](#install)
 - [Configuration](#configuration)
   - [Config options](#config-options)
+  - [How backends work](#how-backends-work)
   - [Switching backends](#switching-backends)
+  - [Ollama recommended models](#ollama-recommended-models)
 - [Feeds](#feeds)
   - [Default feeds](#default-feeds)
   - [Custom feeds](#custom-feeds)
@@ -79,11 +81,33 @@ cp config.example.yaml config.yaml
 | `verbose` | `false` | Print per-feed fetch counts to stderr |
 | `prompt` | *(built-in)* | Override the LLM summarization prompt |
 
+### How backends work
+
+ai-digest doesn't handle API keys or authentication itself. It just calls your LLM CLI as a subprocess — the same tool you'd type at the terminal. If `claude` (or `gemini`, `codex`) is already installed and authenticated on your machine, it works immediately. No extra setup, no secrets in config files.
+
+Each CLI handles auth its own way:
+
+| Backend | Install | Auth |
+|---|---|---|
+| `claude` | `npm install -g @anthropic-ai/claude-code` | `claude` (interactive login on first run) |
+| `gemini` | `npm install -g @google/gemini-cli` | `gemini` (Google account login on first run) |
+| `codex` | `npm install -g @openai/codex` | Set `OPENAI_API_KEY` env var |
+| `ollama` | [ollama.com](https://ollama.com) | No auth — fully local |
+
+Once authenticated, `doctor` verifies the CLI is on your PATH:
+
+```bash
+python3 -m ai_digest doctor
+```
+
 ### Switching backends
 
 ```yaml
-# Claude Code — uses your existing subscription
+# Claude — uses your existing Claude Code subscription
+# Recommended: explicitly set the cheapest/fastest model (haiku variant)
+# Run `claude --help` to see current model names
 backend: claude
+model: default
 
 # Gemini CLI
 backend: gemini
@@ -93,10 +117,23 @@ model: gemini-2.5-flash
 backend: codex
 model: gpt-4o-mini
 
-# Ollama — fully local, no API key needed
+# Ollama — fully local, no API key or subscription needed
 backend: ollama
-model: qwen2.5-coder:32b
+model: ministral-3b:3b   # see recommended models below
 ```
+
+### Ollama recommended models
+
+Ollama runs entirely on your machine — no API key, no usage costs, works offline.
+
+| Model | Pull command | Speed | Notes |
+|---|---|---|---|
+| `ministral-3b:3b` | `ollama pull ministral-3b:3b` | ~10s | Fast and light — good starting point |
+| `llama3.2` | `ollama pull llama3.2` | ~15s | Solid general quality |
+| `qwen2.5-coder:32b` | `ollama pull qwen2.5-coder:32b` | slow | Best quality; needs significant RAM |
+| `mistral` | `ollama pull mistral` | ~20s | Good balance of speed and quality |
+
+For most machines, `ministral-3b:3b` is the best default — ~10s response time, very low memory footprint.
 
 ## Feeds
 
@@ -251,7 +288,10 @@ Run on your own machine; each digest auto-commits and pushes.
 Cloud-scheduled — no local machine needed.
 
 1. Fork this repo.
-2. Add your LLM API key as a repo secret: **Settings → Secrets → Actions → New repository secret**.
+2. Add your LLM API key as a repo secret (**Settings → Secrets → Actions → New repository secret**). The secret name must match what the CLI expects:
+   - Claude: `ANTHROPIC_API_KEY`
+   - Gemini: `GEMINI_API_KEY`
+   - Codex: `OPENAI_API_KEY`
 3. Remove `docs/` and `seen_items.json` from `.gitignore` and commit both to your fork.
 4. In `config.yaml` (committed to your fork):
    ```yaml
