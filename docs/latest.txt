@@ -1,24 +1,24 @@
 # AI Landscape Digest
 
-_Updated 2026-03-14 09:55 EDT_
+_Updated 2026-03-14 10:25 EDT_
 
 **AI/ML Updates**
 
-- **OpenAI GPT-5.4** – Pro & Thinking modes, new API endpoints
-- **Gemini 3.1 Flash Lite** – 1/8th cost of Pro, 1M context window
-- **Anthropic DOD Risk** – Supply chain warning, military deal backlash
+- **OpenAI GPT-5.4**: Pro + Thinking modes, 1M+ context window
+- **Google Gemini 3.1 Flash Lite**: 1/8th cost of Pro, 1M+ context window
+- **Anthropic DOD Risk**: Officially flagged as supply chain risk
+- **Hugging Face Storage Buckets**: New storage system for Hub models
+- **NVIDIA NeMo Retriever**: Generalizable agentic retrieval pipeline
+- **Granite 4.0**: 1B speech, multilingual, edge-optimized
 
 **Dev Tools**
 
-- **Aider v0.86.0** – GPT-5 support, Grok-4, Gemini Lite, `/clear` feedback
-- **OpenAI SDK v2.28.0** – Custom voices, Sora API fixes
-- **Claude Code v2.1.76** – MCP hooks, CLI flags, Git sparse paths
-- **Gemini CLI v0.35.0** – Chat resume UI, A2A agent timeout
-
-**Hugging Face**
-- **Storage Buckets** – Local file storage for models
-- **NVIDIA NeMo Retriever** – Agentic search pipeline
-- **Granite 4.0** – 1B speech, multilingual edge model
+- **Aider v0.86**: GPT-5, Grok-4, Gemini 2.5, /undo output, /clear now
+- **Ollama v0.18**: Cloud models auto-cloud, thinking levels support
+- **OpenAI SDK v2.28**: Custom voices, Sora API improvements
+- **Claude Code v2.1.76**: MCP elicitation, worktree.sparsePaths, /plan
+- **Gemini CLI**: Chat resume footer, A2A agent timeout, thinking UI overhaul
 
 **BREAKING**
-- Ollama v0.18.0 – Cloud models no longer require `ollama pull`
+- **Anthropic SDK**: ArrayFormat → brackets, MCP tool helpers
+- **Ollama**: MLX header vendoring, Windows Go compatibility fixes
