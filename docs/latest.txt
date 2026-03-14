@@ -1,25 +1,24 @@
-# AI Tools Digest
+# AI Landscape Digest
 
-_Updated 2026-03-14 09:12 EDT_
+_Updated 2026-03-14 09:55 EDT_
 
 **AI/ML Updates**
 
-- **OpenAI GPT-5.4** – Pro & Thinking modes, new API features
+- **OpenAI GPT-5.4** – Pro & Thinking modes, new API endpoints
 - **Gemini 3.1 Flash Lite** – 1/8th cost of Pro, 1M context window
-- **Anthropic DOD Risk** – Supply chain warning after military deal
+- **Anthropic DOD Risk** – Supply chain warning, military deal backlash
 
 **Dev Tools**
 
-- **Aider v0.86.0** – GPT-5 support, Grok-4, Gemini 2.5 Lite, `/clear` feedback
+- **Aider v0.86.0** – GPT-5 support, Grok-4, Gemini Lite, `/clear` feedback
 - **OpenAI SDK v2.28.0** – Custom voices, Sora API fixes
-- **Claude Code v2.1.76** – MCP support, CLI flags, tool search fixes
+- **Claude Code v2.1.76** – MCP hooks, CLI flags, Git sparse paths
 - **Gemini CLI v0.35.0** – Chat resume UI, A2A agent timeout
 
 **Hugging Face**
-- **Storage Buckets** – New Hub storage system
-- **Granite 4.0** – Speech model for edge devices
-- **Ulysses SP** – 1M-token context training
+- **Storage Buckets** – Local file storage for models
+- **NVIDIA NeMo Retriever** – Agentic search pipeline
+- **Granite 4.0** – 1B speech, multilingual edge model
 
 **BREAKING**
-- Ollama 0.18.0-rc0 – MLX header vendoring, Windows changes
-- OpenAI SDK v2.25.0 – GPT-5.4, tool search refactor
+- Ollama v0.18.0 – Cloud models no longer require `ollama pull`
