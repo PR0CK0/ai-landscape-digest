@@ -47,7 +47,6 @@ DEFAULT_FEEDS = [
     ("OpenAI SDK",      "https://github.com/openai/openai-python/releases.atom"),
 
     # Model & product announcements
-    ("OpenAI Blog",     "https://openai.com/blog/rss/"),
     ("Hugging Face",    "https://huggingface.co/blog/feed.xml"),
 
     # Curated AI dev news (weekly, low-noise)
