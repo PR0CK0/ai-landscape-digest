@@ -126,14 +126,11 @@ model: ministral-3b:3b   # see recommended models below
 
 Ollama runs entirely on your machine — no API key, no usage costs, works offline.
 
-| Model | Pull command | Speed | Notes |
-|---|---|---|---|
-| `ministral-3b:3b` | `ollama pull ministral-3b:3b` | ~10s | Fast and light — good starting point |
-| `llama3.2` | `ollama pull llama3.2` | ~15s | Solid general quality |
-| `qwen2.5-coder:32b` | `ollama pull qwen2.5-coder:32b` | slow | Best quality; needs significant RAM |
-| `mistral` | `ollama pull mistral` | ~20s | Good balance of speed and quality |
+```bash
+ollama pull ministral-3b:3b
+```
 
-For most machines, `ministral-3b:3b` is the best default — ~10s response time, very low memory footprint.
+`ministral-3b:3b` (~2.0 GB) — ~10s response time, very low memory footprint. Fast enough for background digests without being noticeable.
 
 ## Feeds
 

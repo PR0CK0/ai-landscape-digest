@@ -27,9 +27,7 @@ backend: claude
 #           gemini-2.5-pro
 #   codex:  gpt-4o-mini          (cheap)
 #           gpt-4o
-#   ollama: ministral-3b:3b      (~10s, very light — recommended starting point)
-#           llama3.2
-#           qwen2.5-coder:32b
+#   ollama: ministral-3b:3b      (~10s, very light — recommended)
 model: default
 
 
