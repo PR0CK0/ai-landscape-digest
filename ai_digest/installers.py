@@ -216,7 +216,7 @@ def _launcher_command(trigger: str) -> tuple:
     if repo_entrypoint.exists():
         pythonpath_extra = str(repo_src) if repo_src.exists() else ""
         return str(repo_entrypoint), ["--trigger", trigger], pythonpath_extra
-    return "-m", ["ai_digest", "--trigger", trigger], ""
+    return "-m", ["ai_digest", "--trigger", trigger], str(REPO_ROOT)
 
 
 def ensure_sleepwatcher():
