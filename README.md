@@ -321,3 +321,5 @@ tests/
 ## License
 
 MIT — free to use, modify, and distribute. See [LICENSE](LICENSE).
+
+Conceived and directed by [PR0CK0](https://github.com/PR0CK0). Programmed with [Claude Code](https://claude.ai/code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and [Codex CLI](https://github.com/openai/codex).
