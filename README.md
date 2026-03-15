@@ -4,11 +4,15 @@
 
 Your local AI release feed, summarized immediately on computer login — powered by whatever LLM CLI you already have.
 
+**[See it live →](https://procko.pro/ai-landscape-digest)**
+
 ---
 
 Keeping up with AI is exhausting. Every week brings new model releases, CLI updates, SDK breaking changes, and research drops — and half of it is noise. Worse, the scaffolding you built last month to stay informed just got superseded by the companies making the tools themselves.
 
 **ai-landscape-digest cuts 90%+ of the noise.** Open your laptop and get a single, terse newsflash about what actually matters: new releases from the tools you use, distilled by your local LLM into a handful of bullets. No newsletter subscriptions, no doom-scrolling, no signal lost in 47 browser tabs. The essentials, on lid open.
+
+The local version works great out of the box — install it, set your backend, and it runs on every lid open. The live link above is a cloud-hosted version running on a 6-hour schedule with a custom feed list. See [Cloud mode](#cloud-mode-optional) if you want your own.
 
 ---
 

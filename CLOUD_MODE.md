@@ -2,7 +2,9 @@
 
 Run ai-landscape-digest automatically in the cloud and view your digest from anywhere — no local machine needed.
 
-GitHub Actions fetches feeds, summarizes with your chosen LLM, and publishes the result to GitHub Pages every 6 hours.
+The main reason to set this up is **custom feeds**. Fork the repo, add your own RSS sources (company blogs, GitHub release feeds, newsletters, whatever you actually follow), and get a hosted digest tuned to your specific interests — updating every 6 hours without your machine ever being on.
+
+GitHub Actions fetches your feeds, summarizes with your chosen LLM, and publishes the result to GitHub Pages every 6 hours.
 
 ---
 
