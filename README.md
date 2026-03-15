@@ -70,12 +70,13 @@ cp config.example.yaml config.yaml
 |---|---|---|
 | `backend` | **required** | LLM CLI to use: `claude`, `gemini`, `codex`, or `ollama` |
 | `model` | `default` | Model passed to the CLI — `default` lets each CLI choose |
-| `output` | `terminal` | `terminal` prints only; `github_pages` also commits and pushes `docs/` |
+| `output` | `terminal` | `terminal` prints only; `github_pages` writes `docs/` for GitHub Pages deployment |
 | `html_output` | `true` | Generate a local HTML report in `~/Documents/ai-landscape-digest/` |
 | `include_defaults` | `true` | Include the built-in feed list |
 | `custom_feeds` | `[]` | Additional RSS/Atom feeds (see [Custom feeds](#custom-feeds)) |
 | `check_interval` | `3600` | Seconds between auto-runs; `0` = lid-open only, no throttle or timer |
 | `seen_ttl_days` | `30` | Days before a seen item ID expires and can surface again |
+| `timezone` | *(system)* | Timezone for digest timestamps, e.g. `America/New_York` |
 | `verbose` | `false` | Print per-feed fetch counts to stderr |
 | `prompt` | *(built-in)* | Override the LLM summarization prompt |
 
