@@ -1,4 +1,4 @@
-# ai-digest
+# ai-landscape-digest
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue?logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green) ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey) ![LLMs](https://img.shields.io/badge/LLM-Claude%20%7C%20Gemini%20%7C%20Codex%20%7C%20Ollama-8A2BE2)
 
@@ -8,7 +8,7 @@ Your local AI release feed, summarized and delivered on lid open — powered by 
 
 Keeping up with AI is exhausting. Every week brings new model releases, CLI updates, SDK breaking changes, and research drops — and half of it is noise. Worse, the scaffolding you built last month to stay informed just got superseded by the companies making the tools themselves.
 
-**ai-digest cuts 90%+ of the noise.** Open your laptop and get a single, terse newsflash about what actually matters: new releases from the tools you use, distilled by your local LLM into a handful of bullets. No newsletter subscriptions, no doom-scrolling, no signal lost in 47 browser tabs. Just the essentials, on lid open.
+**ai-landscape-digest cuts 90%+ of the noise.** Open your laptop and get a single, terse newsflash about what actually matters: new releases from the tools you use, distilled by your local LLM into a handful of bullets. No newsletter subscriptions, no doom-scrolling, no signal lost in 47 browser tabs. Just the essentials, on lid open.
 
 ---
 
@@ -73,7 +73,7 @@ cp config.example.yaml config.yaml
 | `backend` | **required** | LLM CLI to use: `claude`, `gemini`, `codex`, or `ollama` |
 | `model` | `default` | Model passed to the CLI — `default` lets each CLI choose |
 | `output` | `terminal` | `terminal` prints only; `github_pages` also commits and pushes `docs/` |
-| `html_output` | `true` | Generate a local HTML report in `~/Documents/ai-digest/` |
+| `html_output` | `true` | Generate a local HTML report in `~/Documents/ai-landscape-digest/` |
 | `include_defaults` | `true` | Include the built-in feed list |
 | `custom_feeds` | `[]` | Additional RSS/Atom feeds (see [Custom feeds](#custom-feeds)) |
 | `check_interval` | `3600` | Seconds between auto-runs; `0` = lid-open only, no throttle or timer |
@@ -83,7 +83,7 @@ cp config.example.yaml config.yaml
 
 ### How backends work
 
-ai-digest doesn't handle API keys or authentication itself. It just calls your LLM CLI as a subprocess — the same tool you'd type at the terminal. If `claude` (or `gemini`, `codex`) is already installed and authenticated on your machine, it works immediately. No extra setup, no secrets in config files.
+ai-landscape-digest doesn't handle API keys or authentication itself. It just calls your LLM CLI as a subprocess — the same tool you'd type at the terminal. If `claude` (or `gemini`, `codex`) is already installed and authenticated on your machine, it works immediately. No extra setup, no secrets in config files.
 
 Each CLI handles auth its own way:
 
@@ -235,7 +235,7 @@ custom_feeds:
 
 | Platform | Wake on lid open | Background timer |
 |---|---|---|
-| macOS | `sleepwatcher` → `~/.wakeup` | `launchd` agent (`~/Library/LaunchAgents/com.ai-digest.plist`) |
+| macOS | `sleepwatcher` → `~/.wakeup` | `launchd` agent (`~/Library/LaunchAgents/com.ai-landscape-digest.plist`) |
 | Linux | — | `systemd --user` timer |
 | Windows | — | Task Scheduler with repetition trigger |
 
@@ -259,7 +259,7 @@ python3 -m ai_digest install-trigger
 
 ## GitHub Pages *(experimental)* ⚠️
 
-> **⚠️ Experimental.** The primary use case for ai-digest is local runs on lid open and manual invocation. GitHub Pages is an optional layer — it works but has known limitations and hasn't been battle-tested across environments.
+> **⚠️ Experimental.** The primary use case for ai-landscape-digest is local runs on lid open and manual invocation. GitHub Pages is an optional layer — it works but has known limitations and hasn't been battle-tested across environments.
 
 **Known limitations:**
 - Requires `config.yaml` to be committed to your fork (normally gitignored)
