@@ -45,6 +45,7 @@ Same page → **Variables tab** → New repository variable. Add these:
 | `PAGES_USERNAME` | your GitHub username |
 | `PAGES_REPO` | `ai-landscape-digest` (or whatever you named your fork) |
 | `PAGES_TZ` | your timezone, e.g. `America/New_York` *(optional — defaults to UTC)* |
+| `PAGES_URL` | your custom domain URL, e.g. `https://procko.pro/ai-landscape-digest` *(optional)* |
 
 ### 4. Enable GitHub Pages
 
