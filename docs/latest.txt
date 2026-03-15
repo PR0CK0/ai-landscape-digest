@@ -1,0 +1,31 @@
+# AI Landscape Digest
+
+_Updated 2026-03-15 03:24 UTC_
+
+## BREAKING
+
+*   Claude Code: Removed Opus 4 and 4.1.
+
+## Aider
+
+*   Aider: GPT-5, Grok-4, Gemini Flash Lite, Kimi-k2 support.
+
+## OpenAI SDK
+
+*   OpenAI SDK: Custom voices, Sora API, GPT-5.4, tool search.
+
+## Anthropic SDK
+
+*   Anthropic SDK: Claude Sonnet 4.6, Opus 4.6, structured outputs.
+
+## Claude Code
+
+*   Claude Code: MCP elicitation, /context, /loop, /claude-api.
+
+## Ollama
+
+*   Ollama: Cloud models no download, MLX perf, Claude compaction.
+
+## Gemini CLI
+
+*   Gemini CLI: Chat resume, thinking UI, A2A timeout.
