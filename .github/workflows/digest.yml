@@ -19,6 +19,12 @@ name: AI Digest
 
 on:
   workflow_dispatch:  # trigger manually: Actions → AI Digest → Run workflow
+    inputs:
+      force:
+        description: 'Force re-process all items (ignores seen cache)'
+        required: false
+        default: 'false'
+        type: boolean
   schedule:
     - cron: '0 */6 * * *'  # every 6 hours — adjust to taste
     # - cron: '0 8 * * *'  # daily at 8am UTC
@@ -101,7 +107,12 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python3 -m ai_digest --config config.cloud.yaml
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          python3 -m ai_digest --config config.cloud.yaml $FORCE_FLAG
 
       # ── Deploy to Pages only when there is new output ────────────────────────
       - name: Check for new output
