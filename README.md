@@ -53,8 +53,8 @@ Every run produces a full **HTML summary that automatically opens in your browse
 Here's what you'll see:
 
 <p align="center">
-  <img src="notif2.png" width="420" alt="Digest notification">
-  <img src="notif1.png" width="420" alt="Digest notification detail">
+  <img src="notif1.png" width="420" alt="Digest notification">
+  <img src="notif2.png" width="420" alt="Digest notification detail">
 </p>
 
 ## Install
