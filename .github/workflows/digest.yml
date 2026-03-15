@@ -16,7 +16,7 @@
 #     PAGES_TZ        your timezone (e.g. America/New_York) — optional, defaults to UTC
 #     PAGES_URL       your custom domain URL (e.g. https://procko.pro/ai-landscape-digest) — optional
 
-name: AI Digest
+name: AI Landscape Digest
 
 on:
   workflow_dispatch:  # trigger manually: Actions → AI Digest → Run workflow
