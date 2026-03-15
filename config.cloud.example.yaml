@@ -1,0 +1,26 @@
+# Cloud config template — used by GitHub Actions (.github/workflows/digest.yml)
+#
+# DO NOT commit your personal config.cloud.yaml — it is gitignored.
+# The workflow generates it at runtime from your GitHub Actions variables and secrets.
+#
+# To set up cloud mode:
+#   1. Go to your repo → Settings → Secrets and variables → Actions
+#   2. Under "Secrets":    add GEMINI_API_KEY (or ANTHROPIC_API_KEY / OPENAI_API_KEY)
+#   3. Under "Variables":  add GITHUB_PAGES_USERNAME and GITHUB_PAGES_REPO
+#   4. Enable Pages:       Settings → Pages → Deploy from branch → master / docs
+#   See CLOUD_MODE.md for full instructions.
+
+backend: gemini              # or: claude, codex
+model: gemini-2.5-flash      # or: default
+
+output: github_pages
+
+github_pages:
+  username: YOUR_GITHUB_USERNAME
+  repo: YOUR_REPO_NAME
+
+include_defaults: true
+custom_feeds: []
+
+seen_ttl_days: 30
+verbose: false

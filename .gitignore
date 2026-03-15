@@ -2,13 +2,12 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
-# Remove this line if you want to commit config.yaml for GitHub Pages local-push mode
 config.yaml
+config.cloud.yaml
 .last_fetch_at
+seen_items.json
 *.whl
 *.egg-info/
 dist/
 ai-digest.log
-# Generated GitHub Pages output.
-# Remove this line if you use output: github_pages (local push mode).
-docs/
+# docs/ is tracked — GitHub Pages serves from this directory.

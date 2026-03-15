@@ -1,28 +1,29 @@
 # AI Landscape Digest — GitHub Actions scheduled runner
 #
-# This workflow runs the digest on a schedule and pushes the HTML report
-# to GitHub Pages. Use this if you want the digest to run automatically
-# in the cloud without your local machine.
+# Runs on a schedule, summarizes new AI releases, and pushes output to GitHub Pages.
+# See CLOUD_MODE.md for full setup instructions.
 #
-# Setup:
-#   1. Set output: github_pages in config.yaml (commit config.yaml to the repo,
-#      or remove it from .gitignore for the GitHub Pages use case)
-#   2. Add your LLM API key as a repo secret (Settings → Secrets → Actions)
-#   3. Enable GitHub Pages: Settings → Pages → Deploy from branch → main / docs
-#   4. Adjust the cron schedule below to your preferred interval
+# Required GitHub Actions configuration (Settings → Secrets and variables → Actions):
+#
+#   Secrets (encrypted):
+#     GEMINI_API_KEY         if using gemini  (free tier available)
+#     ANTHROPIC_API_KEY      if using claude
+#     OPENAI_API_KEY         if using codex
+#
+#   Variables (plaintext):
+#     GITHUB_PAGES_USERNAME  your GitHub username
+#     GITHUB_PAGES_REPO      your repo name (e.g. ai-landscape-digest)
 
 name: AI Digest
 
 on:
   workflow_dispatch:  # trigger manually: Actions → AI Digest → Run workflow
-  # To run on a schedule, add:
-  # schedule:
-  #   - cron: '0 * * * *'    # every hour
-  #   - cron: '0 */4 * * *'  # every 4 hours
-  #   - cron: '0 8 * * *'    # daily at 8am UTC
+  schedule:
+    - cron: '0 */6 * * *'  # every 6 hours — adjust to taste
+    # - cron: '0 8 * * *'  # daily at 8am UTC
 
 permissions:
-  contents: write  # needed to commit and push docs/ changes
+  contents: write  # needed to commit and push docs/ output
 
 jobs:
   digest:
@@ -32,7 +33,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # full history needed for git push
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -40,41 +41,46 @@ jobs:
           python-version: '3.11'
 
       - name: Install Python dependencies
-        run: |
-          pip install --quiet feedparser pyyaml
+        run: pip install --quiet feedparser pyyaml
 
-      # ── Install your LLM CLI ──────────────────────────────────────────────
-      # Uncomment the block for your chosen backend and add the corresponding
-      # API key under repo Settings → Secrets → Actions.
+      # ── Install your LLM CLI — uncomment the one matching your backend ───────
 
-      # Claude (default) — requires ANTHROPIC_API_KEY secret
-      - name: Install Claude CLI
-        run: npm install -g @anthropic-ai/claude-code
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
-      # Gemini — requires GEMINI_API_KEY secret
-      # - name: Install Gemini CLI
-      #   run: npm install -g @google/gemini-cli
-      #   env:
-      #     GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-
-      # OpenAI Codex — requires OPENAI_API_KEY secret
+      - name: Install Gemini CLI
+        run: npm install -g @google/gemini-cli
+      # - name: Install Claude CLI
+      #   run: npm install -g @anthropic-ai/claude-code
       # - name: Install Codex CLI
       #   run: npm install -g @openai/codex
-      #   env:
-      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      # ─────────────────────────────────────────────────────────────────────
+
+      # ─────────────────────────────────────────────────────────────────────────
 
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Generate cloud config
+        env:
+          GITHUB_PAGES_USERNAME: ${{ vars.GITHUB_PAGES_USERNAME }}
+          GITHUB_PAGES_REPO: ${{ vars.GITHUB_PAGES_REPO }}
+        run: |
+          cat > config.cloud.yaml << EOF
+          backend: gemini
+          model: gemini-2.5-flash
+          output: github_pages
+          github_pages:
+            username: ${GITHUB_PAGES_USERNAME}
+            repo: ${GITHUB_PAGES_REPO}
+          include_defaults: true
+          custom_feeds: []
+          seen_ttl_days: 30
+          verbose: false
+          EOF
+
       - name: Run digest
         env:
           DIGEST_TRIGGER: github_actions
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python -m ai_digest
+        run: python3 -m ai_digest --config config.cloud.yaml
