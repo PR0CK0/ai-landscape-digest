@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue?logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green) ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey) ![LLMs](https://img.shields.io/badge/LLM-Claude%20%7C%20Gemini%20%7C%20Codex%20%7C%20Ollama-8A2BE2)
 
-Your local AI release feed, summarized and delivered on lid open — powered by whatever LLM CLI you already have.
+Your local AI release feed, summarized immediately on computer login — powered by whatever LLM CLI you already have.
 
 ---
 
