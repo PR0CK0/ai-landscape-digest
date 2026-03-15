@@ -6,8 +6,8 @@
 # To set up cloud mode:
 #   1. Go to your repo → Settings → Secrets and variables → Actions
 #   2. Under "Secrets":    add GEMINI_API_KEY (or ANTHROPIC_API_KEY / OPENAI_API_KEY)
-#   3. Under "Variables":  add PAGES_USERNAME and PAGES_REPO
-#   4. Enable Pages:       Settings → Pages → Deploy from branch → master / docs
+#   3. Under "Variables":  add PAGES_USERNAME, PAGES_REPO, and optionally PAGES_TZ
+#   4. Enable Pages:       Settings → Pages → Source → GitHub Actions
 #   See CLOUD_MODE.md for full instructions.
 
 backend: gemini              # or: claude, codex
@@ -24,3 +24,4 @@ custom_feeds: []
 
 seen_ttl_days: 30
 verbose: false
+timezone: ""  # e.g. America/New_York — set via PAGES_TZ variable in GitHub Actions

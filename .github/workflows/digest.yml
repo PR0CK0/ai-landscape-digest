@@ -13,6 +13,7 @@
 #   Variables (plaintext):
 #     PAGES_USERNAME  your GitHub username
 #     PAGES_REPO      your repo name (e.g. ai-landscape-digest)
+#     PAGES_TZ        your timezone (e.g. America/New_York) — optional, defaults to UTC
 
 name: AI Digest
 
@@ -70,6 +71,7 @@ jobs:
         env:
           PAGES_USERNAME: ${{ vars.PAGES_USERNAME }}
           PAGES_REPO: ${{ vars.PAGES_REPO }}
+          PAGES_TZ: ${{ vars.PAGES_TZ }}
         run: |
           cat > config.cloud.yaml << EOF
           backend: gemini
@@ -82,6 +84,7 @@ jobs:
           custom_feeds: []
           seen_ttl_days: 30
           verbose: false
+          timezone: "${PAGES_TZ}"
           EOF
 
       - name: Run digest
