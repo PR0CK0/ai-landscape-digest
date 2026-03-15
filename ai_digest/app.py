@@ -623,6 +623,12 @@ def push_github_pages(target_dir: Path, timestamp: str, username: str, repo: str
     page_url = base_url or f"https://{username}.github.io/{repo}"
     cwd = str(SCRIPT_DIR)
 
+    # In GitHub Actions, deployment is handled by the workflow (upload-pages-artifact +
+    # deploy-pages). Skip git operations here to keep master clean.
+    if os.environ.get("DIGEST_TRIGGER") == "github_actions":
+        print(f"  → docs/ written; GitHub Actions will deploy to {page_url}", file=sys.stderr)
+        return
+
     # Check if we are in a git repo
     if not (SCRIPT_DIR / ".git").exists():
         print("  [warn] not a git repository, skipping push", file=sys.stderr)
