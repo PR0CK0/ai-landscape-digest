@@ -14,6 +14,7 @@
 #     PAGES_USERNAME  your GitHub username
 #     PAGES_REPO      your repo name (e.g. ai-landscape-digest)
 #     PAGES_TZ        your timezone (e.g. America/New_York) — optional, defaults to UTC
+#     PAGES_URL       your custom domain URL (e.g. https://procko.pro/ai-landscape-digest) — optional
 
 name: AI Digest
 
@@ -78,6 +79,7 @@ jobs:
           PAGES_USERNAME: ${{ vars.PAGES_USERNAME }}
           PAGES_REPO: ${{ vars.PAGES_REPO }}
           PAGES_TZ: ${{ vars.PAGES_TZ }}
+          PAGES_URL: ${{ vars.PAGES_URL }}
         run: |
           cat > config.cloud.yaml << EOF
           backend: gemini
@@ -86,6 +88,7 @@ jobs:
           github_pages:
             username: ${PAGES_USERNAME}
             repo: ${PAGES_REPO}
+            base_url: "${PAGES_URL}"
           include_defaults: true
           custom_feeds: []
           seen_ttl_days: 30
