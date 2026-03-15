@@ -9,3 +9,6 @@ config.yaml
 *.egg-info/
 dist/
 ai-digest.log
+# Generated GitHub Pages output.
+# Remove this line if you use output: github_pages (local push mode).
+docs/

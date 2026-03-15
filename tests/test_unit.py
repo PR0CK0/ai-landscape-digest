@@ -647,9 +647,9 @@ class TestPushGithubPages:
         assert "12s" in content
 
     def test_custom_base_url_used(self, tmp_path):
-        self._push(tmp_path, base_url="https://procko.pro/ai-digest")
+        self._push(tmp_path, base_url="https://example.com/ai-digest")
         content = (tmp_path / "docs" / "index.html").read_text()
-        assert "procko.pro/ai-digest" in content
+        assert "example.com/ai-digest" in content
         assert "user.github.io" not in content
 
     def test_history_capped_at_max(self, tmp_path):

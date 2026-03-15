@@ -117,6 +117,36 @@ class TimerTriggerAdapter(WakeTriggerAdapter):
         self.notify("AI Landscape Digest", "Scheduled digest ready — click to open.", "Open Report", report_path)
 
 
+@dataclass
+class ManualTriggerAdapter(TriggerAdapter):
+    """Manual / CLI run — no throttle, but sends notifications like other triggers."""
+
+    def on_start(self, config: "AppConfig"):
+        del config
+        self.notify("AI Landscape Digest", "Checking for new releases...")
+
+    def on_no_items(self, config: "AppConfig"):
+        del config
+        self.notify("AI Landscape Digest", "All caught up! No new releases.")
+
+    def on_error(self, config: "AppConfig"):
+        del config
+        self.notify("AI Landscape Digest", "Summarization failed. Check terminal for details.")
+
+    def on_summarize(self, config: "AppConfig", backend: str, model: str):
+        del config
+        label = model if model and model != "default" else backend
+        self.notify("AI Landscape Digest", f"Summarizing with {label}...")
+
+    def on_success(self, config: "AppConfig", item_count: int, backend: str):
+        del config
+        self.notify("AI Landscape Digest", f"{item_count} new items summarized with {backend}.")
+
+    def on_html_ready(self, config: "AppConfig", report_path: str):
+        del config
+        self.notify("AI Landscape Digest", "Digest ready — click to open report.", "Open Report", report_path)
+
+
 def build_trigger_adapter(trigger: str,
                           notifier: NotifierFn,
                           notifications_enabled: bool,
@@ -134,4 +164,6 @@ def build_trigger_adapter(trigger: str,
         return WakeTriggerAdapter(name=trigger, **kwargs)
     if trigger == "automatic":
         return TimerTriggerAdapter(name=trigger, **kwargs)
+    if trigger == "manual":
+        return ManualTriggerAdapter(name=trigger, notifier=notifier, notifications_enabled=notifications_enabled)
     return TriggerAdapter(name=trigger, notifier=notifier, notifications_enabled=notifications_enabled)

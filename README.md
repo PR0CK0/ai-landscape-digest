@@ -1,59 +1,151 @@
-# ai-digest
+# ai-landscape-digest
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue?logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green) ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey) ![LLMs](https://img.shields.io/badge/LLM-Claude%20%7C%20Gemini%20%7C%20Codex%20%7C%20Ollama-8A2BE2)
 
 Your local AI release feed, summarized and delivered on lid open — powered by whatever LLM CLI you already have.
+
+---
+
+Keeping up with AI is exhausting. Every week brings new model releases, CLI updates, SDK breaking changes, and research drops — and half of it is noise. Worse, the scaffolding you built last month to stay informed just got superseded by the companies making the tools themselves.
+
+**ai-landscape-digest cuts 90%+ of the noise.** Open your laptop and get a single, terse newsflash about what actually matters: new releases from the tools you use, distilled by your local LLM into a handful of bullets. No newsletter subscriptions, no doom-scrolling, no signal lost in 47 browser tabs. The essentials, on lid open.
+
+---
 
 ## Table of Contents
 
 - [What it does](#what-it-does)
 - [Install](#install)
 - [Configuration](#configuration)
-- [Default feeds](#default-feeds)
-- [Custom feeds](#custom-feeds)
-- [Switching backends](#switching-backends)
-- [Commands & flags](#commands--flags)
-- [Timer & background checks](#timer--background-checks)
-- [GitHub Pages *(experimental)*](#github-pages-experimental-)
+  - [Config options](#config-options)
+  - [How backends work](#how-backends-work)
+  - [Switching backends](#switching-backends)
+  - [Ollama recommended models](#ollama-recommended-models)
+- [Feeds](#feeds)
+  - [Default feeds](#default-feeds)
+  - [Custom feeds](#custom-feeds)
+- [Running](#running)
+  - [Commands](#commands)
+  - [Flags](#flags)
+- [Scheduling & triggers](#scheduling--triggers)
+- [Cloud mode *(optional)*](#cloud-mode-optional)
 - [Workspace](#workspace)
 - [Testing](#testing)
 - [File reference](#file-reference)
 - [License](#license)
 
+---
+
 ## What it does
 
-Fetches RSS feeds from AI tools and research sources, deduplicates against what you've already seen, pipes the new stuff to your LLM CLI, and prints a terse digest. Runs automatically on lid open (and optionally on a background timer). No cloud accounts, no separate API keys — uses the CLI you already have.
+Fetches RSS feeds from AI tools and research sources, deduplicates against what you've already seen, pipes the new stuff to your LLM CLI, and prints a terse digest. Runs automatically on lid open and on a configurable background timer. No cloud accounts, no separate API keys — uses the CLI you already have.
 
 ## Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-digest
-cd ai-digest
+git clone https://github.com/PR0CK0/ai-landscape-digest
+cd ai-landscape-digest
 pip install -r requirements.txt
 python3 -m ai_digest install-trigger
 ```
 
-That's it. Close and reopen your lid — it runs. Or `make run` to run now.
+That's it. Close and reopen your lid — it runs. Or `make run` to run immediately.
 
-If you don't have `make`, `python3 -m ai_digest` is the same as `make run`.
+> If you don't have `make`, `python3 -m ai_digest` is equivalent to `make run`.
 
 ## Configuration
 
-**The only setting you must set:**
+Copy `config.example.yaml` to `config.yaml` and set your backend. That's the only required change — everything else has a sensible default.
 
-Copy `config.example.yaml` to `config.yaml` and set your backend:
-
-```yaml
-backend: claude   # or: gemini, codex, ollama
+```bash
+cp config.example.yaml config.yaml
+# edit config.yaml and set: backend: claude  (or gemini, codex, ollama)
 ```
 
-Everything else has sensible defaults.
+`config.yaml` is gitignored and stays local to your machine. The full annotated reference is in `config.example.yaml`.
 
-**The full config reference** is in `config.example.yaml` — every option documented inline.
+### Config options
 
-`config.yaml` is gitignored by default and stays local to your machine.
+| Setting | Default | Description |
+|---|---|---|
+| `backend` | **required** | LLM CLI to use: `claude`, `gemini`, `codex`, or `ollama` |
+| `model` | `default` | Model passed to the CLI — `default` lets each CLI choose |
+| `output` | `terminal` | `terminal` prints only; `github_pages` also commits and pushes `docs/` |
+| `html_output` | `true` | Generate a local HTML report in `~/Documents/ai-landscape-digest/` |
+| `include_defaults` | `true` | Include the built-in feed list |
+| `custom_feeds` | `[]` | Additional RSS/Atom feeds (see [Custom feeds](#custom-feeds)) |
+| `check_interval` | `3600` | Seconds between auto-runs; `0` = lid-open only, no throttle or timer |
+| `seen_ttl_days` | `30` | Days before a seen item ID expires and can surface again |
+| `verbose` | `false` | Print per-feed fetch counts to stderr |
+| `prompt` | *(built-in)* | Override the LLM summarization prompt |
 
-## Default feeds
+### How backends work
+
+ai-landscape-digest doesn't handle API keys or authentication itself. It calls your LLM CLI as a subprocess — the same tool you'd type at the terminal. If `claude` (or `gemini`, `codex`) is already installed and authenticated on your machine, it works immediately. No extra setup, no secrets in config files.
+
+Each CLI handles auth its own way:
+
+| Backend | Install | Auth |
+|---|---|---|
+| `claude` | `npm install -g @anthropic-ai/claude-code` | `claude` (interactive login on first run) |
+| `gemini` | `npm install -g @google/gemini-cli` | `gemini` (Google account login on first run) |
+| `codex` | `npm install -g @openai/codex` | Set `OPENAI_API_KEY` env var |
+| `ollama` | [ollama.com](https://ollama.com) | No auth — fully local |
+
+Once authenticated, `doctor` verifies the CLI is on your PATH:
+
+```bash
+python3 -m ai_digest doctor
+```
+
+### Switching backends
+
+```yaml
+# Claude — uses your existing Claude Code subscription
+# Recommended: explicitly set the cheapest/fastest model (haiku variant)
+# Run `claude --help` to see current model names
+backend: claude
+model: default
+
+# Gemini CLI
+backend: gemini
+model: gemini-2.5-flash
+
+# OpenAI Codex CLI
+backend: codex
+model: gpt-4o-mini
+
+# Ollama — fully local, no API key or subscription needed
+backend: ollama
+model: ministral-3:3b    # see recommended models below
+```
+
+### Ollama recommended models
+
+Ollama runs entirely on your machine — no API key, no usage costs, works offline.
+
+```bash
+ollama pull ministral-3:3b
+```
+
+**`ministral-3:3b` is the recommended model** — consistent ~4s, clean grouped output, no hallucinations, no prompt leakage. This is what the project is tuned and tested against.
+
+Other tested models, for reference:
+
+| Model | Median | Notes |
+|---|---|---|
+| `ministral-3:3b` | ~4s | **recommended** — best quality, consistent |
+| `smollm2:1.7b` | ~4s | decent flat output, occasional timeouts |
+| `gemma3:1b` | ~4s | fast but ignores prompt formatting |
+| `llama3.2:1b` | ~2s | fast but high variance (1–9s), over-lists versions |
+| `qwen2.5:1.5b` | ~3s | over-formatted, repeats sections |
+| `qwen3.x` | 170s+ | thinking models — do not use |
+
+> Avoid any `qwen3.x` model — they leak chain-of-thought and are unusably slow for this use case.
+
+## Feeds
+
+### Default feeds
 
 | Source | Type |
 |---|---|
@@ -61,6 +153,7 @@ Everything else has sensible defaults.
 | Codex CLI | GitHub releases |
 | Gemini CLI | GitHub releases |
 | Aider | GitHub releases |
+| Ollama | GitHub releases |
 | Anthropic SDK (Python) | GitHub releases |
 | OpenAI SDK (Python) | GitHub releases |
 | OpenAI Blog | RSS |
@@ -70,7 +163,7 @@ Everything else has sensible defaults.
 
 Set `include_defaults: false` to use only your `custom_feeds`.
 
-## Custom feeds
+### Custom feeds
 
 Any RSS or Atom feed URL works. The `name` field becomes the source label in the digest.
 
@@ -86,18 +179,14 @@ custom_feeds:
   - name: "Ahead of AI"
     url: "https://magazine.sebastianraschka.com/feed"
 
-  # GitHub releases — format is always https://github.com/OWNER/REPO/releases.atom
+  # GitHub releases — every public repo exposes this automatically, no token needed
+  # Format: https://github.com/OWNER/REPO/releases.atom
   - name: "LangChain"
     url: "https://github.com/langchain-ai/langchain/releases.atom"
-  - name: "LlamaIndex"
-    url: "https://github.com/run-llama/llama_index/releases.atom"
-  - name: "Ollama"
-    url: "https://github.com/ollama/ollama/releases.atom"
   - name: "vLLM"
     url: "https://github.com/vllm-project/vllm/releases.atom"
 
-  # Hacker News filtered feeds — combine keywords and a minimum-points filter
-  # to surface only high-signal posts
+  # Hacker News — filter by keyword + minimum points for signal quality
   - name: "Hacker News — LLMs"
     url: "https://hnrss.org/newest?q=LLM+OR+claude+OR+openai&count=15"
   - name: "Hacker News — AI (50+ pts)"
@@ -108,38 +197,13 @@ custom_feeds:
     url: "https://www.anthropic.com/rss.xml"
   - name: "Google DeepMind"
     url: "https://deepmind.google/blog/rss/"
-  - name: "Mistral"
-    url: "https://mistral.ai/news/rss/"
 
   # Research preprints
   - name: "arXiv CS.AI"
     url: "https://arxiv.org/rss/cs.AI"
-  - name: "arXiv CS.LG"
-    url: "https://arxiv.org/rss/cs.LG"
 ```
 
-GitHub releases are the most reliable signal source: every repo on GitHub exposes `https://github.com/OWNER/REPO/releases.atom` automatically. No token needed for public repos.
-
-## Switching backends
-
-```yaml
-# Claude Code (default) — uses your existing subscription
-backend: claude
-
-# Gemini CLI
-backend: gemini
-model: gemini-2.5-flash
-
-# OpenAI Codex CLI
-backend: codex
-model: gpt-4o-mini
-
-# Ollama (local, free) — great on M-series Macs
-backend: ollama
-model: qwen2.5-coder:32b
-```
-
-## Commands & flags
+## Running
 
 ### Commands
 
@@ -147,7 +211,6 @@ model: qwen2.5-coder:32b
 |---|---|
 | `make run` | Run digest immediately |
 | `python3 -m ai_digest` | Same via package entrypoint |
-| `python3 digest.py` | Compatibility entrypoint |
 | `python3 -m ai_digest install-trigger` | Install platform wake + timer trigger |
 | `python3 -m ai_digest uninstall-trigger` | Remove platform triggers |
 | `python3 -m ai_digest doctor` | Check environment and installed triggers |
@@ -160,159 +223,84 @@ model: qwen2.5-coder:32b
 | Flag | Default | Description |
 |---|---|---|
 | `--trigger TRIGGER` | `manual` | Override trigger label: `wake`, `manual`, `automatic`, `github_actions` |
-| `--config PATH` | auto | Path to config.yaml |
-| `--force` | off | Ignore seen_items.json and treat all fetched items as new |
+| `--config PATH` | auto | Path to a specific `config.yaml` |
+| `--force` | off | Ignore `seen_items.json` and re-process all fetched items |
 | `--no-notify` | off | Disable desktop notifications for this run |
 
-## Timer & background checks
+## Scheduling & triggers
 
-The trigger system has two layers that work together:
+`install-trigger` sets up two things on your machine:
 
-**Platform timer** — installed by `python -m ai_digest install-trigger`:
-
-| Platform | Mechanism | When it fires |
+| Platform | Wake on lid open | Background timer |
 |---|---|---|
-| macOS | `sleepwatcher` fires `~/.wakeup` on lid open; `launchd` timer fires on interval | Lid open + every N seconds |
-| Linux | `systemd --user` service + timer unit | On boot + every N seconds |
-| Windows | Task Scheduler XML definition | On logon + every N seconds |
+| macOS | `sleepwatcher` → `~/.wakeup` | `launchd` agent (`~/Library/LaunchAgents/com.ai-landscape-digest.plist`) |
+| Linux | — | `systemd --user` timer |
+| Windows | — | Task Scheduler with repetition trigger |
 
-**Python-layer throttle** — even if the platform fires more often than expected (e.g., repeated lid opens), the Python code checks the last-run timestamp and skips if not enough time has passed.
+**Two-layer design:** the platform fires the trigger, and a Python-layer throttle gates the actual run. Even if you open and close your lid repeatedly, the digest only runs once per `check_interval` seconds.
 
-Both layers read the interval from `config.yaml`. A unified `check_interval` setting is coming (see `config.example.yaml`); for now, use `wake_min_interval_seconds`:
+Control the schedule with `check_interval` in `config.yaml`:
 
-```yaml
-# 1800  = 30 minutes
-# 3600  = 1 hour  (default)
-# 7200  = 2 hours
-# 86400 = once a day
-wake_min_interval_seconds: 3600
+| Value | Behavior |
+|---|---|
+| `1800` | Run on wake + timer every 30 minutes |
+| `3600` | Run on wake + timer every hour *(default)* |
+| `7200` | Run on wake + timer every 2 hours |
+| `86400` | Run on wake + timer once a day |
+| `0` | Run on every lid open, no throttle, no background timer |
 
-# Set false to always run on every trigger fire, ignoring the throttle
-wake_throttle_enabled: true
-
-# Set false to install only the lid-open wake hook and skip the background interval timer
-timer_enabled: true
-```
-
-After changing `wake_min_interval_seconds`, re-run `install-trigger` to update the platform timer. The Python throttle picks up the new value immediately, but the launchd/systemd/Task Scheduler entry must be regenerated.
+**After changing `check_interval`, re-run `install-trigger`** to update the platform timer. The throttle picks up the new value immediately, but `launchd`/`systemd`/Task Scheduler must be regenerated:
 
 ```bash
 python3 -m ai_digest install-trigger
 ```
 
-## GitHub Pages *(experimental)* ⚠️
+## Cloud mode *(optional)*
 
-> **⚠️ Experimental.** GitHub Pages publishing works but has known limitations. The primary use case for ai-digest is local runs on lid open and manual invocation — GitHub Pages is an optional layer on top.
-
-**Known limitations:**
-- Requires `config.yaml` to be committed to your fork (normally gitignored)
-- GitHub Actions mode: `seen_items.json` must also be committed so dedup state persists between cloud runs — without it every scheduled run reprocesses all items from the last 7 days
-- Push requires your git credentials to be configured (local push) or a repo secret (Actions)
-- Not battle-tested across all environments
-
-When `output: github_pages`, after printing to terminal the script also:
-1. Writes `docs/latest.txt` and `docs/index.html`
-2. Commits and pushes to origin
-
-The page shows the digest, timestamp, and how it was triggered (lid open vs manual vs GitHub Actions).
-
-Enable GitHub Pages for your repo under **Settings → Pages → Source: Deploy from branch → `main` / `docs`**.
-
-Then access your digest at:
-```bash
-curl -s https://USERNAME.github.io/ai-digest/latest.txt
-```
-
-The `DIGEST_TRIGGER` environment variable controls the label shown on the page:
-
-| Value | Label shown |
-|---|---|
-| `wake` (set by the platform trigger) | "triggered on lid open" |
-| `manual` | "triggered manually" |
-| `automatic` | "triggered automatically" |
-| `github_actions` | "triggered by GitHub Actions" |
-
-### Local push mode
-
-Run on your own machine; each digest auto-commits and pushes to your fork.
-
-1. Fork this repo to your GitHub account.
-2. In `config.yaml`, set:
-   ```yaml
-   output: github_pages
-   github_pages:
-     username: YOUR_GITHUB_USERNAME
-     repo: ai-digest
-   ```
-3. Enable Pages: **Settings → Pages → Deploy from branch → `main` / `docs`**.
-4. Run normally (`make run` or via the wake trigger). Each digest commits `docs/` and pushes automatically.
-
-`config.yaml` must be committed in your fork so the push workflow can read it. Because it contains your username (not secrets), committing it is safe.
-
-### GitHub Actions mode
-
-Cloud-scheduled — no local machine needed. The workflow runs on a cron schedule and pushes the digest from GitHub's runners.
-
-1. Fork this repo to your GitHub account.
-2. Add your LLM API key (or equivalent credential) as a repo secret: **Settings → Secrets → Actions → New repository secret**.
-3. In `config.yaml` (committed to your fork), set:
-   ```yaml
-   output: github_pages
-   backend: gemini        # or whichever backend your secret is for
-   github_pages:
-     username: YOUR_GITHUB_USERNAME
-     repo: ai-digest
-   ```
-4. Enable Pages: **Settings → Pages → Deploy from branch → `main` / `docs`**.
-5. Enable Actions: **Actions → (enable workflows if prompted)**.
-6. The workflow in `.github/workflows/digest.yml` runs on schedule. Each run fetches feeds, summarizes, commits `docs/`, and pushes — all without your machine being on.
-
-To trigger a run immediately: **Actions → digest → Run workflow**.
+Want the digest to run automatically in the cloud and be accessible from anywhere? See [CLOUD_MODE.md](CLOUD_MODE.md).
 
 ## Workspace
 
-Config and state files live next to `config.yaml`. The default location is the repo root. Pass `--config PATH` to point at a config file in a different directory — state will follow it there.
+Config and state files live next to `config.yaml`. The default is the repo root. Pass `--config PATH` to point at a config file elsewhere — all state (`seen_items.json`, `.last_fetch_at`) follows it to that directory.
 
 ## Testing
 
 ```bash
-# Unit tests only (fast, no network, no LLM)
+# Unit tests — fast, no network, no LLM
 make test
 
-# Integration tests (real network, real feeds)
+# Integration tests — hits real feed URLs
 make test-integration
 
 # Everything
 pytest
 ```
 
-Unit tests mock all external calls (feedparser, subprocess). Integration tests hit real feed URLs and verify the JSON dedup round-trips correctly.
-
 ## File reference
 
 ```
 ai_digest/
-  app.py             application core + output helpers
-  __main__.py        python -m ai_digest entrypoint
+  app.py             application core, pipeline, HTML generation
+  __main__.py        python3 -m ai_digest entrypoint
   cli.py             argument parsing
-  constants.py       paths and defaults
-  feeds.py           default feed list
-  prompts.py         built-in summarization prompt
-  settings.py        config loading
-  paths.py           platform-aware file paths
-  doctor.py          environment diagnostics
-  installers.py      platform trigger install/uninstall + templates
+  constants.py       file paths and timing defaults
+  feeds.py           built-in feed list
+  prompts.py         default summarization prompt
+  settings.py        config loading and AppConfig dataclass
+  paths.py           platform-aware file path helpers
+  doctor.py          environment diagnostics (make doctor)
+  installers.py      platform trigger install/uninstall + script templates
   adapters/
-    notifiers.py     desktop notification adapters
-    triggers.py      trigger lifecycle behavior
-config.yaml          your config (gitignored)
-config.example.yaml  full config reference
-seen_items.json      dedup state
+    notifiers.py     desktop notification adapters (macOS, null)
+    triggers.py      trigger lifecycle — wake, timer, manual behaviors
+config.yaml          your local config (gitignored)
+config.example.yaml  full config reference with every option documented
+seen_items.json      dedup state — tracks seen item IDs with timestamps
+requirements.txt     Python dependencies
 Makefile             convenience commands
-requirements.txt     Python deps
 tests/
-  test_unit.py
-  test_integration.py
+  test_unit.py       unit tests (mocked — fast, no network)
+  test_integration.py  integration tests (real feeds, real filesystem)
 .github/
   workflows/
     digest.yml       GitHub Actions scheduled runner
@@ -321,3 +309,5 @@ tests/
 ## License
 
 MIT — free to use, modify, and distribute. See [LICENSE](LICENSE).
+
+Conceived and directed by [PR0CK0](https://github.com/PR0CK0). Programmed with [Claude Code](https://claude.ai/code), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and [Codex CLI](https://github.com/openai/codex).

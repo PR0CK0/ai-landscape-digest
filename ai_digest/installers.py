@@ -49,6 +49,12 @@ export PATH="{quoted_python_path}"
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] wake trigger start"
   echo "PATH=$PATH"
 
+# Wait until a user is logged into the GUI console before doing anything.
+# Prevents notifications from appearing on the lock/login screen.
+until who | grep -q "console"; do
+  sleep 2
+done
+
 python3 -c '
 import sys
 import urllib.request
@@ -216,7 +222,7 @@ def _launcher_command(trigger: str) -> tuple:
     if repo_entrypoint.exists():
         pythonpath_extra = str(repo_src) if repo_src.exists() else ""
         return str(repo_entrypoint), ["--trigger", trigger], pythonpath_extra
-    return "-m", ["ai_digest", "--trigger", trigger], ""
+    return "-m", ["ai_digest", "--trigger", trigger], str(REPO_ROOT)
 
 
 def ensure_sleepwatcher():
