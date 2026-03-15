@@ -53,6 +53,8 @@ That's it. Close and reopen your lid — it runs. Or `make run` to run immediate
 
 > If you don't have `make`, `python3 -m ai_digest` is equivalent to `make run`.
 
+> **macOS:** On first run, macOS will show permission prompts to allow file access (for writing the local HTML report to `~/Documents/` and reading config files). Accept these — the app won't work without them. You can review granted permissions any time under **System Settings → Privacy & Security → Files and Folders**.
+
 ## Configuration
 
 Copy `config.example.yaml` to `config.yaml` and set your backend. That's the only required change — everything else has a sensible default.
@@ -216,6 +218,7 @@ custom_feeds:
 | `python3 -m ai_digest uninstall-trigger` | Remove platform triggers |
 | `python3 -m ai_digest doctor` | Check environment and installed triggers |
 | `make reset` | Clear dedup cache (next run shows last 7 days) |
+| `python3 -m ai_digest purge` | Remove all triggers, state files, and output — full uninstall |
 | `make test` | Run unit tests |
 | `make test-integration` | Run integration tests (requires network) |
 

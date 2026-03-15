@@ -11,7 +11,7 @@ def build_parser() -> argparse.ArgumentParser:
         "command",
         nargs="?",
         default="run",
-        choices=["run", "install-trigger", "uninstall-trigger", "doctor"],
+        choices=["run", "install-trigger", "uninstall-trigger", "purge", "doctor"],
         help="Command to run.",
     )
     parser.add_argument(

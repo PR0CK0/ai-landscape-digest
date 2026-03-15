@@ -11,8 +11,8 @@ from typing import Optional, TYPE_CHECKING
 if TYPE_CHECKING:
     from ai_digest.settings import AppConfig
 
-from ai_digest.constants import DEFAULT_CHECK_INTERVAL, LOG_FILE, SCRIPT_DIR as REPO_ROOT
-from ai_digest.paths import ensure_user_state_dir
+from ai_digest.constants import DEFAULT_CHECK_INTERVAL, LOG_FILE, SCRIPT_DIR as REPO_ROOT, SEEN_FILE, LAST_FETCH_FILE
+from ai_digest.paths import ensure_user_state_dir, user_documents_dir, user_state_dir
 
 NETWORK_TEST_URL = "https://www.apple.com/library/test/success.html"
 
@@ -380,3 +380,40 @@ def uninstall_trigger():
     if system == "Windows":
         return uninstall_windows_trigger()
     raise RuntimeError(f"uninstall-trigger is not implemented for {system}.")
+
+
+def purge():
+    """Remove all triggers, state files, and output directories."""
+    lines = []
+
+    # 1. OS triggers
+    try:
+        lines.append(uninstall_trigger())
+    except Exception as exc:
+        lines.append(f"[warn] trigger removal: {exc}")
+
+    # 2. Repo-root state files
+    for path in [SEEN_FILE, LAST_FETCH_FILE]:
+        if path.exists():
+            path.unlink()
+            lines.append(f"Removed {path}")
+
+    # 3. Log file
+    log = Path(LOG_FILE)
+    if log.exists():
+        log.unlink()
+        lines.append(f"Removed {log}")
+
+    # 4. Local HTML report directory (~/ Documents/ai-digest/)
+    docs_dir = user_documents_dir()
+    if docs_dir.exists():
+        shutil.rmtree(docs_dir)
+        lines.append(f"Removed {docs_dir}")
+
+    # 5. State directory (logs folder on macOS: ~/Library/Logs/ai-digest/)
+    state_dir = user_state_dir()
+    if state_dir.exists():
+        shutil.rmtree(state_dir)
+        lines.append(f"Removed {state_dir}")
+
+    return "\n".join(lines) if lines else "Nothing to remove."
