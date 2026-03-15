@@ -123,9 +123,11 @@ jobs:
         run: |
           if [ -d docs ] && [ -n "$(ls -A docs 2>/dev/null)" ]; then
             echo "exists=true" >> $GITHUB_OUTPUT
+            echo "### New digest published" >> $GITHUB_STEP_SUMMARY
           else
             echo "exists=false" >> $GITHUB_OUTPUT
-            echo "No new items — skipping Pages deployment (existing site unchanged)"
+            echo "### No new items — site unchanged" >> $GITHUB_STEP_SUMMARY
+            echo "All feeds are caught up. Pages deployment skipped." >> $GITHUB_STEP_SUMMARY
           fi
 
       - name: Upload Pages artifact
