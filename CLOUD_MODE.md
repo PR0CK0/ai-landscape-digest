@@ -38,18 +38,18 @@ For other backends:
 
 ### 3. Add GitHub Pages variables
 
-Same page → **Variables tab** → New repository variable. Add two:
+Same page → **Variables tab** → New repository variable. Add these:
 
 | Name | Value |
 |---|---|
 | `PAGES_USERNAME` | your GitHub username |
 | `PAGES_REPO` | `ai-landscape-digest` (or whatever you named your fork) |
+| `PAGES_TZ` | your timezone, e.g. `America/New_York` *(optional — defaults to UTC)* |
 
 ### 4. Enable GitHub Pages
 
 Go to your fork → **Settings → Pages**:
-- Source: **Deploy from a branch**
-- Branch: `master` — folder: `/docs`
+- Source: **GitHub Actions**
 - Save
 
 ### 5. Trigger a run

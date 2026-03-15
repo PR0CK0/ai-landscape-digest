@@ -29,6 +29,7 @@ class AppConfig:
     github_pages: dict = field(default_factory=dict)
     check_interval: int = DEFAULT_CHECK_INTERVAL
     seen_ttl_days: int = 30
+    timezone: str = ""  # e.g. "America/New_York"; empty = use system timezone
 
     @property
     def feeds(self) -> list:
@@ -64,4 +65,5 @@ def build_app_config(raw: dict) -> AppConfig:
         github_pages=raw.get("github_pages", {}),
         check_interval=int(raw.get("check_interval", DEFAULT_CHECK_INTERVAL)),
         seen_ttl_days=int(raw.get("seen_ttl_days", 30)),
+        timezone=raw.get("timezone", ""),
     )

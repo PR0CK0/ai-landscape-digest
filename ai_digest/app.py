@@ -53,8 +53,15 @@ USER_DOCS_DIR = paths.user_documents_dir()
 LOG_FILE = paths.default_log_file()
 
 
-def current_timestamp() -> str:
+def current_timestamp(tz_name: str = "") -> str:
     from datetime import datetime
+    import zoneinfo
+    if tz_name:
+        try:
+            tz = zoneinfo.ZoneInfo(tz_name)
+            return datetime.now(tz).strftime("%Y-%m-%d %H:%M %Z")
+        except Exception:
+            pass
     return datetime.now().astimezone().strftime("%Y-%m-%d %H:%M %Z")
 
 
@@ -713,7 +720,7 @@ def main(argv=None):
             seen_records[item["id"]] = time.time()
         save_seen_records(seen_records)
 
-    timestamp = current_timestamp()
+    timestamp = current_timestamp(config.timezone)
     if config.html_output and trigger_name == "manual":
         print("  → HTML report will open in browser upon completion", file=sys.stderr)
     trigger.on_summarize(config, config.backend, config.model)
