@@ -87,6 +87,14 @@ jobs:
           timezone: "${PAGES_TZ}"
           EOF
 
+      # ── Persist seen_items.json between runs so dedup works across VMs ─────────
+      - name: Restore seen_items cache
+        uses: actions/cache@v4
+        with:
+          path: seen_items.json
+          key: seen-items-${{ github.run_id }}
+          restore-keys: seen-items-
+
       - name: Run digest
         env:
           DIGEST_TRIGGER: github_actions
@@ -95,11 +103,24 @@ jobs:
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python3 -m ai_digest --config config.cloud.yaml
 
+      # ── Deploy to Pages only when there is new output ────────────────────────
+      - name: Check for new output
+        id: docs-check
+        run: |
+          if [ -d docs ] && [ -n "$(ls -A docs 2>/dev/null)" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "No new items — skipping Pages deployment (existing site unchanged)"
+          fi
+
       - name: Upload Pages artifact
+        if: steps.docs-check.outputs.exists == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/
 
       - name: Deploy to GitHub Pages
+        if: steps.docs-check.outputs.exists == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
