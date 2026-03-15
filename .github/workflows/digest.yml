@@ -11,8 +11,8 @@
 #     OPENAI_API_KEY         if using codex
 #
 #   Variables (plaintext):
-#     GITHUB_PAGES_USERNAME  your GitHub username
-#     GITHUB_PAGES_REPO      your repo name (e.g. ai-landscape-digest)
+#     PAGES_USERNAME  your GitHub username
+#     PAGES_REPO      your repo name (e.g. ai-landscape-digest)
 
 name: AI Digest
 
@@ -61,16 +61,16 @@ jobs:
 
       - name: Generate cloud config
         env:
-          GITHUB_PAGES_USERNAME: ${{ vars.GITHUB_PAGES_USERNAME }}
-          GITHUB_PAGES_REPO: ${{ vars.GITHUB_PAGES_REPO }}
+          PAGES_USERNAME: ${{ vars.PAGES_USERNAME }}
+          PAGES_REPO: ${{ vars.PAGES_REPO }}
         run: |
           cat > config.cloud.yaml << EOF
           backend: gemini
           model: gemini-2.5-flash
           output: github_pages
           github_pages:
-            username: ${GITHUB_PAGES_USERNAME}
-            repo: ${GITHUB_PAGES_REPO}
+            username: ${PAGES_USERNAME}
+            repo: ${PAGES_REPO}
           include_defaults: true
           custom_feeds: []
           seen_ttl_days: 30

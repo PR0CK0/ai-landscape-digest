@@ -42,8 +42,8 @@ Same page → **Variables tab** → New repository variable. Add two:
 
 | Name | Value |
 |---|---|
-| `GITHUB_PAGES_USERNAME` | your GitHub username |
-| `GITHUB_PAGES_REPO` | `ai-landscape-digest` (or whatever you named your fork) |
+| `PAGES_USERNAME` | your GitHub username |
+| `PAGES_REPO` | `ai-landscape-digest` (or whatever you named your fork) |
 
 ### 4. Enable GitHub Pages
 
