@@ -83,4 +83,4 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python3 -m ai_digest --config config.cloud.yaml
+        run: python3 -m ai_digest --config config.cloud.yaml --force
