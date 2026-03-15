@@ -127,10 +127,23 @@ model: ministral-3b:3b   # see recommended models below
 Ollama runs entirely on your machine — no API key, no usage costs, works offline.
 
 ```bash
-ollama pull ministral-3b:3b
+ollama pull ministral-3:3b
 ```
 
-`ministral-3b:3b` (~2.0 GB) — ~10s response time, very low memory footprint. Fast enough for background digests without being noticeable.
+**`ministral-3:3b` is the recommended model** — consistent ~4s, clean grouped output, no hallucinations, no prompt leakage. This is what the project is tuned and tested against.
+
+Other tested models, for reference:
+
+| Model | Median | Notes |
+|---|---|---|
+| `ministral-3:3b` | ~4s | **recommended** — best quality, consistent |
+| `smollm2:1.7b` | ~4s | decent flat output, occasional timeouts |
+| `gemma3:1b` | ~4s | fast but ignores prompt formatting |
+| `llama3.2:1b` | ~2s | fast but high variance (1–9s), over-lists versions |
+| `qwen2.5:1.5b` | ~3s | over-formatted, repeats sections |
+| `qwen3.x` | 170s+ | thinking models — do not use |
+
+> Avoid any `qwen3.x` model — they leak chain-of-thought and are unusably slow for this use case.
 
 ## Feeds
 
