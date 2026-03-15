@@ -8,7 +8,7 @@ Your local AI release feed, summarized and delivered on lid open — powered by 
 
 Keeping up with AI is exhausting. Every week brings new model releases, CLI updates, SDK breaking changes, and research drops — and half of it is noise. Worse, the scaffolding you built last month to stay informed just got superseded by the companies making the tools themselves.
 
-**ai-landscape-digest cuts 90%+ of the noise.** Open your laptop and get a single, terse newsflash about what actually matters: new releases from the tools you use, distilled by your local LLM into a handful of bullets. No newsletter subscriptions, no doom-scrolling, no signal lost in 47 browser tabs. Just the essentials, on lid open.
+**ai-landscape-digest cuts 90%+ of the noise.** Open your laptop and get a single, terse newsflash about what actually matters: new releases from the tools you use, distilled by your local LLM into a handful of bullets. No newsletter subscriptions, no doom-scrolling, no signal lost in 47 browser tabs. The essentials, on lid open.
 
 ---
 
@@ -28,9 +28,7 @@ Keeping up with AI is exhausting. Every week brings new model releases, CLI upda
   - [Commands](#commands)
   - [Flags](#flags)
 - [Scheduling & triggers](#scheduling--triggers)
-- [GitHub Pages *(experimental)*](#github-pages-experimental-)
-  - [Local push mode](#local-push-mode)
-  - [GitHub Actions mode](#github-actions-mode)
+- [Cloud mode *(optional)*](#cloud-mode-optional)
 - [Workspace](#workspace)
 - [Testing](#testing)
 - [File reference](#file-reference)
@@ -83,7 +81,7 @@ cp config.example.yaml config.yaml
 
 ### How backends work
 
-ai-landscape-digest doesn't handle API keys or authentication itself. It just calls your LLM CLI as a subprocess — the same tool you'd type at the terminal. If `claude` (or `gemini`, `codex`) is already installed and authenticated on your machine, it works immediately. No extra setup, no secrets in config files.
+ai-landscape-digest doesn't handle API keys or authentication itself. It calls your LLM CLI as a subprocess — the same tool you'd type at the terminal. If `claude` (or `gemini`, `codex`) is already installed and authenticated on your machine, it works immediately. No extra setup, no secrets in config files.
 
 Each CLI handles auth its own way:
 
@@ -119,7 +117,7 @@ model: gpt-4o-mini
 
 # Ollama — fully local, no API key or subscription needed
 backend: ollama
-model: ministral-3b:3b   # see recommended models below
+model: ministral-3:3b    # see recommended models below
 ```
 
 ### Ollama recommended models
@@ -257,64 +255,9 @@ Control the schedule with `check_interval` in `config.yaml`:
 python3 -m ai_digest install-trigger
 ```
 
-## GitHub Pages *(experimental)* ⚠️
+## Cloud mode *(optional)*
 
-> **⚠️ Experimental.** The primary use case for ai-landscape-digest is local runs on lid open and manual invocation. GitHub Pages is an optional layer — it works but has known limitations and hasn't been battle-tested across environments.
-
-**Known limitations:**
-- Requires `config.yaml` to be committed to your fork (normally gitignored)
-- GitHub Actions mode: `seen_items.json` must also be committed so dedup state persists between cloud runs — without it, every scheduled run reprocesses all items from the last 7 days
-- Push requires git credentials configured locally (local push) or a repo secret (Actions)
-- `docs/` is gitignored by default — remove that line from `.gitignore` before using this mode
-
-When `output: github_pages`, after each run the script:
-1. Writes `docs/latest.txt` and `docs/index.html`
-2. Does `git commit` + `git push` automatically
-
-Access your digest from any machine:
-```bash
-curl -s https://USERNAME.github.io/ai-landscape-digest/latest.txt
-```
-
-### Local push mode
-
-Run on your own machine; each digest auto-commits and pushes.
-
-1. Fork this repo and clone your fork.
-2. Remove `docs/` from `.gitignore`.
-3. In `config.yaml`, set:
-   ```yaml
-   output: github_pages
-   github_pages:
-     username: YOUR_GITHUB_USERNAME
-     repo: ai-landscape-digest
-   ```
-4. Commit `config.yaml` to your fork (it only contains your username, no secrets).
-5. Enable Pages: **Settings → Pages → Deploy from branch → `main` / `docs`**.
-6. Run normally — each digest commits `docs/` and pushes.
-
-### GitHub Actions mode
-
-Cloud-scheduled — no local machine needed.
-
-1. Fork this repo.
-2. Add your LLM API key as a repo secret (**Settings → Secrets → Actions → New repository secret**). The secret name must match what the CLI expects:
-   - Claude: `ANTHROPIC_API_KEY`
-   - Gemini: `GEMINI_API_KEY`
-   - Codex: `OPENAI_API_KEY`
-3. Remove `docs/` and `seen_items.json` from `.gitignore` and commit both to your fork.
-4. In `config.yaml` (committed to your fork):
-   ```yaml
-   output: github_pages
-   backend: claude        # whichever backend your secret covers
-   github_pages:
-     username: YOUR_GITHUB_USERNAME
-     repo: ai-landscape-digest
-   ```
-5. Enable Pages: **Settings → Pages → Deploy from branch → `main` / `docs`**.
-6. The workflow in `.github/workflows/digest.yml` runs hourly. Edit the cron schedule there to taste.
-
-Trigger a run immediately: **Actions → AI Digest → Run workflow**.
+Want the digest to run automatically in the cloud and be accessible from anywhere? See [CLOUD_MODE.md](CLOUD_MODE.md).
 
 ## Workspace
 
@@ -338,7 +281,7 @@ pytest
 ```
 ai_digest/
   app.py             application core, pipeline, HTML generation
-  __main__.py        python -m ai_digest entrypoint
+  __main__.py        python3 -m ai_digest entrypoint
   cli.py             argument parsing
   constants.py       file paths and timing defaults
   feeds.py           built-in feed list
