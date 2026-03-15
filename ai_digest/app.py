@@ -40,7 +40,7 @@ from ai_digest.constants import (
     SEEN_FILE,
     TRIGGER_LABELS,
 )
-from ai_digest.installers import install_trigger, uninstall_trigger
+from ai_digest.installers import install_trigger, uninstall_trigger, purge
 from ai_digest.doctor import doctor_report
 from ai_digest.feeds import DEFAULT_FEEDS
 from ai_digest.prompts import DEFAULT_PROMPT
@@ -705,6 +705,9 @@ def main(argv=None):
         return
     if args.command == "uninstall-trigger":
         print(uninstall_trigger())
+        return
+    if args.command == "purge":
+        print(purge())
         return
     if args.command == "doctor":
         print(doctor_report(args.config))
