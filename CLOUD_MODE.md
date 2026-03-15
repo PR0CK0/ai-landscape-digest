@@ -55,12 +55,14 @@ Go to your fork → **Settings → Pages**:
 
 ### 5. Trigger a run
 
-Go to **Actions → AI Digest → Run workflow** to fire your first run manually. After that it runs automatically every 6 hours.
+Go to **Actions → AI Digest → Run workflow**. Check **"Force re-process all items"** for your first run to seed the page, then click **Run workflow**. After that it runs automatically every 6 hours.
 
 Your digest will be live at:
 ```
 https://YOUR_USERNAME.github.io/ai-landscape-digest/
 ```
+
+Or at your custom domain if you set `PAGES_URL`.
 
 ---
 
@@ -102,5 +104,5 @@ env:
 ## Known limitations
 
 - **No Ollama** — GitHub Actions runners have no local GPU; use a cloud backend
-- **Dedup resets between runs** — `seen_items.json` is not committed, so each run processes the last `seen_ttl_days` of feeds. Items may repeat across runs if they stay in the feed window.
+- **Dedup via cache** — `seen_items.json` is persisted between runs using GitHub Actions cache. If the cache is evicted (after ~7 days with no runs), the next run reprocesses the full `seen_ttl_days` lookback window once, then resumes normal dedup.
 - **No config to commit** — the workflow generates its config at runtime from your GitHub Actions secrets and variables; nothing personal lives in the repo
