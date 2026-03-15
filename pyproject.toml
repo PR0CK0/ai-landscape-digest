@@ -3,8 +3,8 @@ requires = ["setuptools"]
 build-backend = "setuptools.backends.legacy:build"
 
 [project]
-name = "ai-digest"
-version = "0.1.0"
+name = "ai-landscape-digest"
+version = "0.3.4"
 requires-python = ">=3.9"
 dependencies = ["feedparser", "pyyaml"]
 
