@@ -501,7 +501,7 @@ def _render_digest_markdown(content: str) -> str:
     return '<div class="digest-markdown">\n' + "\n".join(blocks) + "\n  </div>"
 
 
-def _render_html(digests: list, curl_example: str) -> str:
+def _render_html(digests: list, curl_example: str, repo_url: str = "", commit_sha: str = "", username: str = "") -> str:
     if not digests:
         entries_html = "<p style='color:#484f58'>No digests yet.</p>"
     else:
@@ -526,6 +526,24 @@ def _render_html(digests: list, curl_example: str) -> str:
         entries_html = "\n".join(parts)
 
     latest_ts = digests[0]["timestamp"] if digests else "—"
+
+    title_html = (
+        f'<a href="{repo_url}" target="_blank" rel="noopener" class="site-link">AI Landscape Digest</a>'
+        if repo_url else "AI Landscape Digest"
+    )
+
+    footer_parts = []
+    if curl_example:
+        footer_parts.append(f'terminal: <code>{curl_example}</code>')
+    if commit_sha and repo_url:
+        short_sha = commit_sha[:7]
+        footer_parts.append(f'<a href="{repo_url}/commit/{commit_sha}" target="_blank" rel="noopener" class="footer-link">{short_sha}</a>')
+    elif commit_sha:
+        footer_parts.append(commit_sha[:7])
+    if username:
+        footer_parts.append(f'<a href="https://github.com/{username}" target="_blank" rel="noopener" class="footer-link">@{username}</a>')
+    footer_html = '    <div class="tip">' + '  ·  '.join(footer_parts) + '</div>' if footer_parts else ''
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -537,6 +555,8 @@ def _render_html(digests: list, curl_example: str) -> str:
     body {{ background: #0d1117; color: #e6edf3; font-family: 'SF Mono','Fira Code',monospace; padding: 40px 24px; }}
     .wrap {{ max-width: 720px; margin: 0 auto; }}
     .site-label {{ color: #58a6ff; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }}
+    .site-link {{ color: inherit; text-decoration: none; }}
+    .site-link:hover {{ color: #79c0ff; }}
     .latest-ts {{ color: #484f58; font-size: .72rem; margin-bottom: 32px; }}
     details {{ border: 1px solid #21262d; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }}
     details[open] {{ border-color: #30363d; }}
@@ -574,14 +594,16 @@ def _render_html(digests: list, curl_example: str) -> str:
     }}
     .tip {{ margin-top: 28px; padding: 10px 14px; background: #161b22; border: 1px solid #21262d; border-radius: 6px; font-size: .72rem; color: #484f58; }}
     .tip code {{ color: #58a6ff; }}
+    .footer-link {{ color: #484f58; text-decoration: none; }}
+    .footer-link:hover {{ color: #8b949e; }}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="site-label">AI Landscape Digest</div>
+    <div class="site-label">{title_html}</div>
     <div class="latest-ts">last updated {latest_ts}</div>
 {entries_html}
-    <div class="tip">terminal: <code>{curl_example}</code></div>
+{footer_html}
   </div>
 </body>
 </html>"""
@@ -590,10 +612,12 @@ def _render_html(digests: list, curl_example: str) -> str:
 def generate_html_report(target_dir: Path, digest: str, timestamp: str, items: list,
                          trigger: str = "automatic", model: str = "",
                          latency_seconds: Optional[float] = None,
-                         max_history: int = 50, page_url: str = ""):
+                         max_history: int = 50, page_url: str = "",
+                         repo_url: str = "", username: str = ""):
     target_dir.mkdir(parents=True, exist_ok=True)
 
-    curl_example = f"curl -s {page_url}/latest.txt" if page_url else "ai-digest --latest"
+    curl_example = f"curl -s {page_url}/latest.txt" if page_url else ""
+    commit_sha = os.environ.get("GITHUB_SHA", "")
 
     (target_dir / "latest.txt").write_text(
         render_latest_markdown(digest, timestamp)
@@ -612,7 +636,7 @@ def generate_html_report(target_dir: Path, digest: str, timestamp: str, items: l
     })
     digests = digests[:max_history]
     (target_dir / "digests.json").write_text(json.dumps(digests, indent=2))
-    (target_dir / "index.html").write_text(_render_html(digests, curl_example))
+    (target_dir / "index.html").write_text(_render_html(digests, curl_example, repo_url, commit_sha, username))
     (target_dir / ".nojekyll").touch()
 
 
@@ -764,12 +788,14 @@ def main(argv=None):
         elif not significant and not github_pages.get("push_noise", False):
             print("  → skipping push (only alpha/nightly/dev releases)", file=sys.stderr)
         else:
+            page_url = base_url or f"https://{username}.github.io/{repo}"
+            repo_url = f"https://github.com/{username}/{repo}"
             generate_html_report(
                 DOCS_DIR, digest, timestamp, new_items,
                 trigger_name or "automatic", config.model, latency_seconds,
-                max_history, base_url or f"https://{username}.github.io/{repo}"
+                max_history, page_url, repo_url, username
             )
-            push_github_pages(DOCS_DIR, timestamp, username, repo, base_url)
+            push_github_pages(DOCS_DIR, timestamp, username, repo, page_url)
 
 
 if __name__ == "__main__":
