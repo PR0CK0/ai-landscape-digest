@@ -14,13 +14,12 @@
 name: AI Digest
 
 on:
-  schedule:
-    # Cron is disabled by default — uncomment to run on a schedule.
-    # '0 * * * *'   = every hour
-    # '0 */4 * * *' = every 4 hours
-    # '0 8 * * *'   = daily at 8am UTC
-    # - cron: '0 * * * *'
   workflow_dispatch:  # trigger manually: Actions → AI Digest → Run workflow
+  # To run on a schedule, add:
+  # schedule:
+  #   - cron: '0 * * * *'    # every hour
+  #   - cron: '0 */4 * * *'  # every 4 hours
+  #   - cron: '0 8 * * *'    # daily at 8am UTC
 
 permissions:
   contents: write  # needed to commit and push docs/ changes
