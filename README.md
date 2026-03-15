@@ -48,6 +48,15 @@ The local version works great out of the box — install it, set your backend, a
 
 Fetches RSS feeds from AI tools and research sources, deduplicates against what you've already seen, pipes the new stuff to your LLM CLI, and prints a terse digest. Runs automatically on lid open and on a configurable background timer. No cloud accounts, no separate API keys — uses the CLI you already have.
 
+Every run produces a full **HTML summary that automatically opens in your browser** — a clean, readable report of everything new, saved to `~/Documents/`. You also get a desktop notification so you know it ran.
+
+Here's what you'll see:
+
+<p align="center">
+  <img src="notif1.png" width="420" alt="Digest notification">
+  <img src="notif2.png" width="420" alt="Digest notification detail">
+</p>
+
 ## Install
 
 ```bash
@@ -57,7 +66,7 @@ pip install -r requirements.txt
 python3 -m ai_digest install-trigger
 ```
 
-That's it. Close and reopen your lid — it runs. Or `make run` to run immediately.
+That's it. Close and reopen your lid — it runs, opens the HTML report in your browser, and sends a desktop notification. Or `make run` to run immediately.
 
 > If you don't have `make`, `python3 -m ai_digest` is equivalent to `make run`.
 
