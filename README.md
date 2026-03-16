@@ -283,6 +283,8 @@ python3 -m ai_digest install-trigger
 
 ## Cloud mode *(optional)*
 
+> **Note:** Cloud mode is functional but under active testing. Many powerful cloud LLMs struggle to follow the strict formatting and filtering requirements this project demands — `gemini-2.5-flash` in particular tends to ignore instructions and produce verbose prose. `gemini-2.0-flash-lite` is the current recommended default. If output quality matters to you, the local mode with Ollama (`ministral-3:3b`) remains the gold standard.
+
 Want the digest to run automatically in the cloud and be accessible from anywhere? See [CLOUD_MODE.md](CLOUD_MODE.md).
 
 ## Workspace

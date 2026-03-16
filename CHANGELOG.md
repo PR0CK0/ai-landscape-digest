@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.4
+
+- CI: opt into Node.js 24 for GitHub Actions jobs (`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`) ahead of June 2026 forced migration
+- Docs: added cloud mode disclaimer to README — cloud mode is under active testing; many LLMs struggle with strict formatting requirements; local Ollama (`ministral-3:3b`) remains the gold standard
+
+---
+
 ## v0.5.3
 
 - Cloud model switched from `gemini-2.5-flash` to `gemini-2.0-flash-lite` (non-thinking model, better instruction following)
