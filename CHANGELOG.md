@@ -1,0 +1,63 @@
+# Changelog
+
+## v0.5.0
+
+### Bug fix — GitHub Actions no longer double-commits to main
+
+The guard in `push_github_pages` that skips git operations when running in GitHub Actions was checking `DIGEST_TRIGGER == "github_actions"`, but the workflow sets it to `"github_actions_manual"` or `"github_actions_scheduled"`. The check now uses `startswith("github_actions")` so it matches all GHA trigger variants. Previously this caused the app to run a spurious `git commit + push` to the main branch mid-workflow, which could corrupt `seen_items.json` state and cause every cloud run to reprocess the same items.
+
+### New — `reset` subcommand
+
+Clear dedup cache, digest history, or both without manual file editing.
+
+```bash
+# clear everything (cache + history)
+python3 -m ai_digest reset
+
+# clear only seen_items.json (next run reprocesses last 7 days)
+python3 -m ai_digest reset --seen
+make reset
+
+# clear only digest history (digests.json + index.html)
+python3 -m ai_digest reset --history
+
+# clear everything
+make reset-all
+```
+
+### New — Reset Digest State GitHub Actions workflow
+
+`reset.yml` is a manual `workflow_dispatch` workflow with two inputs:
+
+| Input | Options |
+|---|---|
+| `what` | `all` / `seen_only` / `history_only` |
+| `rerun` | `true` — trigger a fresh digest immediately after reset |
+
+Resets the `ci-state` branch directly. Use `rerun: true` + `what: all` to clear duplicate digest entries and re-seed the hosted page cleanly.
+
+### Docs
+
+- `CLOUD_MODE.md` — added Reset Digest State section; corrected stale note about "GitHub Actions cache" (state is stored in the `ci-state` branch)
+- `README.md` — added `reset` / `reset-all` commands and `--seen` / `--history` flags; updated file reference to include `reset.yml`
+- `CHANGELOG.md` — added (this file)
+
+---
+
+## v0.4.3
+
+- Release maintenance and workflow fixes
+
+## v0.4.2
+
+- ci-state branch for seen_items persistence across GitHub Actions runs
+- Trigger labels in digest metadata
+- `--force` flag and force indicator in HTML output
+
+## v0.4.1
+
+- Scheduling and trigger improvements
+
+## v0.4.0
+
+- Normalize markdown rendering — headings, bullets, slash-commands

@@ -1,4 +1,4 @@
-.PHONY: install setup install-trigger uninstall-trigger doctor test test-unit test-integration run reset help
+.PHONY: install setup install-trigger uninstall-trigger doctor test test-unit test-integration run reset reset-all help
 
 LOOKBACK_DAYS := 7
 
@@ -15,7 +15,8 @@ help:
 	@echo "  make test-unit        run unit tests only (fast, no network)"
 	@echo "  make test-integration run integration tests (requires network)"
 	@echo "  make run              run full digest right now"
-	@echo "  make reset            clear seen items (next run shows last $(LOOKBACK_DAYS) days)"
+	@echo "  make reset            clear seen_items dedup cache (next run shows last $(LOOKBACK_DAYS) days)"
+	@echo "  make reset-all        clear seen_items + digest history + local HTML"
 	@echo ""
 	@echo "  Config: copy config.example.yaml → config.yaml and edit."
 	@echo ""
@@ -54,5 +55,7 @@ run:
 	python3 -m ai_digest
 
 reset:
-	echo "[]" > seen_items.json
-	@echo "Cleared. Next run shows last $(LOOKBACK_DAYS) days of releases."
+	python3 -m ai_digest reset --seen
+
+reset-all:
+	python3 -m ai_digest reset

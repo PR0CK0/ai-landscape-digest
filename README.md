@@ -234,7 +234,9 @@ custom_feeds:
 | `python3 -m ai_digest install-trigger` | Install platform wake + timer trigger |
 | `python3 -m ai_digest uninstall-trigger` | Remove platform triggers |
 | `python3 -m ai_digest doctor` | Check environment and installed triggers |
-| `make reset` | Clear dedup cache (next run shows last 7 days) |
+| `make reset` | Clear dedup cache only — next run shows last 7 days |
+| `make reset-all` | Clear dedup cache + digest history + local HTML |
+| `python3 -m ai_digest reset` | Same as `make reset-all`; use `--seen` or `--history` to target one |
 | `python3 -m ai_digest purge` | Remove all triggers, state files, and output — full uninstall |
 | `make test` | Run unit tests |
 | `make test-integration` | Run integration tests (requires network) |
@@ -247,6 +249,8 @@ custom_feeds:
 | `--config PATH` | auto | Path to a specific `config.yaml` |
 | `--force` | off | Ignore `seen_items.json` and re-process all fetched items |
 | `--no-notify` | off | Disable desktop notifications for this run |
+| `--seen` | off | `reset` only: clear seen_items.json dedup cache |
+| `--history` | off | `reset` only: clear digest history (digests.json + index.html) |
 
 ## Scheduling & triggers
 
@@ -324,7 +328,8 @@ tests/
   test_integration.py  integration tests (real feeds, real filesystem)
 .github/
   workflows/
-    digest.yml       GitHub Actions scheduled runner
+    digest.yml       GitHub Actions scheduled runner (cloud mode)
+    reset.yml        GitHub Actions manual reset — clear state and optionally re-seed
 ```
 
 ## License

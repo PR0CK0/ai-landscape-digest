@@ -103,8 +103,29 @@ env:
 
 ---
 
+---
+
+## Resetting state
+
+Use the **Reset Digest State** workflow to clear dedup cache, digest history, or both — without editing any files manually.
+
+**Actions → Reset Digest State → Run workflow**
+
+| Input | Options | Description |
+|---|---|---|
+| `what` | `all` *(default)*, `seen_only`, `history_only` | What to clear |
+| `rerun` | `true` / `false` | Trigger a fresh digest immediately after reset |
+
+- **`seen_only`** — clears `seen_items.json` so the next scheduled run re-processes all items from the past `seen_ttl_days` window. Use this when you want a fresh summary without wiping the page history.
+- **`history_only`** — clears `digests.json` so the hosted page starts from a clean slate. Existing seen-item dedup is preserved.
+- **`all`** — clears both. Use `rerun: true` to immediately re-seed the page with a fresh digest.
+
+State is persisted in the `ci-state` branch (not GitHub Actions cache). The reset workflow updates that branch directly.
+
+---
+
 ## Known limitations
 
 - **No Ollama** — GitHub Actions runners have no local GPU; use a cloud backend
-- **Dedup via cache** — `seen_items.json` is persisted between runs using GitHub Actions cache. If the cache is evicted (after ~7 days with no runs), the next run reprocesses the full `seen_ttl_days` lookback window once, then resumes normal dedup.
+- **Dedup via ci-state branch** — `seen_items.json` is persisted between runs in the `ci-state` branch. This branch is created automatically on first run and updated after each successful digest.
 - **No config to commit** — the workflow generates its config at runtime from your GitHub Actions secrets and variables; nothing personal lives in the repo

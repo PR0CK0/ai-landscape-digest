@@ -11,7 +11,7 @@ def build_parser() -> argparse.ArgumentParser:
         "command",
         nargs="?",
         default="run",
-        choices=["run", "install-trigger", "uninstall-trigger", "purge", "doctor"],
+        choices=["run", "install-trigger", "uninstall-trigger", "purge", "doctor", "reset"],
         help="Command to run.",
     )
     parser.add_argument(
@@ -34,6 +34,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--no-notify",
         action="store_true",
         help="Disable desktop notifications for this run.",
+    )
+    parser.add_argument(
+        "--seen",
+        action="store_true",
+        help="[reset] Clear seen_items.json dedup cache only.",
+    )
+    parser.add_argument(
+        "--history",
+        action="store_true",
+        help="[reset] Clear digest history (digests.json + index.html) only.",
     )
     return parser
 
