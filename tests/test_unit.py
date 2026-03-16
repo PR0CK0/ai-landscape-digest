@@ -667,6 +667,90 @@ class TestPushGithubPages:
         assert data[0]["latency_seconds"] == 4.6
 
 
+# ── Digest history accumulation ────────────────────────────────────────────
+#
+# These tests verify the behavior that was broken in CI: without docs/digests.json
+# being restored before each run, every GitHub Actions execution started with an
+# empty history and the HTML only ever showed one entry.  The fix (restoring
+# docs/digests.json from the digest-cache branch before running) depends entirely
+# on generate_html_report correctly loading a pre-existing file written by an
+# earlier process — which is what these tests exercise.
+
+PRIOR_ENTRY = {
+    "timestamp": "t0",
+    "trigger": "github_actions",
+    "item_count": 2,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.0,
+    "sources": [],
+    "content": "prior digest",
+}
+
+class TestDigestHistoryAccumulation:
+    def _seed(self, docs: Path, entries: list):
+        """Write a digests.json to docs/ as the workflow's cache-restore step would."""
+        docs.mkdir(exist_ok=True)
+        (docs / "digests.json").write_text(json.dumps(entries))
+
+    def test_accumulates_when_digests_json_pre_seeded(self, tmp_path):
+        docs = tmp_path / "docs"
+        self._seed(docs, [PRIOR_ENTRY])
+
+        digest.generate_html_report(docs, "new digest", "t1", SAMPLE_ITEMS)
+
+        data = json.loads((docs / "digests.json").read_text())
+        assert len(data) == 2
+        assert data[0]["timestamp"] == "t1"    # newest first
+        assert data[0]["content"] == "new digest"
+        assert data[1]["timestamp"] == "t0"    # prior entry preserved
+
+    def test_fresh_run_without_prior_history(self, tmp_path):
+        docs = tmp_path / "docs"
+        # No digests.json on disk — first-ever run
+
+        digest.generate_html_report(docs, "first digest", "t1", SAMPLE_ITEMS)
+
+        data = json.loads((docs / "digests.json").read_text())
+        assert len(data) == 1
+        assert data[0]["content"] == "first digest"
+
+    def test_corrupted_digests_json_treated_as_empty(self, tmp_path):
+        docs = tmp_path / "docs"
+        self._seed(docs, [])
+        (docs / "digests.json").write_text("not valid json {{{{")
+
+        digest.generate_html_report(docs, "new digest", "t1", SAMPLE_ITEMS)
+
+        data = json.loads((docs / "digests.json").read_text())
+        assert len(data) == 1
+        assert data[0]["content"] == "new digest"
+
+    def test_html_renders_all_accumulated_entries(self, tmp_path):
+        docs = tmp_path / "docs"
+        self._seed(docs, [PRIOR_ENTRY])
+
+        digest.generate_html_report(docs, "new news", "t1", SAMPLE_ITEMS)
+
+        html = (docs / "index.html").read_text()
+        assert "new news" in html
+        assert "prior digest" in html
+
+    def test_multiple_pre_seeded_entries_all_preserved(self, tmp_path):
+        docs = tmp_path / "docs"
+        prior = [
+            {**PRIOR_ENTRY, "timestamp": f"t{i}", "content": f"digest {i}"}
+            for i in range(3)
+        ]
+        self._seed(docs, prior)
+
+        digest.generate_html_report(docs, "latest", "t_new", SAMPLE_ITEMS)
+
+        data = json.loads((docs / "digests.json").read_text())
+        assert len(data) == 4
+        assert data[0]["timestamp"] == "t_new"
+        assert [d["timestamp"] for d in data[1:]] == ["t0", "t1", "t2"]
+
+
 class TestIsSignificant:
     def test_real_release_is_significant(self):
         items = [{"title": "v2.1.76", "source": "Claude Code", "link": "", "summary": ""}]

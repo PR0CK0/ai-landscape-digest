@@ -31,7 +31,7 @@ on:
     # - cron: '0 8 * * *'  # daily at 8am UTC
 
 permissions:
-  contents: read   # repo checkout only — never writes back to master
+  contents: write  # needed to update digest-cache branch with accumulated history
   pages: write     # deploy to GitHub Pages
   id-token: write  # required by actions/deploy-pages for OIDC auth
 
@@ -104,6 +104,14 @@ jobs:
           key: seen-items-${{ github.run_id }}
           restore-keys: seen-items-
 
+      # ── Restore digest history from cache branch so HTML accumulates ──────────
+      - name: Restore digest history
+        run: |
+          git fetch origin digest-cache 2>/dev/null && \
+            mkdir -p docs && \
+            git show origin/digest-cache:digests.json > docs/digests.json 2>/dev/null || \
+            echo "No digest history yet — starting fresh"
+
       - name: Run digest
         env:
           DIGEST_TRIGGER: github_actions
@@ -129,6 +137,22 @@ jobs:
             echo "### No new items — site unchanged" >> $GITHUB_STEP_SUMMARY
             echo "All feeds are caught up. Pages deployment skipped." >> $GITHUB_STEP_SUMMARY
           fi
+
+      # ── Save updated digest history back to cache branch ─────────────────────
+      - name: Save digest history
+        if: steps.docs-check.outputs.exists == 'true'
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git fetch origin digest-cache 2>/dev/null || true
+          BLOB=$(git hash-object -w docs/digests.json)
+          TREE=$(printf "100644 blob %s\tdigests.json" "$BLOB" | git mktree)
+          if git rev-parse origin/digest-cache >/dev/null 2>&1; then
+            COMMIT=$(git commit-tree "$TREE" -p origin/digest-cache -m "Update digest history [skip ci]")
+          else
+            COMMIT=$(git commit-tree "$TREE" -m "Initialize digest history [skip ci]")
+          fi
+          git push origin "$COMMIT:refs/heads/digest-cache"
 
       - name: Upload Pages artifact
         if: steps.docs-check.outputs.exists == 'true'
