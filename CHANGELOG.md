@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.5.3
+
+- Cloud model switched from `gemini-2.5-flash` to `gemini-2.0-flash-lite` (non-thinking model, better instruction following)
+- `PAGES_MODEL` GitHub Actions variable added — override the Gemini model without touching workflow code; defaults to `gemini-2.0-flash-lite`
+- Prompt: rewrote with explicit `INCLUDE ONLY` / `EXCLUDE` / `FORMAT RULES` sections to combat Gemini's tendency to ignore vague instructions
+- Prompt: hard ban on `##` for individual tool names; one bullet per tool; at most 6 comma-separated changes per tool
+- Docs: noted `gemini-2.5-flash` as a poor choice (thinking model, ignores formatting rules)
+
+---
+
 ## v0.5.2
 
 - Prompt: skip newsletters, blog posts, research papers, policy/legal news entirely
