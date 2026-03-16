@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.5.1
+
+- Fix: reset workflow YAML parse error — heredoc with unindented content broke
+  validation; moved ci-state README to `.github/ci-state-README.md` and `cp` it in
+- Fix: reset rerun now triggers digest without `--force` so `seen_items` are saved
+  as the new baseline (force skips `save_seen_records`)
+- Fix: ci-state README now persisted on every save in both `digest.yml` and `reset.yml`
+- Prompt: one bullet per change (not comma-separated); explicit backtick rule for
+  `--flags`, `/commands`, identifiers; no-prose directive; grouping instruction for
+  large item counts
+
+---
+
 ## v0.5.0
 
 ### Bug fix — GitHub Actions no longer double-commits to main
