@@ -89,7 +89,7 @@ jobs:
       - name: Trigger digest run
         if: inputs.rerun == true
         run: |
-          gh workflow run digest.yml --field force=true
-          echo "### Digest workflow triggered (force=true)" >> $GITHUB_STEP_SUMMARY
+          gh workflow run digest.yml
+          echo "### Digest workflow triggered (ci-state is empty, all current items will be processed and saved as the new baseline)" >> $GITHUB_STEP_SUMMARY
         env:
           GH_TOKEN: ${{ github.token }}
