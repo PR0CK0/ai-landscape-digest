@@ -31,7 +31,7 @@ on:
     # - cron: '0 8 * * *'  # daily at 8am UTC
 
 permissions:
-  contents: write  # needed to update digest-cache branch with accumulated history
+  contents: write  # needed to update ci-state branch with accumulated state
   pages: write     # deploy to GitHub Pages
   id-token: write  # required by actions/deploy-pages for OIDC auth
 
@@ -96,25 +96,20 @@ jobs:
           timezone: "${PAGES_TZ}"
           EOF
 
-      # ── Persist seen_items.json between runs so dedup works across VMs ─────────
-      - name: Restore seen_items cache
-        uses: actions/cache@v4
-        with:
-          path: seen_items.json
-          key: seen-items-${{ github.run_id }}
-          restore-keys: seen-items-
-
-      # ── Restore digest history from cache branch so HTML accumulates ──────────
-      - name: Restore digest history
+      # ── Restore seen_items + digest history from ci-state branch ─────────────
+      - name: Restore CI state
         run: |
-          git fetch origin digest-cache 2>/dev/null && \
-            mkdir -p docs && \
-            git show origin/digest-cache:digests.json > docs/digests.json 2>/dev/null || \
-            echo "No digest history yet — starting fresh"
+          if git fetch origin ci-state 2>/dev/null; then
+            git show origin/ci-state:seen_items.json > seen_items.json 2>/dev/null || true
+            mkdir -p docs
+            git show origin/ci-state:digests.json > docs/digests.json 2>/dev/null || true
+          else
+            echo "No ci-state branch yet — starting fresh"
+          fi
 
       - name: Run digest
         env:
-          DIGEST_TRIGGER: github_actions
+          DIGEST_TRIGGER: ${{ github.event_name == 'workflow_dispatch' && 'github_actions_manual' || 'github_actions_scheduled' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -138,21 +133,23 @@ jobs:
             echo "All feeds are caught up. Pages deployment skipped." >> $GITHUB_STEP_SUMMARY
           fi
 
-      # ── Save updated digest history back to cache branch ─────────────────────
-      - name: Save digest history
+      # ── Save seen_items + digest history back to ci-state branch ─────────────
+      - name: Save CI state
         if: steps.docs-check.outputs.exists == 'true'
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git fetch origin digest-cache 2>/dev/null || true
-          BLOB=$(git hash-object -w docs/digests.json)
-          TREE=$(printf "100644 blob %s\tdigests.json" "$BLOB" | git mktree)
-          if git rev-parse origin/digest-cache >/dev/null 2>&1; then
-            COMMIT=$(git commit-tree "$TREE" -p origin/digest-cache -m "Update digest history [skip ci]")
+          git fetch origin ci-state 2>/dev/null || true
+          BLOB_SEEN=$(git hash-object -w seen_items.json)
+          BLOB_DIGESTS=$(git hash-object -w docs/digests.json)
+          TREE=$(printf "100644 blob %s\tseen_items.json\n100644 blob %s\tdigests.json" \
+            "$BLOB_SEEN" "$BLOB_DIGESTS" | git mktree)
+          if git rev-parse origin/ci-state >/dev/null 2>&1; then
+            COMMIT=$(git commit-tree "$TREE" -p origin/ci-state -m "Update CI state [skip ci]")
           else
-            COMMIT=$(git commit-tree "$TREE" -m "Initialize digest history [skip ci]")
+            COMMIT=$(git commit-tree "$TREE" -m "Initialize CI state [skip ci]")
           fi
-          git push origin "$COMMIT:refs/heads/digest-cache"
+          git push origin "$COMMIT:refs/heads/ci-state"
 
       - name: Upload Pages artifact
         if: steps.docs-check.outputs.exists == 'true'
