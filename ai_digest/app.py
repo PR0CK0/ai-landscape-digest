@@ -448,6 +448,7 @@ def _format_inline_markdown(text: str) -> str:
     escaped = escape(text)
     escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
     escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
+    escaped = re.sub(r"(?<![a-zA-Z0-9<])(/[a-z][a-z0-9-]*)(?![a-zA-Z0-9/])", r"<code>\1</code>", escaped)
     return escaped
 
 
@@ -481,10 +482,10 @@ def _render_digest_markdown(content: str) -> str:
 
         if stripped.startswith("# "):
             close_list()
-            blocks.append(f"    <h1>{_format_inline_markdown(stripped[2:])}</h1>")
+            blocks.append(f"    <h2>{_format_inline_markdown(stripped[2:])}</h2>")
             continue
 
-        if stripped.startswith("- "):
+        if stripped.startswith("- ") or stripped.startswith("* "):
             if not in_list:
                 blocks.append('    <ul class="digest-list">')
                 in_list = True
