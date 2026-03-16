@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.2
+
+- Prompt: skip newsletters, blog posts, research papers, policy/legal news entirely
+- Prompt: consolidate multiple releases of the same tool into one bullet
+- Prompt: `## Category` grouping with `**Tool**:` inline prefix per bullet
+- Prompt: tighten per-change word limit to 2–6 words
+
+---
+
 ## v0.5.1
 
 - Fix: reset workflow YAML parse error — heredoc with unindented content broke
