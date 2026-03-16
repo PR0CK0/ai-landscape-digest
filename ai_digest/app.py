@@ -518,6 +518,8 @@ def _render_html(digests: list, curl_example: str, repo_url: str = "", commit_sh
                 parts_meta.append(model)
             if latency_seconds is not None:
                 parts_meta.append(format_latency(float(latency_seconds)))
+            if digest.get("force"):
+                parts_meta.append("(forced)")
             label = f"{digest['timestamp']}  ·  " + "  ·  ".join(parts_meta)
             src_html = _sources_html(digest.get("sources", []))
             parts.append(f"""  <details{'  open' if index == 0 else ''}>
@@ -614,7 +616,8 @@ def generate_html_report(target_dir: Path, digest: str, timestamp: str, items: l
                          trigger: str = "automatic", model: str = "",
                          latency_seconds: Optional[float] = None,
                          max_history: int = 50, page_url: str = "",
-                         repo_url: str = "", username: str = ""):
+                         repo_url: str = "", username: str = "",
+                         force: bool = False):
     target_dir.mkdir(parents=True, exist_ok=True)
 
     curl_example = f"curl -s {page_url}/latest.txt" if page_url else ""
@@ -631,6 +634,7 @@ def generate_html_report(target_dir: Path, digest: str, timestamp: str, items: l
         "item_count": len(items),
         "model": model,
         "latency_seconds": latency_seconds,
+        "force": force,
         "sources": [{"source": item["source"], "title": item["title"], "link": item["link"]}
                     for item in items if item.get("link")],
         "content": digest,
@@ -769,7 +773,8 @@ def main(argv=None):
     if config.html_output:
         generate_html_report(
             USER_DOCS_DIR, digest, timestamp, new_items,
-            trigger_name or "automatic", config.model, latency_seconds
+            trigger_name or "automatic", config.model, latency_seconds,
+            force=args.force
         )
         report_path = USER_DOCS_DIR / "index.html"
         print(f"  → local report: {report_path}", file=sys.stderr)
@@ -797,7 +802,8 @@ def main(argv=None):
             generate_html_report(
                 DOCS_DIR, digest, timestamp, new_items,
                 trigger_name or "automatic", config.model, latency_seconds,
-                max_history, page_url, repo_url, username
+                max_history, page_url, repo_url, username,
+                force=args.force
             )
             push_github_pages(DOCS_DIR, timestamp, username, repo, page_url)
 

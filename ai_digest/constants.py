@@ -24,4 +24,6 @@ TRIGGER_LABELS = {
     "manual": "manual",
     "automatic": "automatic",
     "github_actions": "GitHub Actions",
+    "github_actions_scheduled": "GitHub Actions (scheduled)",
+    "github_actions_manual": "GitHub Actions (manual)",
 }
