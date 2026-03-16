@@ -1,0 +1,95 @@
+# Reset Digest State — GitHub Actions manual workflow
+#
+# Clears seen_items.json (dedup cache) and/or digest history (digests.json)
+# from the ci-state branch, then optionally kicks off a fresh digest run.
+#
+# Usage: Actions → Reset Digest State → Run workflow
+#
+#   what:   all          — clear everything (default)
+#           seen_only    — clear seen_items.json so next run reprocesses all recent items
+#           history_only — clear digest history so the hosted page starts fresh
+#   rerun:  true         — immediately trigger a fresh digest after reset
+
+name: Reset Digest State
+
+on:
+  workflow_dispatch:
+    inputs:
+      what:
+        description: 'What to reset'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - seen_only
+          - history_only
+      rerun:
+        description: 'Run digest immediately after reset (re-seeds the page)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write   # update ci-state branch
+  actions: write    # trigger digest workflow (rerun option)
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ── Restore current state from ci-state branch ───────────────────────────
+      - name: Restore CI state
+        run: |
+          mkdir -p docs
+          if git fetch origin ci-state 2>/dev/null; then
+            git show origin/ci-state:seen_items.json > seen_items.json 2>/dev/null || echo '{}' > seen_items.json
+            git show origin/ci-state:digests.json    > docs/digests.json 2>/dev/null || echo '[]' > docs/digests.json
+          else
+            echo '{}' > seen_items.json
+            echo '[]' > docs/digests.json
+          fi
+
+      # ── Apply reset ───────────────────────────────────────────────────────────
+      - name: Reset seen items
+        if: inputs.what == 'all' || inputs.what == 'seen_only'
+        run: |
+          echo '{}' > seen_items.json
+          echo "### Cleared seen_items.json — next digest reprocesses all recent items" >> $GITHUB_STEP_SUMMARY
+
+      - name: Reset digest history
+        if: inputs.what == 'all' || inputs.what == 'history_only'
+        run: |
+          echo '[]' > docs/digests.json
+          echo "### Cleared digest history (digests.json)" >> $GITHUB_STEP_SUMMARY
+
+      # ── Save updated state back to ci-state branch ───────────────────────────
+      - name: Save CI state
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git fetch origin ci-state 2>/dev/null || true
+          BLOB_SEEN=$(git hash-object -w seen_items.json)
+          BLOB_DIGESTS=$(git hash-object -w docs/digests.json)
+          TREE=$(printf "100644 blob %s\tseen_items.json\n100644 blob %s\tdigests.json" \
+            "$BLOB_SEEN" "$BLOB_DIGESTS" | git mktree)
+          if git rev-parse origin/ci-state >/dev/null 2>&1; then
+            COMMIT=$(git commit-tree "$TREE" -p origin/ci-state -m "Reset CI state (${{ inputs.what }}) [skip ci]")
+          else
+            COMMIT=$(git commit-tree "$TREE" -m "Reset CI state (${{ inputs.what }}) [skip ci]")
+          fi
+          git push origin "$COMMIT:refs/heads/ci-state"
+          echo "### ci-state branch updated" >> $GITHUB_STEP_SUMMARY
+
+      # ── Optionally trigger a fresh digest run ─────────────────────────────────
+      - name: Trigger digest run
+        if: inputs.rerun == true
+        run: |
+          gh workflow run digest.yml --field force=true
+          echo "### Digest workflow triggered (force=true)" >> $GITHUB_STEP_SUMMARY
+        env:
+          GH_TOKEN: ${{ github.token }}

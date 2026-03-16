@@ -661,7 +661,7 @@ def push_github_pages(target_dir: Path, timestamp: str, username: str, repo: str
 
     # In GitHub Actions, deployment is handled by the workflow (upload-pages-artifact +
     # deploy-pages). Skip git operations here to keep master clean.
-    if os.environ.get("DIGEST_TRIGGER") == "github_actions":
+    if (os.environ.get("DIGEST_TRIGGER") or "").startswith("github_actions"):
         print(f"  → docs/ written; GitHub Actions will deploy to {page_url}", file=sys.stderr)
         return
 
@@ -716,6 +716,24 @@ def main(argv=None):
         return
     if args.command == "doctor":
         print(doctor_report(args.config))
+        return
+    if args.command == "reset":
+        neither = not args.seen and not args.history
+        clear_seen = args.seen or neither
+        clear_history = args.history or neither
+        if clear_seen:
+            save_seen_records({})
+            print(f"  ✓ Cleared seen_items.json — next run reprocesses the last {LOOKBACK_DAYS} days")
+        if clear_history:
+            for d in (USER_DOCS_DIR, DOCS_DIR):
+                digests_file = d / "digests.json"
+                html_file = d / "index.html"
+                if digests_file.exists():
+                    digests_file.write_text("[]")
+                    print(f"  ✓ Cleared {digests_file}")
+                if html_file.exists():
+                    html_file.unlink()
+                    print(f"  ✓ Removed {html_file}")
         return
 
     config = build_app_config(load_config())
