@@ -140,21 +140,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git fetch origin ci-state 2>/dev/null || true
-          cat > ci-state-README.md << 'README'
-# ci-state branch
-
-This branch is managed automatically by GitHub Actions. Do not edit manually.
-
-It stores two files that persist state between workflow runs:
-
-| File | Purpose |
-|---|---|
-| `seen_items.json` | Dedup cache — maps item IDs to timestamps so each release is only surfaced once |
-| `digests.json` | Digest history — rendered on the GitHub Pages site |
-
-Updated after every successful digest run. To reset, use:
-**Actions → Reset Digest State → Run workflow**
-README
+          cp .github/ci-state-README.md ci-state-README.md
           BLOB_SEEN=$(git hash-object -w seen_items.json)
           BLOB_DIGESTS=$(git hash-object -w docs/digests.json)
           BLOB_README=$(git hash-object -w ci-state-README.md)
