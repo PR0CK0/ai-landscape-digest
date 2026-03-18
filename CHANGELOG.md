@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.5
+
+- CI: LLM quota/API errors no longer fail the workflow run — `continue-on-error` on the digest step, outcome checked in the docs-check gate; step summary reports the error and skips deployment cleanly
+
+---
+
 ## v0.5.4
 
 - CI: opt into Node.js 24 for GitHub Actions jobs (`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`) ahead of June 2026 forced migration
