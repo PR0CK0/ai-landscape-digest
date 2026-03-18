@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.6
+
+- CI: three visually distinct run states via workflow annotations — `::warning::` (yellow) for LLM errors, `::notice::` (blue) for no new items, plain green for a published digest
+- Cloud model reverted to `gemini-2.5-flash` — `gemini-2.0-flash-lite` exhausts its free-tier token quota in a single large run
+
+---
+
 ## v0.5.5
 
 - CI: LLM quota/API errors no longer fail the workflow run — `continue-on-error` on the digest step, outcome checked in the docs-check gate; step summary reports the error and skips deployment cleanly
