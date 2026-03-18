@@ -114,6 +114,8 @@ jobs:
           fi
 
       - name: Run digest
+        id: run-digest
+        continue-on-error: true
         env:
           DIGEST_TRIGGER: ${{ github.event_name == 'workflow_dispatch' && 'github_actions_manual' || 'github_actions_scheduled' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -130,7 +132,12 @@ jobs:
       - name: Check for new output
         id: docs-check
         run: |
-          if [ -f docs/index.html ]; then
+          if [ "${{ steps.run-digest.outcome }}" = "failure" ]; then
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "### LLM error — deployment skipped" >> $GITHUB_STEP_SUMMARY
+            echo "The digest step exited with an error (quota exceeded, API failure, or model unavailable)." >> $GITHUB_STEP_SUMMARY
+            echo "No changes were made to the site or CI state." >> $GITHUB_STEP_SUMMARY
+          elif [ -f docs/index.html ]; then
             echo "exists=true" >> $GITHUB_OUTPUT
             echo "### New digest published" >> $GITHUB_STEP_SUMMARY
           else
