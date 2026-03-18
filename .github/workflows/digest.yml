@@ -133,7 +133,8 @@ jobs:
         run: |
           if [ "${{ steps.run-digest.outcome }}" = "failure" ]; then
             echo "exists=false" >> $GITHUB_OUTPUT
-            echo "### LLM error — deployment skipped" >> $GITHUB_STEP_SUMMARY
+            echo "::warning title=LLM Error::Digest step failed (quota exceeded, API error, or model unavailable). Site and CI state unchanged."
+            echo "### ⚠️ LLM error — deployment skipped" >> $GITHUB_STEP_SUMMARY
             echo "The digest step exited with an error (quota exceeded, API failure, or model unavailable)." >> $GITHUB_STEP_SUMMARY
             echo "No changes were made to the site or CI state." >> $GITHUB_STEP_SUMMARY
           elif [ -f docs/index.html ]; then
@@ -141,6 +142,7 @@ jobs:
             echo "### New digest published" >> $GITHUB_STEP_SUMMARY
           else
             echo "exists=false" >> $GITHUB_OUTPUT
+            echo "::notice title=No New Items::All feeds are caught up. Site unchanged."
             echo "### No new items — site unchanged" >> $GITHUB_STEP_SUMMARY
             echo "All feeds are caught up. Pages deployment skipped." >> $GITHUB_STEP_SUMMARY
           fi
