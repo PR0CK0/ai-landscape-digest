@@ -48,9 +48,9 @@ Same page → **Variables tab** → New repository variable. Add these:
 | `PAGES_REPO` | `ai-landscape-digest` (or whatever you named your fork) |
 | `PAGES_TZ` | your timezone, e.g. `America/New_York` *(optional — defaults to UTC)* |
 | `PAGES_URL` | your custom domain URL, e.g. `https://procko.pro/ai-landscape-digest` *(optional)* |
-| `PAGES_MODEL` | Gemini model name *(optional — defaults to `gemini-2.0-flash-lite`)* |
+| `PAGES_MODEL` | Gemini model name *(optional — defaults to `gemini-2.5-flash`)* |
 
-**Model recommendation:** Use `gemini-2.0-flash-lite` (default) or `gemini-2.0-flash`. **Avoid `gemini-2.5-flash`** — it is a thinking/reasoning model that tends to ignore strict formatting instructions, producing verbose prose instead of the compact bullet format this project requires. If Gemini deprecates a model, update `PAGES_MODEL` in your repo variables without touching any code.
+**Model notes:** `gemini-2.5-flash` is the default. `gemini-2.0-flash-lite` has a lower free-tier token quota and tends to exhaust it in a single run with large feed batches. If Gemini deprecates a model, update `PAGES_MODEL` in your repo variables without touching any code.
 
 ### 4. Enable GitHub Pages
 

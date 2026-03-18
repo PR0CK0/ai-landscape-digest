@@ -128,9 +128,8 @@ backend: claude
 model: default
 
 # Gemini CLI
-# Avoid gemini-2.5-flash — it's a thinking model that ignores formatting rules
 backend: gemini
-model: gemini-2.0-flash-lite
+model: gemini-2.5-flash
 
 # OpenAI Codex CLI
 backend: codex

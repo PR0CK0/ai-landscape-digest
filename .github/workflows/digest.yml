@@ -15,8 +15,7 @@
 #     PAGES_REPO      your repo name (e.g. ai-landscape-digest)
 #     PAGES_TZ        your timezone (e.g. America/New_York) — optional, defaults to UTC
 #     PAGES_URL       your custom domain URL (e.g. https://procko.pro/ai-landscape-digest) — optional
-#     PAGES_MODEL     Gemini model name — optional, defaults to gemini-2.0-flash-lite
-#                     Avoid gemini-2.5-flash: it's a thinking model that ignores formatting rules
+#     PAGES_MODEL     Gemini model name — optional, defaults to gemini-2.5-flash
 
 name: AI Landscape Digest
 
@@ -86,7 +85,7 @@ jobs:
           PAGES_URL: ${{ vars.PAGES_URL }}
           PAGES_MODEL: ${{ vars.PAGES_MODEL }}
         run: |
-          MODEL="${PAGES_MODEL:-gemini-2.0-flash-lite}"
+          MODEL="${PAGES_MODEL:-gemini-2.5-flash}"
           cat > config.cloud.yaml << EOF
           backend: gemini
           model: ${MODEL}
