@@ -783,6 +783,10 @@ def main(argv=None):
         trigger.on_error(config)
         sys.exit(1)
 
+    if not digest.strip():
+        print("All caught up! Model filtered all items — nothing to publish.", file=sys.stderr)
+        sys.exit(0)
+
     trigger.on_success(config, len(new_items), config.backend)
 
     print_terminal(digest, timestamp)
