@@ -1,5 +1,51 @@
 [
   {
+    "timestamp": "2026-03-18 21:14 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 7,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 12.500031232833862,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.116.0-alpha.11",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.11"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.116.0-alpha.10",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.10"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.116.0-alpha.9",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.9"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.79",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.79"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.2",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.2"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.2-rc1: launch: fix openclaw not picking up newly selected model (#14943)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.2-rc1"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-nightly.20260318.e2658ccda",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-nightly.20260318.e2658ccda"
+      }
+    ],
+    "content": "## CLI\n**claude**: new `--console` flag, `Show turn duration` toggle\n**Gemini CLI**: `AgentLoopContext` migration, `sub-agent` limits increased, `file system tools` instrumentation\n\n## Tools\n**Ollama**: `Model eviction` for `MLX`, `prequantized tensor packing`, `quantized embeddings`, `fast SwiGLU`, `register websearch` for `openclaw`"
+  },
+  {
     "timestamp": "2026-03-18 14:44 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 2,
