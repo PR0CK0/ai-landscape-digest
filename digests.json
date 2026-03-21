@@ -1,5 +1,36 @@
 [
   {
+    "timestamp": "2026-03-20 21:06 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 4,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.304801940917969,
+    "force": false,
+    "sources": [
+      {
+        "source": "Hugging Face",
+        "title": "Build a Domain-Specific Embedding Model in Under a Day",
+        "link": "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.81",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.81"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.117.0-alpha.6",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.6"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Dreamer: the Personal Agent OS \u2014 David Singleton",
+        "link": "https://www.latent.space/p/dreamer"
+      }
+    ],
+    "content": "## CLI\n*   **Claude Code**: ` --bare` flag added, skips hooks, LSP, plugin sync, skill directory walks, requires `ANTHROPIC_API_KEY`, disables OAuth, keychain; ` --channels` permission relay added."
+  },
+  {
     "timestamp": "2026-03-20 14:33 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 7,
