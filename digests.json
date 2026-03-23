@@ -1,5 +1,36 @@
 [
   {
+    "timestamp": "2026-03-23 08:41 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 4,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.821913957595825,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "0.117.0-alpha.8",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.8"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.117.0-alpha.7",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.7"
+      },
+      {
+        "source": "Last Week in AI",
+        "title": "Last Week in AI #339 - DLSS 5, OpenAI Superapp, MiniMax M2.7",
+        "link": "https://lastweekin.ai/p/last-week-in-ai-339-dlss-5-openai"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-nightly.20260321.fc03891a1",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-nightly.20260321.fc03891a1"
+      }
+    ],
+    "content": "## CLI\n**Gemini CLI**: `subagent` local execution, `tool isolation`"
+  },
+  {
     "timestamp": "2026-03-20 21:06 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 4,

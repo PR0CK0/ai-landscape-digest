@@ -7,6 +7,7 @@
   "https://huggingface.co/blog/nvidia/nemotron-3-nano-4b": 1773850606.999359,
   "https://huggingface.co/blog/nvidia/speed-bench": 1773944283.3128784,
   "https://lastweekin.ai/p/last-week-in-ai-338-anthropic-sues": 1773850606.9993684,
+  "https://lastweekin.ai/p/last-week-in-ai-339-dlss-5-openai": 1774269697.8095922,
   "https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31": 1773850606.9993687,
   "https://lastweekin.ai/p/lwiai-podcast-237-nemotron-3-super": 1773850606.9993682,
   "https://www.latent.space/p/ainews-claude-cowork-dispatch-anthropics": 1773850606.9993875,
@@ -97,6 +98,8 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.4": 1774031630.8789885,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.5": 1774031630.878988,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.6": 1774055173.3576035,
+  "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.7": 1774269697.8095913,
+  "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.8": 1774269697.8095894,
   "tag:github.com,2008:Repository/965415649/rusty-v8-v146.4.0": 1774031630.8789878,
   "tag:github.com,2008:Repository/968197216/v0.33.1": 1773850606.9993916,
   "tag:github.com,2008:Repository/968197216/v0.33.2": 1773850606.9993901,
@@ -109,5 +112,6 @@
   "tag:github.com,2008:Repository/968197216/v0.35.0-nightly.20260314.3038fdce2": 1773850606.9993904,
   "tag:github.com,2008:Repository/968197216/v0.35.0-preview.1": 1773850606.9993894,
   "tag:github.com,2008:Repository/968197216/v0.35.0-preview.2": 1773969024.041083,
-  "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260318.e2658ccda": 1773882870.2476661
+  "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260318.e2658ccda": 1773882870.2476661,
+  "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260321.fc03891a1": 1774269697.8095932
 }
