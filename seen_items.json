@@ -1,5 +1,6 @@
 {
   "https://huggingface.co/blog/Hcompany/holotron-12b": 1773850606.9993603,
+  "https://huggingface.co/blog/ServiceNow-AI/eva": 1774356325.551511,
   "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026": 1773850606.9993598,
   "https://huggingface.co/blog/ibm-granite/granite-libraries": 1774031630.878987,
   "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune": 1774055173.3576012,
@@ -12,6 +13,7 @@
   "https://lastweekin.ai/p/lwiai-podcast-237-nemotron-3-super": 1773850606.9993682,
   "https://www.latent.space/p/ainews-claude-cowork-dispatch-anthropics": 1773850606.9993875,
   "https://www.latent.space/p/ainews-context-drought": 1773850606.9993882,
+  "https://www.latent.space/p/ainews-dreamer-joins-meta-superintelligence": 1774356325.551512,
   "https://www.latent.space/p/ainews-every-lab-serious-enough-about": 1774031630.878985,
   "https://www.latent.space/p/ainews-minimax-27-glm-5-at-13-cost": 1773923918.407175,
   "https://www.latent.space/p/ainews-nvidia-gtc-jensen-goes-hard": 1773850606.999388,
@@ -95,6 +97,7 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.1": 1773969024.0410829,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.10": 1774314470.8899481,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.11": 1774314470.8899465,
+  "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.12": 1774356325.5515091,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.2": 1773969024.0410824,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.3": 1774031630.878989,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.4": 1774031630.8789885,
