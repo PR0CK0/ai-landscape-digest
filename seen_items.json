@@ -93,6 +93,8 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.116.0-alpha.8": 1773859487.8677065,
   "tag:github.com,2008:Repository/965415649/rust-v0.116.0-alpha.9": 1773882870.2476652,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.1": 1773969024.0410829,
+  "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.10": 1774314470.8899481,
+  "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.11": 1774314470.8899465,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.2": 1773969024.0410824,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.3": 1774031630.878989,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.4": 1774031630.8789885,
@@ -100,6 +102,7 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.6": 1774055173.3576035,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.7": 1774269697.8095913,
   "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.8": 1774269697.8095894,
+  "tag:github.com,2008:Repository/965415649/rust-v0.117.0-alpha.9": 1774314470.8899488,
   "tag:github.com,2008:Repository/965415649/rusty-v8-v146.4.0": 1774031630.8789878,
   "tag:github.com,2008:Repository/968197216/v0.33.1": 1773850606.9993916,
   "tag:github.com,2008:Repository/968197216/v0.33.2": 1773850606.9993901,
@@ -112,6 +115,10 @@
   "tag:github.com,2008:Repository/968197216/v0.35.0-nightly.20260314.3038fdce2": 1773850606.9993904,
   "tag:github.com,2008:Repository/968197216/v0.35.0-preview.1": 1773850606.9993894,
   "tag:github.com,2008:Repository/968197216/v0.35.0-preview.2": 1773969024.041083,
+  "tag:github.com,2008:Repository/968197216/v0.35.0-preview.3": 1774314470.8899505,
+  "tag:github.com,2008:Repository/968197216/v0.35.0-preview.4": 1774314470.8899503,
+  "tag:github.com,2008:Repository/968197216/v0.35.0-preview.5": 1774314470.8899498,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260318.e2658ccda": 1773882870.2476661,
-  "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260321.fc03891a1": 1774269697.8095932
+  "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260321.fc03891a1": 1774269697.8095932,
+  "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260323.6055c4707": 1774314470.889949
 }
