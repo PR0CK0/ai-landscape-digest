@@ -1,5 +1,51 @@
 [
   {
+    "timestamp": "2026-03-24 21:13 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 7,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 14.827961444854736,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "0.117.0-alpha.14",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.14"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.117.0-alpha.13",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.13"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.3-rc1",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.3-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.18.3-rc0: mlx: add mxfp4/mxfp8/nvfp4 importing (#15015)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.3-rc0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "\ud83d\udd2cWhy There Is No \"AlphaFold for Materials\" \u2014 AI for Materials Discovery with Heather Kulik",
+        "link": "https://www.latent.space/p/materials"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-preview.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-preview.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.35.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0"
+      }
+    ],
+    "content": "## Tools\n*   **Ollama**: add `mxfp4/mxfp8/nvfp4` importing, `bf16` import conversion, `fp8` import conversion.\n\n## CLI\n*   **Gemini CLI**: customizable keyboard shortcuts, add missing vim mode motions.\n\n## SDKs\n*   **Gemini CLI**: multi-registry architecture, tool filtering for subagents, dynamic model resolution support, thread `AgentLoopContext`, retry fetch notifications."
+  },
+  {
     "timestamp": "2026-03-24 08:45 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 3,
