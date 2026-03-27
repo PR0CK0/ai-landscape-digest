@@ -505,15 +505,18 @@ class TestPlatformHooks:
 class TestInstallers:
     def test_install_macos_trigger_writes_wakeup(self, tmp_path):
         wakeup = tmp_path / ".wakeup"
+        plist = tmp_path / "LaunchAgents" / "com.ai-digest.plist"
         log_file = tmp_path / "logs" / "ai-digest.log"
         with patch.object(installers, "MACOS_WAKEUP_FILE", wakeup):
-            with patch.object(installers, "LOG_FILE", log_file):
-                with patch("ai_digest.installers.ensure_sleepwatcher"):
-                    with patch("ai_digest.installers.ensure_user_state_dir", return_value=log_file.parent):
-                        with patch("ai_digest.installers.sys.executable", "/usr/bin/python3"):
-                            with patch.dict("os.environ", {"PATH": "/usr/bin:/bin"}, clear=False):
-                                msg = installers.install_macos_trigger()
+            with patch.object(installers, "MACOS_LAUNCHD_PLIST", plist):
+                with patch.object(installers, "LOG_FILE", log_file):
+                    with patch("ai_digest.installers.ensure_sleepwatcher"):
+                        with patch("ai_digest.installers.ensure_user_state_dir", return_value=log_file.parent):
+                            with patch("ai_digest.installers.sys.executable", "/usr/bin/python3"):
+                                with patch.dict("os.environ", {"PATH": "/usr/bin:/bin"}, clear=False):
+                                    msg = installers.install_macos_trigger()
         assert wakeup.exists()
+        assert plist.exists()
         content = wakeup.read_text()
         assert str(log_file) in content
         assert "Installed macOS wake trigger" in msg
