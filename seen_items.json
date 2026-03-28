@@ -3,6 +3,7 @@
   "https://huggingface.co/blog/ServiceNow-AI/eva": 1774356325.551511,
   "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026": 1773850606.9993598,
   "https://huggingface.co/blog/ibm-granite/granite-libraries": 1774031630.878987,
+  "https://huggingface.co/blog/liberate-your-openclaw": 1774701118.4599264,
   "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune": 1774055173.3576012,
   "https://huggingface.co/blog/nvidia/nemotron-3-content-safety": 1774031630.8789864,
   "https://huggingface.co/blog/nvidia/nemotron-3-nano-4b": 1773850606.999359,
@@ -17,6 +18,7 @@
   "https://www.latent.space/p/ainews-dreamer-joins-meta-superintelligence": 1774356325.551512,
   "https://www.latent.space/p/ainews-every-lab-serious-enough-about": 1774031630.878985,
   "https://www.latent.space/p/ainews-everything-is-cli": 1774594626.924035,
+  "https://www.latent.space/p/ainews-h100-prices-are-melting-up": 1774701118.4599276,
   "https://www.latent.space/p/ainews-minimax-27-glm-5-at-13-cost": 1773923918.407175,
   "https://www.latent.space/p/ainews-nvidia-gtc-jensen-goes-hard": 1773850606.999388,
   "https://www.latent.space/p/ainews-replit-agent-4-the-knowledge": 1773850606.999389,
@@ -158,11 +160,13 @@
   "tag:github.com,2008:Repository/968197216/v0.35.0-preview.5": 1774314470.8899498,
   "tag:github.com,2008:Repository/968197216/v0.35.1": 1774487939.9776018,
   "tag:github.com,2008:Repository/968197216/v0.35.2": 1774574327.8478386,
+  "tag:github.com,2008:Repository/968197216/v0.35.3": 1774701118.459928,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260318.e2658ccda": 1773882870.2476661,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260321.fc03891a1": 1774269697.8095932,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260323.6055c4707": 1774314470.889949,
   "tag:github.com,2008:Repository/968197216/v0.36.0-preview.0": 1774401222.3488011,
   "tag:github.com,2008:Repository/968197216/v0.36.0-preview.3": 1774487939.9776022,
   "tag:github.com,2008:Repository/968197216/v0.36.0-preview.4": 1774574327.8478382,
-  "tag:github.com,2008:Repository/968197216/v0.36.0-preview.5": 1774636969.667076
+  "tag:github.com,2008:Repository/968197216/v0.36.0-preview.5": 1774636969.667076,
+  "tag:github.com,2008:Repository/968197216/v0.36.0-preview.6": 1774701118.4599278
 }
