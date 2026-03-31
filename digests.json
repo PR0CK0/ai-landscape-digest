@@ -1,5 +1,56 @@
 [
   {
+    "timestamp": "2026-03-31 14:46 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 8,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 12.339812278747559,
+    "force": false,
+    "sources": [
+      {
+        "source": "Hugging Face",
+        "title": "Granite 4.0 3B Vision: Compact Multimodal Intelligence for Enterprise Documents",
+        "link": "https://huggingface.co/blog/ibm-granite/granite-4-vision"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "TRL v1.0: Post-Training Library Built to Move with the Field",
+        "link": "https://huggingface.co/blog/trl-v1"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.87.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.87.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.1",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.1"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.118.0",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.118.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.118.0-alpha.5",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.118.0-alpha.5"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.118.0-alpha.4",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.118.0-alpha.4"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-preview.7",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-preview.7"
+      }
+    ],
+    "content": "I've completed the extraction and formatting of the release notes based on your specified criteria. Here's the output:\n\n```markdown\n## CLI\n*   **Codex CLI**: enforce proxy-only networking, start ChatGPT sign-in with device code, `codex exec` supports `prompt-plus-stdin` workflow, custom model providers fetch/refresh.\n\n## SDKs\n*   **Anthropic SDK**: add `error type` field, implement `indices array` format.\n```"
+  },
+  {
     "timestamp": "2026-03-30 21:20 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 3,
