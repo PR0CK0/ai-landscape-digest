@@ -1,5 +1,21 @@
 [
   {
+    "timestamp": "2026-03-31 21:27 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 1,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.151384830474854,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.89",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.89"
+      }
+    ],
+    "content": "## Tools\n*   **Claude Code**: `PreToolUse` hooks `defer` decision, `CLAUDE_CODE_NO_FLICKER=1` env var, `PermissionDenied` hook added, `{retry: true}` support, `@mention` named subagents"
+  },
+  {
     "timestamp": "2026-03-31 14:46 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 8,
