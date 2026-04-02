@@ -1,5 +1,41 @@
 [
   {
+    "timestamp": "2026-04-02 14:41 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 5,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.943758726119995,
+    "force": false,
+    "sources": [
+      {
+        "source": "Hugging Face",
+        "title": "Welcome Gemma 4: Frontier multimodal intelligence on device",
+        "link": "https://huggingface.co/blog/gemma4"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.0-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.0-rc0: Merge pull request #42 from ollama/jmorganca/gemma4-ggml-improvements",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.0-rc0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.4",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.4"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Moonlake: Causal World Models should be Multimodal, Interactive, and Efficient \u2014 with Chris Manning and Fan-yun Sun",
+        "link": "https://www.latent.space/p/moonlake"
+      }
+    ],
+    "content": "## CLI\n*   **Ollama**: `ollama run gemma4:e2b` command, `ollama run gemma4:e4b` command, `ollama run gemma4:26b` command, `ollama run gemma4:31b` command\n## Tools\n*   **Ollama**: `gemma4` fix `gate_up` split, `gemma4` fix arg parsing, `mlx` respect `add_bos_token` setting, `tokenizer` add BPE support"
+  },
+  {
     "timestamp": "2026-04-02 08:46 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 3,
