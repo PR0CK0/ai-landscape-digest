@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-04-02 08:46 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 3,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 9.697214603424072,
+    "force": false,
+    "sources": [
+      {
+        "source": "Latent Space",
+        "title": "[AINews] A quiet April Fools",
+        "link": "https://www.latent.space/p/ainews-a-quiet-april-fools"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.3",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.3"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-nightly.20260402.13ccc1645",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-nightly.20260402.13ccc1645"
+      }
+    ],
+    "content": "## CLI\n*   **Gemini CLI**: `SandboxManager` introduces `Deny` interface"
+  },
+  {
     "timestamp": "2026-04-01 21:16 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 6,
