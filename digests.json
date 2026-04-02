@@ -1,5 +1,46 @@
 [
   {
+    "timestamp": "2026-04-01 21:16 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 6,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 9.0569589138031,
+    "force": false,
+    "sources": [
+      {
+        "source": "Hugging Face",
+        "title": "Holo3: Breaking the Computer Use Frontier",
+        "link": "https://huggingface.co/blog/Hcompany/holo3"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.90",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.90"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.88.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.88.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.37.0-preview.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.37.0-preview.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-preview.8",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-preview.8"
+      }
+    ],
+    "content": "## CLI\n*   **Claude Code**: Added `/powerup` command, added `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` env var, protected directories include `.husky`.\n*   **Gemini CLI**: `evals`: centralize test agents, `browser`: add `maxActionsPerTask` setting, `core`: multi-registry architecture, tool filtering for subagents, dynamic model resolution.\n\n## SDKs\n*   **Anthropic SDK**: API: add structured `stop_details`, Bedrock API key authentication, prepare AWS package."
+  },
+  {
     "timestamp": "2026-04-01 08:54 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 4,

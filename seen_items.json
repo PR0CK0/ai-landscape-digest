@@ -1,4 +1,5 @@
 {
+  "https://huggingface.co/blog/Hcompany/holo3": 1775092610.7878463,
   "https://huggingface.co/blog/Hcompany/holotron-12b": 1773850606.9993603,
   "https://huggingface.co/blog/ServiceNow-AI/eva": 1774356325.551511,
   "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026": 1773850606.9993598,
@@ -58,6 +59,7 @@
   "tag:github.com,2008:Repository/590187800/v0.85.0": 1773850606.9993653,
   "tag:github.com,2008:Repository/590187800/v0.86.0": 1773859487.8677049,
   "tag:github.com,2008:Repository/590187800/v0.87.0": 1774982781.9431248,
+  "tag:github.com,2008:Repository/590187800/v0.88.0": 1775092610.7878485,
   "tag:github.com,2008:Repository/638629097/v0.85.4": 1773850606.9993587,
   "tag:github.com,2008:Repository/638629097/v0.85.5": 1773850606.9993575,
   "tag:github.com,2008:Repository/638629097/v0.85.5.dev": 1773850606.9993584,
@@ -110,6 +112,7 @@
   "tag:github.com,2008:Repository/937253475/v2.1.87": 1774833767.5145884,
   "tag:github.com,2008:Repository/937253475/v2.1.88": 1774920010.4624712,
   "tag:github.com,2008:Repository/937253475/v2.1.89": 1775006824.7269833,
+  "tag:github.com,2008:Repository/937253475/v2.1.90": 1775092610.7878478,
   "tag:github.com,2008:Repository/965415649/rust-v0.115.0": 1773850606.9993865,
   "tag:github.com,2008:Repository/965415649/rust-v0.115.0-alpha.27": 1773850606.999387,
   "tag:github.com,2008:Repository/965415649/rust-v0.115.0-alpha.28": 1773850606.9993868,
@@ -179,6 +182,7 @@
   "tag:github.com,2008:Repository/968197216/v0.35.1": 1774487939.9776018,
   "tag:github.com,2008:Repository/968197216/v0.35.2": 1774574327.8478386,
   "tag:github.com,2008:Repository/968197216/v0.35.3": 1774701118.459928,
+  "tag:github.com,2008:Repository/968197216/v0.36.0": 1775092610.78785,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260318.e2658ccda": 1773882870.2476661,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260321.fc03891a1": 1774269697.8095932,
   "tag:github.com,2008:Repository/968197216/v0.36.0-nightly.20260323.6055c4707": 1774314470.889949,
@@ -187,5 +191,7 @@
   "tag:github.com,2008:Repository/968197216/v0.36.0-preview.4": 1774574327.8478382,
   "tag:github.com,2008:Repository/968197216/v0.36.0-preview.5": 1774636969.667076,
   "tag:github.com,2008:Repository/968197216/v0.36.0-preview.6": 1774701118.4599278,
-  "tag:github.com,2008:Repository/968197216/v0.36.0-preview.7": 1774982781.9431343
+  "tag:github.com,2008:Repository/968197216/v0.36.0-preview.7": 1774982781.9431343,
+  "tag:github.com,2008:Repository/968197216/v0.36.0-preview.8": 1775092610.7878509,
+  "tag:github.com,2008:Repository/968197216/v0.37.0-preview.0": 1775092610.787849
 }
