@@ -1,5 +1,76 @@
 [
   {
+    "timestamp": "2026-04-03 21:13 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 12,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 8.737931966781616,
+    "force": false,
+    "sources": [
+      {
+        "source": "Ollama",
+        "title": "v0.20.1: Revert \"enable flash attention for gemma4 (#15296)\" (#15311)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.1",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.1-rc2"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.1-rc1: ggml: fix ROCm build for cublasGemmBatchedEx reserve wrapper",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.1-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.1-rc0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.1-rc0"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.92",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.92"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.89.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.89.0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Good Friday",
+        "link": "https://www.latent.space/p/ainews-good-friday"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Marc Andreessen introspects on The Death of the Browser, Pi + OpenClaw, and Why \"This Time Is Different\"",
+        "link": "https://www.latent.space/p/pmarca"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Gemma 4: The best small Multimodal Open Models, dramatically better than Gemma 3 in every way",
+        "link": "https://www.latent.space/p/ainews-gemma-4-the-best-small-multimodal"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.8",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.8"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.7",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.7"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.6",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.6"
+      }
+    ],
+    "content": "## Tools\n*   **Ollama**: prompt calibration, `--context-size` flag, `NumCtx` reporting, rework `gemma4` tool calls, enable `gemma4` flash attention\n\n## CLI\n*   **Claude Code**: `forceRemoteSettingsRefresh` policy, interactive Bedrock setup, `/cost` breakdown, `/release-notes` command\n\n## SDKs\n*   **Anthropic SDK**: `vertex` multi-region endpoint, deprecate client compaction helpers"
+  },
+  {
     "timestamp": "2026-04-02 21:18 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 4,
