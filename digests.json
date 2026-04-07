@@ -1,5 +1,46 @@
 [
   {
+    "timestamp": "2026-04-07 14:46 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 6,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.060961246490479,
+    "force": false,
+    "sources": [
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.91.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.91.0"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.90.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.90.0"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.4",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.4-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.4-rc0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.4-rc0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Extreme Harness Engineering for Token Billionaires: 1M LOC, 1B toks/day, 0% human code, 0% human review \u2014 Ryan Lopopolo, OpenAI Frontier & Symphony",
+        "link": "https://www.latent.space/p/harness-eng"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.36.0-nightly.20260407.1c22c5b37",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-nightly.20260407.1c22c5b37"
+      }
+    ],
+    "content": "## SDKs\n*   **Anthropic SDK**: create Bedrock Mantle client, add `claude-mythos-preview` support.\n\n## Tools\n*   **Ollama**: enable flash attention `gemma4`.\n\n## CLI\n*   **Gemini CLI**: add role specific metrics to `/stats`, split context."
+  },
+  {
     "timestamp": "2026-04-07 03:04 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 4,
