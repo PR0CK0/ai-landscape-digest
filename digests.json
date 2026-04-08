@@ -1,5 +1,56 @@
 [
   {
+    "timestamp": "2026-04-08 15:01 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 8,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.744884729385376,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.21",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.21"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.20",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.20"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.4",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.4"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "ALTK\u2011Evolve: On\u2011the\u2011Job Learning for AI Agents",
+        "link": "https://huggingface.co/blog/ibm-research/altk-evolve"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Safetensors is Joining the PyTorch Foundation",
+        "link": "https://huggingface.co/blog/safetensors-joins-pytorch-foundation"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.92.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.92.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.38.0-preview.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.38.0-preview.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.37.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.37.0"
+      }
+    ],
+    "content": "## Tools\n*   **Ollama**: Improve `M5` performance, enable `gemma4` flash attention.\n\n## SDKs\n*   **Anthropic SDK**: Add `Claude Managed Agents` support.\n\n## CLI\n*   **Gemini CLI**: Allow `web_fetch` in `plan mode`, add `experimental.adk.agentSessionNoninteractiveEnabled` setting, centralize test agents, add `maxActionsPerTask` setting."
+  },
+  {
     "timestamp": "2026-04-08 08:56 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 2,
