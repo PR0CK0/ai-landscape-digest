@@ -1,5 +1,51 @@
 [
   {
+    "timestamp": "2026-04-07 21:21 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 7,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.41970944404602,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.119.0-alpha.18",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.18"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.17",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.17"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.16",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.16"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.94",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.94"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Anthropic @ $30B ARR, Project GlassWing and Claude Mythos Preview \u2014 first model too dangerous to release since GPT-2",
+        "link": "https://www.latent.space/p/ainews-anthropic-30b-arr-project"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.4",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.4-rc2"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.37.0-preview.2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.37.0-preview.2"
+      }
+    ],
+    "content": "## Tools\n* **Claude Code**: Bedrock Mantle support, `CLAUDE_CODE_USE_MANTLE=1` flag, `/effort` default high, Slack #channel header, `keep-coding-instructions` field, `hookSpecificOutput.sessionTitle` added"
+  },
+  {
     "timestamp": "2026-04-07 14:46 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 6,
