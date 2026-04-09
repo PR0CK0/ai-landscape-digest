@@ -1,5 +1,51 @@
 [
   {
+    "timestamp": "2026-04-08 21:11 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 7,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.261598348617554,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.97",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.97"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.24",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.24"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.23",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.23"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.22",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.22"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.31.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.31.0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Meta Superintelligence Labs announces Muse Spark, first frontier model on their completely new stack",
+        "link": "https://www.latent.space/p/ainews-meta-superintelligence-labs"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.39.0-nightly.20260408.a39461718",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.39.0-nightly.20260408.a39461718"
+      }
+    ],
+    "content": "## Tools\n**Claude Code**: focus view toggle `Ctrl+O`, `refreshInterval` status line setting, `workspace.git_worktree` status line JSON input, `\u25cf N` running indicator `/agents`, Cedar policy syntax highlighting.\n\n## SDKs\n**OpenAI SDK**: add `phase` field to conversations, add `web_search_call.results` to `ResponseIncludable`, support short-lived tokens, send raw data over websockets, `indices` array format for serialization.\n\n## CLI\n**Gemini CLI**: display hook system messages, add `/help` command."
+  },
+  {
     "timestamp": "2026-04-08 15:01 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 8,
