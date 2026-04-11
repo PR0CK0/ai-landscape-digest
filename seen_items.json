@@ -245,9 +245,11 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.119.0-alpha.7": 1775265204.926325,
   "tag:github.com,2008:Repository/965415649/rust-v0.119.0-alpha.8": 1775265204.9263244,
   "tag:github.com,2008:Repository/965415649/rust-v0.119.0-alpha.9": 1775285232.648875,
+  "tag:github.com,2008:Repository/965415649/rust-v0.120.0": 1775890138.1871006,
   "tag:github.com,2008:Repository/965415649/rust-v0.120.0-alpha.1": 1775870206.2365115,
   "tag:github.com,2008:Repository/965415649/rust-v0.120.0-alpha.2": 1775870206.236511,
   "tag:github.com,2008:Repository/965415649/rust-v0.120.0-alpha.3": 1775870206.2365105,
+  "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.1": 1775890138.1871,
   "tag:github.com,2008:Repository/965415649/rusty-v8-v146.4.0": 1774031630.8789878,
   "tag:github.com,2008:Repository/968197216/v0.33.1": 1773850606.9993916,
   "tag:github.com,2008:Repository/968197216/v0.33.2": 1773850606.9993901,
@@ -289,5 +291,6 @@
   "tag:github.com,2008:Repository/968197216/v0.38.0-preview.0": 1775674912.4928796,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260408.a39461718": 1775697097.0675445,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260409.615e07834": 1775760534.3413932,
-  "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260410.96cc8a0da": 1775805322.292953
+  "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260410.96cc8a0da": 1775805322.292953,
+  "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260411.0957f7d3e": 1775890138.1870987
 }

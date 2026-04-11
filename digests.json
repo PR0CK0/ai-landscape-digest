@@ -1,5 +1,31 @@
 [
   {
+    "timestamp": "2026-04-11 02:48 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 3,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.703439235687256,
+    "force": false,
+    "sources": [
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.39.0-nightly.20260411.0957f7d3e",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.39.0-nightly.20260411.0957f7d3e"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.121.0-alpha.1",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.1"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.120.0",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.120.0"
+      }
+    ],
+    "content": "## CLI\n* **Gemini CLI**: add optional `debugRainbow` setting, mark `/settings` unsafe\n* **Codex CLI**: Realtime V2: stream progress, TUI hook activity improved, TUI: custom status lines, tool declarations: `outputSchema` details"
+  },
+  {
     "timestamp": "2026-04-10 21:16 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 11,
