@@ -1,5 +1,71 @@
 [
   {
+    "timestamp": "2026-04-10 21:16 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 11,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 12.823326349258423,
+    "force": false,
+    "sources": [
+      {
+        "source": "Ollama",
+        "title": "v0.20.6",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.6-rc0"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.101",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.101"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.94.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.94.0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] AI Engineer Europe 2026",
+        "link": "https://www.latent.space/p/ainews-ai-engineer-europe-2026"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.120.0-alpha.3",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.120.0-alpha.3"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.120.0-alpha.2",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.120.0-alpha.2"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.120.0-alpha.1",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.120.0-alpha.1"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.33",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.33"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.119.0-alpha.32",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.32"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.119.0-alpha.31",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.119.0-alpha.31"
+      }
+    ],
+    "content": "## CLI\n* **Claude Code**: added `/team-onboarding` command, OS CA certificate trust, `/ultraplan` auto-creates cloud env.\n* **Codex CLI**: `v2 WebRTC` voice sessions, configurable voice transport, native `TUI` media support, `MCP` apps richer support, tool-call metadata, file-parameter uploads.\n## SDKs\n* **Anthropic SDK**: added `vertex eu` region."
+  },
+  {
     "timestamp": "2026-04-10 03:15 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 3,
