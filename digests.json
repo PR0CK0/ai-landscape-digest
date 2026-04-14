@@ -1,5 +1,71 @@
 [
   {
+    "timestamp": "2026-04-13 21:26 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 11,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.384182929992676,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.105",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.105"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.104",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.104"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.94.1",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.94.1"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.121.0-alpha.6",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.6"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.121.0-alpha.5",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.5"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.121.0-alpha.4",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.4"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.8",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.8-rc0"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.7",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.7"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.7-rc1: Merge pull request #15561 from ollama/drifkin/backport",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.7-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.20.7-rc0: gemma4: add nothink renderer tests (#15554)",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.20.7-rc0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.37.2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.37.2"
+      }
+    ],
+    "content": "## Tools\n*   **Claude Code**: `EnterWorktree` path parameter, `PreCompact` hook support, background monitor support.\n*   **Ollama**: `mlx` mixed-precision quant, capability detection, `mlx` add `Conv2d`, `Pad` wrappers.\n\n## SDKs\n*   **Anthropic SDK**: streaming add missing events.\n\n## CLI\n*   **Claude Code**: `/proactive` aliases `/loop`."
+  },
+  {
     "timestamp": "2026-04-12 21:28 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 4,
