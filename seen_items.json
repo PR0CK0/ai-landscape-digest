@@ -36,6 +36,7 @@
   "https://www.latent.space/p/ainews-gemma-4-the-best-small-multimodal": 1775265204.926324,
   "https://www.latent.space/p/ainews-good-friday": 1775265204.9263165,
   "https://www.latent.space/p/ainews-h100-prices-are-melting-up": 1774701118.4599276,
+  "https://www.latent.space/p/ainews-humanitys-last-gasp": 1776237468.8010263,
   "https://www.latent.space/p/ainews-meta-superintelligence-labs": 1775697097.0675437,
   "https://www.latent.space/p/ainews-minimax-27-glm-5-at-13-cost": 1773923918.407175,
   "https://www.latent.space/p/ainews-nvidia-gtc-jensen-goes-hard": 1773850606.999388,
@@ -150,6 +151,7 @@
   "tag:github.com,2008:Repository/937253475/v2.1.105": 1776129973.578122,
   "tag:github.com,2008:Repository/937253475/v2.1.107": 1776151028.9784505,
   "tag:github.com,2008:Repository/937253475/v2.1.108": 1776216160.7171445,
+  "tag:github.com,2008:Repository/937253475/v2.1.109": 1776237468.8010259,
   "tag:github.com,2008:Repository/937253475/v2.1.69": 1773850606.999381,
   "tag:github.com,2008:Repository/937253475/v2.1.70": 1773850606.9993808,
   "tag:github.com,2008:Repository/937253475/v2.1.71": 1773850606.9993806,
@@ -265,6 +267,8 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.120.0-alpha.3": 1775870206.2365105,
   "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.1": 1775890138.1871,
   "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.10": 1776216160.7171414,
+  "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.11": 1776237468.8010247,
+  "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.12": 1776237468.8010232,
   "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.2": 1776043685.599538,
   "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.3": 1776043685.5995376,
   "tag:github.com,2008:Repository/965415649/rust-v0.121.0-alpha.4": 1776129973.5781264,
@@ -319,5 +323,6 @@
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260410.96cc8a0da": 1775805322.292953,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260411.0957f7d3e": 1775890138.1870987,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260414.gdaf500623": 1776151028.978453,
-  "tag:github.com,2008:Repository/968197216/v0.39.0-preview.0": 1776216160.717154
+  "tag:github.com,2008:Repository/968197216/v0.39.0-preview.0": 1776216160.717154,
+  "tag:github.com,2008:Repository/968197216/v0.40.0-nightly.20260415.g06e7621b2": 1776237468.8010268
 }
