@@ -1,5 +1,61 @@
 [
   {
+    "timestamp": "2026-04-14 21:22 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 9,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.25924301147461,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "0.121.0-alpha.10",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.10"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.121.0-alpha.9",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.9"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.121.0-alpha.8",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.121.0-alpha.8"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.108",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.108"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.95.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.95.0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Notion\u2019s Token Town: 5 Rebuilds, 100+ Tools, MCP vs CLIs and the Software Factory Future \u2014 Simon Last & Sarah Sachs of Notion",
+        "link": "https://www.latent.space/p/notion"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Top Local Models List - April 2026",
+        "link": "https://www.latent.space/p/ainews-top-local-models-list-april"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.39.0-preview.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.39.0-preview.0"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.38.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.38.0"
+      }
+    ],
+    "content": "## CLI\n*   **Claude Code**: add `ENABLE_PROMPT_CACHING_1H`, deprecate `ENABLE_PROMPT_CACHING_1H_BEDROCK`, add `FORCE_PROMPT_CACHING_5M`, add recap feature, add `/recap` command, invoke built-in slash commands.\n*   **Gemini CLI**: add `/memory inbox` command, allow `web_fetch` in plan mode, add `experimental.adk.agentSessionNoninteractiveEnabled` setting.\n\n## SDKs\n*   **Anthropic SDK**: deprecate Sonnet and Opus 4, use auth header."
+  },
+  {
     "timestamp": "2026-04-14 03:17 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 3,
