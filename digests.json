@@ -1,5 +1,46 @@
 [
   {
+    "timestamp": "2026-04-16 14:57 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 6,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 8.256362676620483,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.111",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.111"
+      },
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.96.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.96.0"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "The PR you would have opened yourself",
+        "link": "https://huggingface.co/blog/transformers-to-mlx"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Training and Finetuning Multimodal Embedding & Reranker Models with Sentence Transformers",
+        "link": "https://huggingface.co/blog/train-multimodal-sentence-transformers"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.3",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.3"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.122.0-alpha.2",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.2"
+      }
+    ],
+    "content": "## Tools\n*   **Claude Code**: `Claude Opus 4.7 xhigh` available, `/effort` tune speed, `Auto mode` available, `xhigh effort level`, `/effort` interactive slider, `\"Auto (match terminal)\" theme option\n## SDKs\n*   **Anthropic SDK**: `api` add `claude-opus-4-7`, `api` add `token budgets`, `api` add `user_profiles`"
+  },
+  {
     "timestamp": "2026-04-16 09:04 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 1,
@@ -1797,431 +1838,5 @@
       }
     ],
     "content": "## SDKs\n*   **Anthropic SDK**: add filesystem memory tools, manual API updates"
-  },
-  {
-    "timestamp": "2026-03-18 12:16 EDT",
-    "trigger": "github_actions_manual",
-    "item_count": 83,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 23.40961718559265,
-    "force": false,
-    "sources": [
-      {
-        "source": "Aider",
-        "title": "v0.86.3.dev",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.3.dev"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.86.2",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.2"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.86.2.dev",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.2.dev"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.86.1",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.1"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.86.1.dev",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.1.dev"
-      },
-      {
-        "source": "Aider",
-        "title": "Aider v0.86.0",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.0"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.85.6.dev",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.6.dev"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.85.5",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.5"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.85.5.dev",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.5.dev"
-      },
-      {
-        "source": "Aider",
-        "title": "v0.85.4",
-        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.4"
-      },
-      {
-        "source": "Hugging Face",
-        "title": "Nemotron 3 Nano 4B: A Compact Hybrid Model for Efficient Local AI",
-        "link": "https://huggingface.co/blog/nvidia/nemotron-3-nano-4b"
-      },
-      {
-        "source": "Hugging Face",
-        "title": "State of Open Source on Hugging Face: Spring 2026",
-        "link": "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026"
-      },
-      {
-        "source": "Hugging Face",
-        "title": "Holotron-12B - High Throughput Computer Use Agent",
-        "link": "https://huggingface.co/blog/Hcompany/holotron-12b"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.29.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.29.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.28.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.28.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.27.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.27.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.26.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.26.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.25.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.25.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.24.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.24.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.23.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.23.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.22.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.22.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.21.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.21.0"
-      },
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.20.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.20.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.85.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.85.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.84.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.84.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.83.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.83.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.82.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.82.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.81.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.81.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.80.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.80.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.79.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.79.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.78.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.78.0"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.77.1",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.1"
-      },
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.77.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.77.0"
-      },
-      {
-        "source": "Last Week in AI",
-        "title": "LWiAI Podcast #237 - Nemotron 3 Super, xAI reborn, Anthropic Lawsuit, Research!",
-        "link": "https://lastweekin.ai/p/lwiai-podcast-237-nemotron-3-super"
-      },
-      {
-        "source": "Last Week in AI",
-        "title": "Last Week in AI #338 - Anthropic sues Trump, xAI starting over, Iran AI Fakes",
-        "link": "https://lastweekin.ai/p/last-week-in-ai-338-anthropic-sues"
-      },
-      {
-        "source": "Last Week in AI",
-        "title": "LWiAI Podcast #236 - GPT 5.4, Gemini 3.1 Flash Lite, Supply Chain Risk",
-        "link": "https://lastweekin.ai/p/lwiai-podcast-236-gpt-54-gemini-31"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.78",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.78"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.77",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.77"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.76",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.76"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.75",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.75"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.74",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.74"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.73",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.73"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.72",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.72"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.71",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.71"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.70",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.70"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.69",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.69"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.2-rc0",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.2-rc0"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.1",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.1"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.1-rc1",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.1-rc1"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.1-rc0: cmd/launch: skip --install-daemon when systemd is unavailable (#14883)",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.1-rc0"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.0",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.0-rc2",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0-rc2"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.0-rc1",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0-rc1"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.0-rc0",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.0-rc0"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.17.8",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc4"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.17.8-rc3: ci: fix missing windows zip file (#14807)",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.17.8-rc3"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "rust-v0.116.0-alpha.7",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.7"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.6",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.6"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.5",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.5"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.4",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.4"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.3",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.3"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.2",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.2"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.1",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.1"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.115.0",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "rust-v0.115.0-alpha.28",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.28"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.115.0-alpha.27",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.115.0-alpha.27"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] Claude Cowork Dispatch: Anthropic's Answer to OpenClaw",
-        "link": "https://www.latent.space/p/ainews-claude-cowork-dispatch-anthropics"
-      },
-      {
-        "source": "Latent Space",
-        "title": "Why Anthropic Thinks AI Should Have Its Own Computer \u2014 Felix Rieseberg of Claude Cowork & Claude Code Desktop",
-        "link": "https://www.latent.space/p/felix-anthropic"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] NVIDIA GTC: Jensen goes hard on OpenClaw, Vera CPU, and announces $1T sales backlog in 2027",
-        "link": "https://www.latent.space/p/ainews-nvidia-gtc-jensen-goes-hard"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] Context Drought",
-        "link": "https://www.latent.space/p/ainews-context-drought"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] The high-return activity of raising your aspirations for LLMs",
-        "link": "https://www.latent.space/p/ainews-the-high-return-activity-of"
-      },
-      {
-        "source": "Latent Space",
-        "title": "Retrieval After RAG: Hybrid Search, Agents, and Database Design \u2014 Simon H\u00f8rup Eskildsen of Turbopuffer",
-        "link": "https://www.latent.space/p/turbopuffer"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] Replit Agent 4: The Knowledge Work Agent",
-        "link": "https://www.latent.space/p/ainews-replit-agent-4-the-knowledge"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0-preview.1",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-preview.1"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.34.0",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.34.0-preview.4",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.4"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.33.2",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.2"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0-nightly.20260314.3038fdce2",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260314.3038fdce2"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0-nightly.20260313.bb060d7a9",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-nightly.20260313.bb060d7a9"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.34.0-preview.3",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.3"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.34.0-preview.2",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.2"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.34.0-preview.1",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.34.0-preview.1"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.33.1",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.33.1"
-      }
-    ],
-    "content": "## Tools\n*   **Aider**: GPT-5 models supported; Grok-4 supported; Gemini 2.5 Flash Lite supported; `/clear` prints message; `/undo` output shows first line; MoonshotAI Kimi-K2 supported.\n*   **Claude Code**: StopFailure hook event; `${CLAUDE_PLUGIN_DATA}` variable; frontmatter supports effort, maxTurns; Terminal notifications reach outer terminal; Max output token limits increased; `allowRead` sandbox setting; `/copy` accepts index; MCP elicitation support; New Elicitation, ElicitationResult hooks; `-n`/`--name` CLI flag; `worktree.sparsePaths` setting; `/context` actionable suggestions; `autoMemoryDirectory` setting; `modelOverrides` setting; OAuth actionable guidance; Tool search bypasses proxy gate; `w` key in `/copy` writes to file; `/plan` optional description; `claude plugins` alias; ExitWorktree tool; `/loop` command; Cron scheduling tools; `voice:pushToTalk` keybinding; Bash auto-approval allowlist expanded; `/claude-api` skill added; `Ctrl+U` exits bash mode; Numeric keypad support; `/remote-control` optional name.\n*   **Ollama**: Web Search, Fetch in OpenClaw; `ollama signin` command; `ollama launch openclaw` command; Improved OpenClaw Kimi-K2.5 performance; Tool calling accuracy improved; Ollama is OpenClaw provider.\n*   **Codex CLI**: Full-resolution image inspection; `js_repl` exposes `codex.cwd`, `codex.homeDir`; Realtime websocket transcription mode; `codex` tool v2 handoff.\n\n## SDKs\n*   **OpenAI SDK**: 5.4 nano, mini model slugs; `/v1/videos` batches endpoint; `ToolFunction` `defer_loading` field; `ComparisonFilter` `in`, `nin` operators; Custom voices; Sora API improvements (character API, video extensions); `ComputerTool` class used; GPT-5.4, tool search tool, new computer tool; `phase` added; `gpt-realtime-1.5`, `gpt-audio-1.5` models; Websockets for responses API; Container `network_policy` and skills; Images in batch API.\n*   **Anthropic SDK**: GA `thinking-display-setting`; `array_format` to brackets; MCP tools conversion helpers; Top-level cache control; New tool versions as types; Claude Sonnet 4.6 released; Fast-mode for Claude Opus 4.6; Claude Opus 4.6 released; Structured Outputs support; `output_config` for structured outputs; Custom JSON encoder added.\n\n## CLI\n*   **Gemini CLI**: Customizable keyboard shortcuts; Thread AgentLoopContext; Vim mode motions added; Retry fetch notifications; Chat resume footer on session quit; Bold, styles in SVG snapshots; Semantic focus colors; History visibility enhanced.\n\n## BREAKING\n*   **OpenAI SDK**: `prompt_cache_key` removed from responses; `phase` field removed from message types."
   }
 ]
