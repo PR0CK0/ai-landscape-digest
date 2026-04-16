@@ -1,5 +1,21 @@
 [
   {
+    "timestamp": "2026-04-16 09:04 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 1,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 33.66411638259888,
+    "force": false,
+    "sources": [
+      {
+        "source": "Latent Space",
+        "title": "[AINews] RIP Pull Requests (2005-2026)",
+        "link": "https://www.latent.space/p/ainews-rip-pull-requests-2005-2026"
+      }
+    ],
+    "content": "## BREAKING\n**Pull Requests**: Workflow deprecated"
+  },
+  {
     "timestamp": "2026-04-15 21:28 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 4,
