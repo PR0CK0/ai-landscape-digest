@@ -1,5 +1,126 @@
 [
   {
+    "timestamp": "2026-04-17 14:42 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 22,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 12.101542234420776,
+    "force": false,
+    "sources": [
+      {
+        "source": "Aider",
+        "title": "v0.86.3.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.3.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.2",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.2"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.2.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.2.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.1",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.1"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.86.1.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.1.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "Aider v0.86.0",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.86.0"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.6.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.6.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.5",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.5"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.5.dev",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.5.dev"
+      },
+      {
+        "source": "Aider",
+        "title": "v0.85.4",
+        "link": "https://github.com/Aider-AI/aider/releases/tag/v0.85.4"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Building a Fast Multilingual OCR Model with Synthetic Data",
+        "link": "https://huggingface.co/blog/nvidia/nemotron-ocr-v2"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Ecom-RLVE: Adaptive Verifiable Environments for E-Commerce Conversational Agents",
+        "link": "https://huggingface.co/blog/ecom-rlve"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.29.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.29.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.28.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.28.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.27.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.27.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.26.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.26.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.25.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.25.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.24.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.24.0"
+      },
+      {
+        "source": "OpenAI SDK",
+        "title": "v2.23.0",
+        "link": "https://github.com/openai/openai-python/releases/tag/v2.23.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.7",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.7"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.6",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.6"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.38.2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.38.2"
+      }
+    ],
+    "content": "## Tools\n*   **Aider**: supports all `GPT-5` models, supports `Grok-4` models, supports `gemini/gemini-2.5-flash-lite`, `/clear` command output changed, `/undo` output simplified, supports `moonshotai/kimi-k2`.\n\n## SDKs\n*   **OpenAI SDK**: new `5.4 nano` and `mini` slugs, added `/v1/videos` endpoint, added `defer_loading` to `ToolFunction`, added `in` and `nin` operators, custom voices feature, Sora API improvements."
+  },
+  {
     "timestamp": "2026-04-17 03:18 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 2,
@@ -1812,31 +1933,5 @@
       }
     ],
     "content": "## Tools\n**Claude Code**: `rate_limits` field added, `source: 'settings'` added, CLI tool usage detected, `effort` frontmatter support, `--channels` flag"
-  },
-  {
-    "timestamp": "2026-03-19 14:18 EDT",
-    "trigger": "github_actions_manual",
-    "item_count": 3,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 13.146960020065308,
-    "force": false,
-    "sources": [
-      {
-        "source": "Hugging Face",
-        "title": "**Introducing SPEED-Bench: A Unified and Diverse Benchmark for Speculative Decoding**",
-        "link": "https://huggingface.co/blog/nvidia/speed-bench"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.12",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.12"
-      }
-    ],
-    "content": "## CLI\n*   **Codex CLI**: ChatGPT sign-in, refresh ChatGPT tokens, prompt install plugins, sync plugin state, add userpromptsubmit hook, block/augment prompts."
   }
 ]
