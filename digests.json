@@ -1,5 +1,51 @@
 [
   {
+    "timestamp": "2026-04-16 21:25 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 7,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.224174499511719,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.112",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.112"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.21.0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.0-rc1"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.21.0-rc0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.0-rc0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-vrust-v0.122.0-alpha.4",
+        "link": "https://github.com/openai/codex/releases/tag/rust-vrust-v0.122.0-alpha.4"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.122.0",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.5",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.5"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.122.0-alpha.4",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.4"
+      }
+    ],
+    "content": "## CLI\n- **Ollama**: skip unchanged integration config, OpenCode inline config, add `hermes` launch option, list cloud recommendations first, add Copilot CLI integration"
+  },
+  {
     "timestamp": "2026-04-16 14:57 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 6,
@@ -1817,26 +1863,5 @@
       }
     ],
     "content": "## CLI\n**claude**: new `--console` flag, `Show turn duration` toggle\n**Gemini CLI**: `AgentLoopContext` migration, `sub-agent` limits increased, `file system tools` instrumentation\n\n## Tools\n**Ollama**: `Model eviction` for `MLX`, `prequantized tensor packing`, `quantized embeddings`, `fast SwiGLU`, `register websearch` for `openclaw`"
-  },
-  {
-    "timestamp": "2026-03-18 14:44 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 2,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 8.657645463943481,
-    "force": false,
-    "sources": [
-      {
-        "source": "Anthropic SDK",
-        "title": "v0.86.0",
-        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.86.0"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.116.0-alpha.8",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.116.0-alpha.8"
-      }
-    ],
-    "content": "## SDKs\n*   **Anthropic SDK**: add filesystem memory tools, manual API updates"
   }
 ]
