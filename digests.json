@@ -1,5 +1,41 @@
 [
   {
+    "timestamp": "2026-04-21 08:59 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 5,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 22.43834638595581,
+    "force": false,
+    "sources": [
+      {
+        "source": "Hugging Face",
+        "title": "QIMMA \u0642\u0650\u0645\u0651\u0629 \u26f0: A Quality-First Arabic LLM Leaderboard",
+        "link": "https://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.123.0-alpha.6",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.6"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.5",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.5"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.4",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.4"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.3",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.3"
+      }
+    ],
+    "content": "Based on the provided release notes and the strict exclusion rules:\n\n*   The Hugging Face release for \"QIMMA \u0642\u0650\u0645\u0651\u0629 \u26f0: A Quality-First Arabic LLM Leaderboard\" is excluded as it falls under \"model benchmark comparisons.\"\n*   The Codex CLI alpha releases (rust-v0.123.0-alpha.6, 0.123.0-alpha.5, 0.123.0-alpha.4, 0.123.0-alpha.3) are excluded because they are \"alpha/nightly/dev releases\" and do not explicitly mention a \"major feature\" in their titles.\n\nTherefore, no relevant changes are extracted under the given criteria."
+  },
+  {
     "timestamp": "2026-04-20 21:25 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 10,
@@ -1907,36 +1943,5 @@
       }
     ],
     "content": "## CLI\n*   **Gemini CLI**: set up onboarding telemetry, retry evals API error, evals tool restrictions removed, `BeforeTool` hooks support 'ask' decision, browser add warning message for 'existing' session mode"
-  },
-  {
-    "timestamp": "2026-03-23 08:41 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 4,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 10.821913957595825,
-    "force": false,
-    "sources": [
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.8",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.8"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.7",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.7"
-      },
-      {
-        "source": "Last Week in AI",
-        "title": "Last Week in AI #339 - DLSS 5, OpenAI Superapp, MiniMax M2.7",
-        "link": "https://lastweekin.ai/p/last-week-in-ai-339-dlss-5-openai"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.36.0-nightly.20260321.fc03891a1",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-nightly.20260321.fc03891a1"
-      }
-    ],
-    "content": "## CLI\n**Gemini CLI**: `subagent` local execution, `tool isolation`"
   }
 ]
