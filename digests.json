@@ -1,5 +1,66 @@
 [
   {
+    "timestamp": "2026-04-20 21:25 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 10,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.34021544456482,
+    "force": false,
+    "sources": [
+      {
+        "source": "Hugging Face",
+        "title": "How to Ground a Korean AI Agent in Real Demographics with Synthetic Personas",
+        "link": "https://huggingface.co/blog/nvidia/build-korean-agents-with-nemotron-personas"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.116",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.116"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.21.1-rc0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.1-rc0"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Moonshot Kimi K2.6: the world's leading Open Model refreshes to catch up to Opus 4.6 (ahead of DeepSeek v4?)",
+        "link": "https://www.latent.space/p/ainews-moonshot-kimi-k26-the-worlds"
+      },
+      {
+        "source": "Latent Space",
+        "title": "\ud83d\udd2c Training Transformers to solve 95% failure rate of Cancer Trials \u2014 Ron Alfa & Daniel Bear, Noetik",
+        "link": "https://www.latent.space/p/noetik"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.2",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.2"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "rust-v0.123.0-alpha.1",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.1"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.13",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.13"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.12",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.12"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.122.0-alpha.11",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.122.0-alpha.11"
+      }
+    ],
+    "content": "## Tools\n*   **Claude Code**: `/resume` faster large sessions, faster MCP startup, `/terminal-setup` configures scroll"
+  },
+  {
     "timestamp": "2026-04-18 08:37 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 3,
@@ -1877,36 +1938,5 @@
       }
     ],
     "content": "## CLI\n**Gemini CLI**: `subagent` local execution, `tool isolation`"
-  },
-  {
-    "timestamp": "2026-03-20 21:06 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 4,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 11.304801940917969,
-    "force": false,
-    "sources": [
-      {
-        "source": "Hugging Face",
-        "title": "Build a Domain-Specific Embedding Model in Under a Day",
-        "link": "https://huggingface.co/blog/nvidia/domain-specific-embedding-finetune"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.81",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.81"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.6",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.6"
-      },
-      {
-        "source": "Latent Space",
-        "title": "Dreamer: the Personal Agent OS \u2014 David Singleton",
-        "link": "https://www.latent.space/p/dreamer"
-      }
-    ],
-    "content": "## CLI\n*   **Claude Code**: ` --bare` flag added, skips hooks, LSP, plugin sync, skill directory walks, requires `ANTHROPIC_API_KEY`, disables OAuth, keychain; ` --channels` permission relay added."
   }
 ]
