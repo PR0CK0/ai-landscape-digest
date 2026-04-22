@@ -1,5 +1,51 @@
 [
   {
+    "timestamp": "2026-04-21 21:24 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 7,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.102069616317749,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.117",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.117"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "AI and the Future of Cybersecurity: Why Openness Matters",
+        "link": "https://huggingface.co/blog/cybersecurity-openness"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.21.1",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.1-rc1"
+      },
+      {
+        "source": "Latent Space",
+        "title": "[AINews] OpenAI launches GPT-Image-2",
+        "link": "https://www.latent.space/p/ainews-openai-launches-gpt-image"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.7",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.7"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.39.0-preview.2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.39.0-preview.2"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.39.0-preview.1",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.39.0-preview.1"
+      }
+    ],
+    "content": "## CLI\n*   **Claude Code**: enable forked subagents `CLAUDE_CODE_FORK_SUBAGENT=1`, load agent frontmatter `--agent`, `/model` selections persist restarts, `/resume` summarize stale sessions.\n*   **Ollama**: MLX sampler repeat penalties, MLX fuse sigmoid router head, Kimi CLI integration installer flow, server apply format `think=false`."
+  },
+  {
     "timestamp": "2026-04-21 08:59 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 5,
@@ -1897,51 +1943,5 @@
       }
     ],
     "content": "## Tools\n**Hugging Face**: New `EVA` framework"
-  },
-  {
-    "timestamp": "2026-03-23 21:07 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 7,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 11.542874336242676,
-    "force": false,
-    "sources": [
-      {
-        "source": "Codex CLI",
-        "title": "rust-v0.117.0-alpha.11",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.11"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.10",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.10"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.9",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.9"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.36.0-nightly.20260323.6055c4707",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-nightly.20260323.6055c4707"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0-preview.5",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-preview.5"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0-preview.4",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-preview.4"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0-preview.3",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0-preview.3"
-      }
-    ],
-    "content": "## CLI\n*   **Gemini CLI**: set up onboarding telemetry, retry evals API error, evals tool restrictions removed, `BeforeTool` hooks support 'ask' decision, browser add warning message for 'existing' session mode"
   }
 ]
