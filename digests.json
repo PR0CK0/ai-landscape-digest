@@ -1,5 +1,21 @@
 [
   {
+    "timestamp": "2026-04-22 03:19 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 1,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 11.94527268409729,
+    "force": false,
+    "sources": [
+      {
+        "source": "Ollama",
+        "title": "v0.21.1",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.1"
+      }
+    ],
+    "content": "## SDKs\n*   **mlx**: apply repeat penalties, fuse sigmoid router head.\n\n## CLI\n*   **launch**: add `kimi` cli integration.\n\n## Tools\n*   **server**: apply format thinking-capable parser."
+  },
+  {
     "timestamp": "2026-04-21 21:24 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 7,
@@ -1917,31 +1933,5 @@
       }
     ],
     "content": "## Tools\n*   **Ollama**: add `mxfp4/mxfp8/nvfp4` importing, `bf16` import conversion, `fp8` import conversion.\n\n## CLI\n*   **Gemini CLI**: customizable keyboard shortcuts, add missing vim mode motions.\n\n## SDKs\n*   **Gemini CLI**: multi-registry architecture, tool filtering for subagents, dynamic model resolution support, thread `AgentLoopContext`, retry fetch notifications."
-  },
-  {
-    "timestamp": "2026-03-24 08:45 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 3,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 10.983080863952637,
-    "force": false,
-    "sources": [
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.12",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.12"
-      },
-      {
-        "source": "Hugging Face",
-        "title": "A New Framework for Evaluating Voice Agents (EVA)",
-        "link": "https://huggingface.co/blog/ServiceNow-AI/eva"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] Dreamer joins Meta Superintelligence Labs \u2014 9 month retro of Personal Superintelligence",
-        "link": "https://www.latent.space/p/ainews-dreamer-joins-meta-superintelligence"
-      }
-    ],
-    "content": "## Tools\n**Hugging Face**: New `EVA` framework"
   }
 ]
