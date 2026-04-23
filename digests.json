@@ -1,5 +1,26 @@
 [
   {
+    "timestamp": "2026-04-23 14:55 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 2,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 7.2917163372039795,
+    "force": false,
+    "sources": [
+      {
+        "source": "Codex CLI",
+        "title": "0.124.0",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.124.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.124.0-alpha.3",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.124.0-alpha.3"
+      }
+    ],
+    "content": "## CLI\n*   **Codex CLI**: `Alt+,` lowers reasoning, `Alt+.` raises reasoning, model upgrades reset reasoning, manage multiple environments, choose environment/directory, Amazon Bedrock support."
+  },
+  {
     "timestamp": "2026-04-23 03:21 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 6,
@@ -1892,61 +1913,5 @@
       }
     ],
     "content": "## Tools\n*   **Claude Code**: `CLAUDE_CODE_MCP_SERVER_NAME`, `CLAUDE_CODE_MCP_SERVER_URL` environment variables added, conditional `if` field for hooks, timestamp markers in transcripts for `/loop`, `CronCreate`.\n*   **Ollama**: `launch` command hides VS Code.\n*   **Codex CLI**: Plugins are first-class workflow, `/plugins` command added, sub-agents use path-based addresses."
-  },
-  {
-    "timestamp": "2026-03-25 21:19 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 9,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 10.419328689575195,
-    "force": false,
-    "sources": [
-      {
-        "source": "OpenAI SDK",
-        "title": "v2.30.0",
-        "link": "https://github.com/openai/openai-python/releases/tag/v2.30.0"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.19",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.19"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.18",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.18"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.17",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.17"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.3",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.3"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.3-rc2: api/show: overwrite basename for copilot chat (#15062)",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.3-rc2"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.84",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.84"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.1",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.1"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.36.0-preview.3",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-preview.3"
-      }
-    ],
-    "content": "## SDKs\n*   **OpenAI SDK**: `api` adds `keys` field, `types` make `type` required.\n\n## Tools\n*   **Ollama**: `mlxrunner` shares `KV cache`, adds debug request logging.\n*   **Claude Code**: added PowerShell tool, `ANTHROPIC_DEFAULT` env vars, `CLAUDE_STREAM_IDLE_TIMEOUT_MS` env var.\n\n## API changes\n*   **Ollama**: `/api/show` overwrites `basename` for Copilot Chat."
   }
 ]
