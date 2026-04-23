@@ -1,5 +1,56 @@
 [
   {
+    "timestamp": "2026-04-22 21:29 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 8,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 9.379550695419312,
+    "force": false,
+    "sources": [
+      {
+        "source": "Claude Code",
+        "title": "v2.1.118",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.118"
+      },
+      {
+        "source": "Hugging Face",
+        "title": "Gemma 4 VLA Demo on Jetson Orin Nano Super",
+        "link": "https://huggingface.co/blog/nvidia/gemma4"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.21.2-rc0",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.2-rc0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.10",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.10"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.9",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.9"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.123.0-alpha.8",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.123.0-alpha.8"
+      },
+      {
+        "source": "Latent Space",
+        "title": "Shopify\u2019s AI Phase Transition: 2026 Usage Explosion, Unlimited Opus-4.6 Token Budget, Tangle, Tangent, SimGym \u2014 with Mikhail Parakhin, Shopify CTO",
+        "link": "https://www.latent.space/p/shopify"
+      }
+    ],
+    "content": "## Tools\n* **Claude Code**: Added vim visual modes, Merged `/cost`, `/stats` into `/usage`, Custom themes from `/theme`, Hooks invoke `MCP` tools, Added `DISABLE_UPDATES` env var.\n## CLI\n* **Codex CLI**: Added `amazon-bedrock` provider, Added `/mcp verbose`, Plugin `MCP` loading improved, Improved realtime handoffs."
+  },
+  {
     "timestamp": "2026-04-22 03:19 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 1,
@@ -1887,51 +1938,5 @@
       }
     ],
     "content": "## CLI\n*   **Claude Code**: `managed-settings.d/` directory added, `CwdChanged` hook event, `FileChanged` hook event, `sandbox.failIfUnavailable` setting, `disableDeepLinkRegistration` setting."
-  },
-  {
-    "timestamp": "2026-03-24 21:13 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 7,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 14.827961444854736,
-    "force": false,
-    "sources": [
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.14",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.14"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.13",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.13"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.3-rc1",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.3-rc1"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.3-rc0: mlx: add mxfp4/mxfp8/nvfp4 importing (#15015)",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.3-rc0"
-      },
-      {
-        "source": "Latent Space",
-        "title": "\ud83d\udd2cWhy There Is No \"AlphaFold for Materials\" \u2014 AI for Materials Discovery with Heather Kulik",
-        "link": "https://www.latent.space/p/materials"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.36.0-preview.0",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-preview.0"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.0",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.0"
-      }
-    ],
-    "content": "## Tools\n*   **Ollama**: add `mxfp4/mxfp8/nvfp4` importing, `bf16` import conversion, `fp8` import conversion.\n\n## CLI\n*   **Gemini CLI**: customizable keyboard shortcuts, add missing vim mode motions.\n\n## SDKs\n*   **Gemini CLI**: multi-registry architecture, tool filtering for subagents, dynamic model resolution support, thread `AgentLoopContext`, retry fetch notifications."
   }
 ]
