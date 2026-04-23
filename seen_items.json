@@ -38,6 +38,7 @@
   "https://www.latent.space/p/ainews-moonshot-kimi-k26-the-worlds": 1776734752.6223621,
   "https://www.latent.space/p/ainews-openai-launches-gpt-image": 1776821083.417137,
   "https://www.latent.space/p/ainews-rip-pull-requests-2005-2026": 1776344653.1736217,
+  "https://www.latent.space/p/ainews-tasteful-tokenmaxxing": 1776928875.68007,
   "https://www.latent.space/p/ainews-the-biggest-claude-launch": 1774574327.8478389,
   "https://www.latent.space/p/ainews-the-claude-code-source-leak": 1775048068.781084,
   "https://www.latent.space/p/ainews-the-last-4-jobs-in-tech": 1774920010.4624727,
@@ -252,6 +253,8 @@
   "tag:github.com,2008:Repository/965415649/rust-v0.123.0-alpha.7": 1776821083.4171374,
   "tag:github.com,2008:Repository/965415649/rust-v0.123.0-alpha.8": 1776907782.628866,
   "tag:github.com,2008:Repository/965415649/rust-v0.123.0-alpha.9": 1776907782.6288655,
+  "tag:github.com,2008:Repository/965415649/rust-v0.124.0-alpha.1": 1776928875.6800728,
+  "tag:github.com,2008:Repository/965415649/rust-v0.124.0-alpha.2": 1776928875.6800714,
   "tag:github.com,2008:Repository/965415649/rust-vrust-v0.122.0-alpha.4": 1776389157.07709,
   "tag:github.com,2008:Repository/968197216/v0.35.0": 1774401222.3488014,
   "tag:github.com,2008:Repository/968197216/v0.35.1": 1774487939.9776018,
@@ -278,6 +281,7 @@
   "tag:github.com,2008:Repository/968197216/v0.38.0-preview.0": 1775674912.4928796,
   "tag:github.com,2008:Repository/968197216/v0.38.1": 1776279584.2352066,
   "tag:github.com,2008:Repository/968197216/v0.38.2": 1776451348.4187508,
+  "tag:github.com,2008:Repository/968197216/v0.39.0": 1776928875.6800745,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260408.a39461718": 1775697097.0675445,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260409.615e07834": 1775760534.3413932,
   "tag:github.com,2008:Repository/968197216/v0.39.0-nightly.20260410.96cc8a0da": 1775805322.292953,
@@ -286,5 +290,7 @@
   "tag:github.com,2008:Repository/968197216/v0.39.0-preview.0": 1776216160.717154,
   "tag:github.com,2008:Repository/968197216/v0.39.0-preview.1": 1776821083.4171386,
   "tag:github.com,2008:Repository/968197216/v0.39.0-preview.2": 1776821083.4171379,
-  "tag:github.com,2008:Repository/968197216/v0.40.0-nightly.20260415.g06e7621b2": 1776237468.8010268
+  "tag:github.com,2008:Repository/968197216/v0.40.0-nightly.20260415.g06e7621b2": 1776237468.8010268,
+  "tag:github.com,2008:Repository/968197216/v0.40.0-preview.2": 1776928875.6800742,
+  "tag:github.com,2008:Repository/968197216/v0.41.0-nightly.20260423.gd1c91f526": 1776928875.6800733
 }

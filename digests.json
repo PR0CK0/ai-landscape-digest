@@ -1,5 +1,46 @@
 [
   {
+    "timestamp": "2026-04-23 03:21 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 6,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 14.672319412231445,
+    "force": false,
+    "sources": [
+      {
+        "source": "Latent Space",
+        "title": "[AINews] Tasteful Tokenmaxxing",
+        "link": "https://www.latent.space/p/ainews-tasteful-tokenmaxxing"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.124.0-alpha.2",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.124.0-alpha.2"
+      },
+      {
+        "source": "Codex CLI",
+        "title": "0.124.0-alpha.1",
+        "link": "https://github.com/openai/codex/releases/tag/rust-v0.124.0-alpha.1"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.41.0-nightly.20260423.gd1c91f526",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.41.0-nightly.20260423.gd1c91f526"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.40.0-preview.2",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.40.0-preview.2"
+      },
+      {
+        "source": "Gemini CLI",
+        "title": "Release v0.39.0",
+        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.39.0"
+      }
+    ],
+    "content": "## CLI\n*   **Gemini CLI**: bundle ripgrep binaries, offline support, add `/memory inbox` command."
+  },
+  {
     "timestamp": "2026-04-22 21:29 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 8,
@@ -1907,36 +1948,5 @@
       }
     ],
     "content": "## SDKs\n*   **OpenAI SDK**: `api` adds `keys` field, `types` make `type` required.\n\n## Tools\n*   **Ollama**: `mlxrunner` shares `KV cache`, adds debug request logging.\n*   **Claude Code**: added PowerShell tool, `ANTHROPIC_DEFAULT` env vars, `CLAUDE_STREAM_IDLE_TIMEOUT_MS` env var.\n\n## API changes\n*   **Ollama**: `/api/show` overwrites `basename` for Copilot Chat."
-  },
-  {
-    "timestamp": "2026-03-25 02:51 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 4,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 9.696610450744629,
-    "force": false,
-    "sources": [
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.16",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.16"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.15",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.15"
-      },
-      {
-        "source": "Claude Code",
-        "title": "v2.1.83",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.83"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] Apple's War on Slop",
-        "link": "https://www.latent.space/p/ainews-apples-war-on-slop"
-      }
-    ],
-    "content": "## CLI\n*   **Claude Code**: `managed-settings.d/` directory added, `CwdChanged` hook event, `FileChanged` hook event, `sandbox.failIfUnavailable` setting, `disableDeepLinkRegistration` setting."
   }
 ]
