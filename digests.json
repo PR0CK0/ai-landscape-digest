@@ -1,5 +1,36 @@
 [
   {
+    "timestamp": "2026-04-23 21:29 EDT",
+    "trigger": "github_actions_scheduled",
+    "item_count": 4,
+    "model": "gemini-2.5-flash",
+    "latency_seconds": 10.018297910690308,
+    "force": false,
+    "sources": [
+      {
+        "source": "Anthropic SDK",
+        "title": "v0.97.0",
+        "link": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.97.0"
+      },
+      {
+        "source": "Claude Code",
+        "title": "v2.1.119",
+        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.119"
+      },
+      {
+        "source": "Ollama",
+        "title": "v0.21.2",
+        "link": "https://github.com/ollama/ollama/releases/tag/v0.21.2-rc1"
+      },
+      {
+        "source": "Latent Space",
+        "title": "AIE Europe Debrief + Agent Labs Thesis: Unsupervised Learning x Latent Space Crossover Special (2026)",
+        "link": "https://www.latent.space/p/unsupervised-learning-2026"
+      }
+    ],
+    "content": "## SDKs\n*   **Anthropic SDK**: CMA Memory public beta, restore missing features.\n\n## CLI\n*   **Claude Code**: `/config` settings persist, policy override precedence, `prUrlTemplate` setting, custom code-review URL, `CLAUDE_CODE_HIDE_CWD` env var, `--from-pr` accepts new URLs.\n\n## Tools\n*   **Ollama**: Structured outputs, ollama cloud, bundled OpenClaw web search."
+  },
+  {
     "timestamp": "2026-04-23 14:55 EDT",
     "trigger": "github_actions_scheduled",
     "item_count": 2,
@@ -1842,76 +1873,5 @@
       }
     ],
     "content": "No relevant information found in \"NEW RELEASES\" to generate markdown based on the strict inclusion and exclusion rules."
-  },
-  {
-    "timestamp": "2026-03-26 21:18 EDT",
-    "trigger": "github_actions_scheduled",
-    "item_count": 12,
-    "model": "gemini-2.5-flash",
-    "latency_seconds": 10.104877233505249,
-    "force": false,
-    "sources": [
-      {
-        "source": "Claude Code",
-        "title": "v2.1.85",
-        "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.85"
-      },
-      {
-        "source": "Ollama",
-        "title": "v0.18.4",
-        "link": "https://github.com/ollama/ollama/releases/tag/v0.18.4-rc0"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.25",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.25"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.24",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.24"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.23",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.23"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.22",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.22"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.21",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.21"
-      },
-      {
-        "source": "Codex CLI",
-        "title": "0.117.0-alpha.20",
-        "link": "https://github.com/openai/codex/releases/tag/rust-v0.117.0-alpha.20"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.36.0-preview.4",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.36.0-preview.4"
-      },
-      {
-        "source": "Gemini CLI",
-        "title": "Release v0.35.2",
-        "link": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.35.2"
-      },
-      {
-        "source": "Latent Space",
-        "title": "[AINews] The Biggest Claude Launch of All Time",
-        "link": "https://www.latent.space/p/ainews-the-biggest-claude-launch"
-      }
-    ],
-    "content": "## Tools\n*   **Claude Code**: `CLAUDE_CODE_MCP_SERVER_NAME`, `CLAUDE_CODE_MCP_SERVER_URL` environment variables added, conditional `if` field for hooks, timestamp markers in transcripts for `/loop`, `CronCreate`.\n*   **Ollama**: `launch` command hides VS Code.\n*   **Codex CLI**: Plugins are first-class workflow, `/plugins` command added, sub-agents use path-based addresses."
   }
 ]
